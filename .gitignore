@@ -22,3 +22,5 @@ yarn-error.log
 /phpunit.xml
 ###< symfony/phpunit-bridge ###
 /.idea
+
+/stat/
