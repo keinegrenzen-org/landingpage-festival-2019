@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "@symfony/webpack-encore": "^0.19.0",
+    "autoprefixer": "^8.6.0",
+    "css-mqpacker": "^6.0.2",
+    "cssnano": "^3.10.0",
+    "node-sass": "^4.9.3",
+    "postcss-discard-comments": "^2.0.4",
+    "postcss-loader": "^2.1.5",
+    "postcss-scss": "^1.0.5",
+    "sass-loader": "^7.0.3",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "sticky-state": "^2.4.1"
+  },
+  "license": "GPLv3",
+  "private": true,
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "php-server": "php bin/console server:run",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production"
+  },
+  "dependencies": {
+    "fitty": "^2.2.6",
+    "fontfaceobserver": "^2.0.13",
+    "smoothscroll-polyfill": "^0.4.3"
+  }
+}

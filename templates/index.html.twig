@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description"
+              content="Am 19. Januar 2019 veranstalten wir ein gemeinn&uuml;tziges Festival im K&ouml;lner Stadtgarten. Dabei wird jeglicher Gewinn ebenfalls an &Auml;rzte ohne Grenzen gespendet.">
+        <title>{% block title %}keinegrenzen Festival — Hip-Hop, Electro-Pop, Rock & Techno für den guten Zwek{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/css/theme.css') }}"/>
+            <link rel="stylesheet" type="text/css" href="https://tickets.keinegrenzen.org/event/festival/widget/v1.css">
+        {% endblock %}
+    </head>
+    <body itemscope itemtype="https://schema.org/Event">
+        <header class="container">
+            <h1 itemprop="name">
+                <span>keine</span>
+                <span>grenzen</span>
+                <span>festival</span>
+            </h1>
+            <h2 itemprop="about">
+                <span>Fundraising f&uuml;r</span>
+                <span>&Auml;rzte ohne Grenzen</span>
+            </h2>
+            <p class="date" itemprop="startDate"><span class="day">19.</span><span class="month">Januar</span></p>
+            <div class="cta">
+                <a class="btn btn-cta scroll-to" href="#tickets">Jetzt Tickets kaufen</a>
+            </div>
+            <img class="logo" src="{{ asset('/images/lp_logo.svg') }}" title="Logo"
+                 alt="Dreigeteilter keinegrenzen.org Schriftzug">
+        </header>
+        <main>
+            <section class="container paragraph" itemprop="composer" itemtype="https://schema.org/Organization">
+                <h2>Sch&ouml;n, dass Du da bist!</h2>
+                <p itemprop="description">
+                    <strong>&bdquo;<span itemprop="name">KEINEGRENZEN</span>&ldquo;</strong> ist eine gemeinn&uuml;tzige
+                    Organisation die Musik und Kunst nutzt, um Spenden f&uuml;r Hilfsorganisationen wie
+                    <a itemprop="attendee"
+                       itemtype="Organization"
+                       href="https://www.aerzte-ohne-grenzen.de/"
+                       target="_blank"
+                       rel="noopener nofollow">&bdquo;&Auml;rzte ohne Grenzen&ldquo;</a>
+                    zu sammeln.
+                </p>
+                <p>
+                    Unsere Website bietet aktuell zum Beispiel Musik von unabh&auml;ngigen K&uuml;nstlern zum
+                    kostenlosen Download an und erm&ouml;glicht es, sich per <strong>Spende an &Auml;rzte ohne
+                        Grenzen</strong> zu bedanken.
+                </p>
+                <p class="asterisk-spacer" itemprop="description">
+                    <strong>
+                        Am 19. Januar 2019 veranstalten wir ein gemeinn&uuml;tziges Festival im K&ouml;lner Stadtgarten.
+                        Dabei wird jeglicher Gewinn ebenfalls an &Auml;rzte ohne Grenzen gespendet.
+                    </strong>
+                </p>
+                <div class="cta">
+                    <a class="btn btn-cta scroll-to" href="#tickets">Jetzt Tickets kaufen</a>
+                </div>
+            </section>
+            <nav class="container fixed-nav">
+                <div class="section-contact">
+                    <a href="tel:+4917630594643" class="phone contact-button">
+                        <svg class="icon contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                            <path class="cls-1"
+                                  d="M44.52,87.56a22.75,22.75,0,0,0,30.61,10l6.68-3.41a5.73,5.73,0,0,0,2.51-7.7L76.47,71a5.72,5.72,0,0,0-7.7-2.5L60.14,72.9a4.87,4.87,0,0,1-6.54-2.12L36.47,37.16h0a4.87,4.87,0,0,1,2.12-6.54l8.63-4.4a5.66,5.66,0,0,0,2.85-3.33,5.72,5.72,0,0,0-.34-4.37L41.88,3.11A5.73,5.73,0,0,0,36.78,0a5.66,5.66,0,0,0-2.6.63L27.5,4A22.46,22.46,0,0,0,17.34,14.41a21.9,21.9,0,0,0-1.15,2.86,22.55,22.55,0,0,0,1.37,17.36Z"></path>
+                        </svg>
+                        <span class="text">
+                        Anrufen
+                    </span>
+                    </a>
+                    <a href="mailto:kontakt@keinegrenzen.org" class="mail contact-button">
+                        <svg class="icon contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                            <path class="cls-1"
+                                  d="M7,82.19,21.88,67,34.32,54.23,42.07,62c4.27,4.27,7.83,7.75,7.93,7.75s3.61-3.43,7.81-7.63l7.64-7.64L77.89,67.2,92.63,82.3l2.3,2.36H4.61L7,82.19Zm77.7-16c-8.37-8.57-15.23-15.61-15.25-15.65s6.85-6.95,15.25-15.35L100,19.91V50.84c0,17,0,30.93,0,30.93s-6.9-7-15.27-15.58ZM0,50.64V19.91L15.16,35.07c8.34,8.34,15.15,15.2,15.14,15.24S24,56.75,16.44,64.53,2,79.29,1.31,80L0,81.37V50.64Zm26.67-12L3.41,15.34H96.59L73.32,38.6C60.53,51.39,50,61.86,50,61.86S39.47,51.39,26.68,38.6Z"></path>
+                        </svg>
+                        <span class="text">
+                        Mailen
+                    </span>
+                    </a>
+                    <a href="https://wa.me/4917630594643/?text=Hallo%20Barthy!" class="wapp contact-button">
+                        <svg class="icon contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                            <path class="cls-1"
+                                  d="M50,0A50,50,0,0,0,8.83,78.36a2.52,2.52,0,0,1,.31,2.15l-5.08,17L20.7,91.76a2.51,2.51,0,0,1,2.15.27A50,50,0,1,0,50,0ZM29.53,21.8l9.1,15-3.79,3.75a2.5,2.5,0,0,0-.39,3c5.79,10,12.64,17.81,22.23,22a2.52,2.52,0,0,0,2.77-.51l4-4,14.68,9.18A13.84,13.84,0,0,1,72,77.38c-2.81,1.47-6.24,1.75-10.15.94-7.84-1.62-17.3-7.78-25-15.66S23.16,45.18,21.64,37.38c-.76-3.9-.42-7.26,1-9.92a12.65,12.65,0,0,1,6.87-5.66Z"></path>
+                        </svg>
+                        <span class="text">
+                        Chatten
+                    </span>
+                    </a>
+                </div>
+            </nav>
+            <section class="container infos section-wrapper">
+                <div class="section">
+                    <h2>Wo genau?</h2>
+                    <p class="location" itemprop="location" itemtype="https://schema.org/Place">
+                        <span itemprop="name">Stadtgarten Konzertsaal</span><br>
+                        <span itemprop="address">Venloer Straße 40<br>50672 K&ouml;ln</span>
+                    </p>
+                </div>
+                <div class="section">
+                    <h2>Timetable</h2>
+                    <p>Doors: <span itemprop="doorTime">17:00 Uhr</span></p>
+                    <p>Konzerte: <span>18:00 Uhr</span> <a href="https://www.facebook.com/events/315246155746899/"
+                                                           rel="noopener nofollow">(Facebook)</a></p>
+                    <p>Techno: <span>23:00 Uhr</span> <a href="https://www.facebook.com/events/2266712163581362/"
+                                                         rel="noopener nofollow">(Facebook)</a></p>
+                </div>
+            </section>
+            <section class="container tickets" id="tickets">
+                <h2>Hol&apos; Dir jetzt Dein Ticket</h2>
+                <pretix-widget event="https://tickets.keinegrenzen.org/event/festival/"></pretix-widget>
+                <noscript>
+                    <div class="pretix-widget">
+                        <div class="pretix-widget-info-message">
+                            JavaScript ist in Ihrem Browser deaktiviert. Um unseren Ticket-Shop ohne JavaScript
+                            aufzurufen, klicken Sie bitte <a target="_blank" rel="noopener"
+                                                             href="https://tickets.keinegrenzen.org/event/festival/">hier</a>.
+                        </div>
+                    </div>
+                </noscript>
+            </section>
+        </main>
+        {% block javascripts %}
+            <script src="{{ asset('build/js/theme.js') }}" type="text/javascript"></script>
+            <script type="text/javascript" src="https://tickets.keinegrenzen.org/widget/v1.de.js" async></script>
+        {% endblock %}
+    </body>
+</html>
