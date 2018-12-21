@@ -1,22 +1,18 @@
-# [mitmachen.keinegrenzen.org](https://mitmachen.keinegrenzen.org)
+# [festival.keinegrenzen.org](https://festival.keinegrenzen.org)
 
-Landingpage for the recruiting of musicians/artists for [keinegrenzen.org](https://www.keinegrenzen.org)
-
-## Design
-
-The original designs made by Lucas Carrascosa [can be found here](https://files.barthy.koeln/s/7edgxdRji9i9FJs).
+Landingpage for 2019s festival for [keinegrenzen.org](https://www.keinegrenzen.org)
 
 ## Technical Details
 
 ### Installation
 
-- `git clone https://github.com/BarthyB/keinegrenzen-lp-recruiting.git`
+- `git clone https://github.com/BarthyB/keinegrenzen-lp-festival.git`
 - `composer install`
 - `npm install`
 
 ### Development
 
-- `php bin/console server:run`
+- `bin/console server:run`
 - `npm run dev-server`
 
 The `dev-server` npm script will automatically build SCSS & JS and push changes to your browser.
@@ -33,4 +29,4 @@ The `dev-server` npm script will automatically build SCSS & JS and push changes 
 
 - *(Designer)* Lucas Carrascosa
 - *(Full-Stack Dev)* Barthélémy Bonhomme, [@BarthyB](https://github.com/BarthyB/): [post@barthy.koeln](mailto:post@barthy.koeln)
-- *(Frontend Dev)* Yannick Hoyer, [@zagazar](https://github.com/zagazar/): [yannick@keinegrenzen.org](mailto:yannick@keinegrenzen.org)
+- *(Designer & Frontend Dev)* Yannick Hoyer, [@zagazar](https://github.com/zagazar/): [yannick@keinegrenzen.org](mailto:yannick@keinegrenzen.org)
