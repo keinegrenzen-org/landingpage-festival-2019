@@ -4,6 +4,7 @@
 @import '~sticky-state/src/sticky-state.css';
 @import '~cookieconsent/build/cookieconsent.min.css';
 
+$break-big: 1200px;
 $break-medium: 992px;
 $break-small: 768px;
 $nav-height: 75px;
@@ -451,18 +452,23 @@ header {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
   }
 
   .col {
-    width: (1 / 4) * 100%;
+    width: 100%;
 
-    @media screen and (min-width: $break-small + 1px) and (max-width: $break-medium) {
+    @media screen and (min-width: $break-small) {
       width: (1 / 2) * 100%;
     }
 
-    @media screen and (max-width: $break-small) {
-      width: 100%;
+    @media screen and (min-width: $break-medium) {
+      width: (1 / 3) * 100%;
+    }
+
+    @media screen and (min-width: $break-big) {
+      width: (1 / 4) * 100%;
     }
 
     .inner {

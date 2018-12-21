@@ -3,7 +3,6 @@ module.exports = {
   plugins: {
     'autoprefixer': {},
     'postcss-discard-comments': {},
-    'css-mqpacker': {},
     'cssnano': {}
   }
 }
