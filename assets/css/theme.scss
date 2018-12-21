@@ -2,6 +2,7 @@
 @import 'components/fonts';
 @import 'components/mixins';
 @import '~sticky-state/src/sticky-state.css';
+@import '~cookieconsent/build/cookieconsent.min.css';
 
 $break-medium: 992px;
 $break-small: 768px;
@@ -745,7 +746,7 @@ footer {
   background: $theme-grey;
   border: 2px solid $theme-black;
   box-shadow: 5px 5px 2px 2px $shadow-color;
-  left: 100px;
+  left: 5vw;
   width: 300px;
   height: 450px;
   transition: transform .3s ease-in-out;

@@ -1,4 +1,5 @@
 import smoothscroll from 'smoothscroll-polyfill'
+import CookieConsent from 'cookieconsent/src/cookieconsent';
 
 smoothscroll.polyfill()
 
@@ -7,6 +8,7 @@ class App {
   constructor () {
     this.initSmoothScroll()
     this.initIframe()
+    this.initCookieConsent()
   }
 
   initSmoothScroll () {
@@ -48,14 +50,34 @@ class App {
           if (ids.length > 1) {
             const id = new Date().getSeconds() % 2
             widget.skip(id)
-            console.info(id)
           } else {
             widget.skip(ids[0])
-            console.info(ids[0])
           }
 
           frame.classList.add('active')
         })
+      }
+    })
+  }
+
+  initCookieConsent () {
+    window.cookieconsent.initialise({
+      'palette': {
+        'popup': {
+          'background': '#1d1d1b',
+          'text': '#ffffff'
+        },
+        'button': {
+          'background': '#fc2d2d',
+          'text': '#ffffff'
+        }
+      },
+      'theme': 'edgeless',
+      'position': 'bottom-right',
+      'content': {
+        'message': 'Diese Seite benutzt Cookies um Euch den bestmöglichen Service anbieten zu können. Durch die weitere Nutzung der Webseite stimmt Ihr der Verwendung von Cookies zu.',
+        'dismiss': 'Ok!',
+        'link': 'Mehr erfahren'
       }
     })
   }
