@@ -213,6 +213,7 @@ header {
   background: url('../images/lp_banner.svg') no-repeat center center;
   background-size: cover;
   height: 0;
+  overflow: hidden;
   padding-bottom: $header-height;
   position: relative;
   width: 100vw;
@@ -304,7 +305,6 @@ header {
       right: 1rem;
       text-align: center;
       transform: translateY(50%);
-      width: 100%;
     }
 
     .btn-cta {
@@ -580,14 +580,14 @@ header {
 }
 
 .infos {
-  padding: 5rem 0;
+  padding: 0 0 5rem 0;
 
   .section {
     margin-bottom: 2rem;
     text-align: center;
 
     p {
-      font-size: 1.6rem;
+      font-size: 1.25rem;
     }
 
     a {
@@ -655,7 +655,7 @@ footer {
   }
 
   p {
-    font-size: $font-size-big;
+    font-size: .875rem;
     line-height: 1.2;
     margin: 0;
   }
@@ -699,9 +699,9 @@ footer {
     }
 
     .icon {
-      height: $font-size-huge;
+      height: 1.2rem;
       vertical-align: text-bottom;
-      width: $font-size-huge;
+      width: 1.2rem;
     }
   }
 }
@@ -710,7 +710,7 @@ footer {
   background-color: $theme-black;
   color: $theme-white;
   font-family: 'League Gothic', sans-serif;
-  font-size: 4rem;
+  font-size: 2.5rem;
   line-height: 1;
   padding: 5vh 5vw;
   text-align: center;
@@ -723,7 +723,7 @@ footer {
   i {
     color: $theme-red;
     display: inline-block;
-    font-size: 1.8rem;
+    font-size: 1.125rem;
     font-style: normal;
     line-height: 1;
     text-align: center;
