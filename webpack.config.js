@@ -8,6 +8,7 @@ Encore
   .enableVersioning(Encore.isProduction())
 
   .addEntry('js/theme', './assets/js/theme.js')
+  .addEntry('js/SoundCloud', './assets/js/SoundCloud.js')
   .addStyleEntry('css/theme', './assets/css/theme.scss')
 
   .enableSassLoader()

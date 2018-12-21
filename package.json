@@ -10,7 +10,8 @@
     "postcss-scss": "^1.0.5",
     "sass-loader": "^7.0.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
-    "sticky-state": "^2.4.1"
+    "sticky-state": "^2.4.1",
+    "cookieconsent": "latest"
   },
   "license": "GPLv3",
   "private": true,

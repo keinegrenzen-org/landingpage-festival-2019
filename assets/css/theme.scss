@@ -2,6 +2,7 @@
 @import 'components/fonts';
 @import 'components/mixins';
 @import '~sticky-state/src/sticky-state.css';
+@import '~cookieconsent/build/cookieconsent.min.css';
 
 $break-medium: 992px;
 $break-small: 768px;
@@ -184,6 +185,7 @@ p {
 .btn {
   animation: btn-animation 2s infinite;
   backface-visibility: hidden;
+  border: 0;
   box-shadow: 10px 10px 0 0 $shadow-color;
   color: $theme-white;
   display: inline-block;
@@ -350,6 +352,43 @@ header {
       vertical-align: top;
     }
   }
+
+  .location {
+    color: $theme-red;
+    display: block;
+    font-family: "Fivo Sans", sans-serif;
+    font-weight: $font-weight-black;
+    font-size: 3vw;
+    left: (574 / 770) * 100vw;
+    position: absolute;
+    text-transform: uppercase;
+    top: 4.5vw;
+    transform: rotate(-9deg);
+    white-space: nowrap;
+  }
+
+  .doorTime {
+    color: $theme-white;
+    clip-path: polygon(0 0, 110% 0, 100% 88.6%, 0% 58.6%);
+    display: block;
+    font-family: 'League Gothic', sans-serif;
+    font-weight: $font-weight-black;
+    font-size: 7vw;
+    left: (620/ 770) * 100vw;
+    letter-spacing: 2px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 8.5vw;
+    transform: rotate(-9deg);
+    white-space: nowrap;
+
+    .from {
+      font-size: 3vw;
+      height: 5vw;
+      line-height: 4.8vw;
+      vertical-align: top;
+    }
+  }
 }
 
 .paragraph {
@@ -394,6 +433,10 @@ header {
 
     .btn-cta {
       background: $theme-red;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 1.2rem;
+      }
     }
   }
 }
@@ -419,17 +462,7 @@ header {
     }
 
     @media screen and (max-width: $break-small) {
-      margin-bottom: 15px;
-      margin-top: 15px;
       width: 100%;
-
-      &:first-child {
-        margin-top: 30px;
-      }
-
-      &:last-child {
-        margin-bottom: 30px;
-      }
     }
 
     .inner {
@@ -449,7 +482,7 @@ header {
         transform: translateY(0);
 
         &::before {
-          opacity: .75
+          opacity: .65;
         }
 
         .title {
@@ -479,7 +512,7 @@ header {
         display: block;
         height: 100%;
         left: 0;
-        opacity: 1;
+        opacity: .8;
         position: absolute;
         top: 0;
         transition: opacity .3s ease-in-out;
@@ -539,6 +572,8 @@ header {
     p {
       font-size: 1rem;
       text-align: center;
+      margin-top: auto;
+      margin-bottom: auto;
       transition: transform .3s ease-in-out;
       z-index: 1;
     }
@@ -636,6 +671,10 @@ header {
       margin-top: 1rem;
       padding: 1rem;
       width: auto;
+
+      @media screen and (max-width: $break-small) {
+        margin-right: auto;
+      }
     }
 
     .pretix-widget-category-name {
@@ -688,8 +727,8 @@ footer {
 
   .imprint,
   .notices {
-    padding-bottom: 3rem;
-    padding-top: 3rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
     width: 50%;
   }
 
@@ -706,22 +745,31 @@ footer {
     background-color: $theme-red;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
+    .social {
+      display: flex;
+      justify-content: center;
+
+      .icon {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+    }
+
+    .social,
     .copyright,
     .origin {
       width: 100%;
     }
 
     .copyright {
-      align-self: start;
       font-weight: $font-weight-thin;
     }
 
     .origin {
-      align-self: end;
       font-weight: $font-weight-black;
       line-height: 2;
-      margin-top: auto;
     }
 
     .icon {
@@ -764,6 +812,53 @@ footer {
 
     @media screen and (max-width: $break-medium) {
       flex-direction: column;
+    }
+  }
+}
+
+.soundcloud {
+  position: fixed;
+  bottom: 0;
+  background: $theme-grey;
+  border: 2px solid $theme-black;
+  box-shadow: 5px 5px 2px 2px $shadow-color;
+  left: 5vw;
+  width: 300px;
+  height: 450px;
+  transition: transform .3s ease-in-out;
+  transform: translateY(calc(100% - 3rem));
+
+  .title {
+    background: $theme-red;
+    color: $theme-white;
+    cursor: pointer;
+    display: block;
+    font-size: 1.5rem;
+    height: 3rem;
+    line-height: 3rem;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    &::before {
+      content: '+';
+      display: block;
+      height: 3rem;
+      position: absolute;
+      left: 0;
+      line-height: 3rem;
+      top: 0;
+      transition: transform .3s ease-in-out;
+      transform: rotate(0);
+      width: 2rem;
+    }
+  }
+
+  &.active  {
+    transform: translateY(0);
+
+    .title::before {
+      transform: rotate(-45deg);
     }
   }
 }
