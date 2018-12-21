@@ -352,6 +352,43 @@ header {
       vertical-align: top;
     }
   }
+
+  .location {
+    color: $theme-red;
+    display: block;
+    font-family: "Fivo Sans", sans-serif;
+    font-weight: $font-weight-black;
+    font-size: 3vw;
+    left: (574 / 770) * 100vw;
+    position: absolute;
+    text-transform: uppercase;
+    top: 4.5vw;
+    transform: rotate(-9deg);
+    white-space: nowrap;
+  }
+
+  .doorTime {
+    color: $theme-white;
+    clip-path: polygon(0 0, 110% 0, 100% 88.6%, 0% 58.6%);
+    display: block;
+    font-family: 'League Gothic', sans-serif;
+    font-weight: $font-weight-black;
+    font-size: 7vw;
+    left: (620/ 770) * 100vw;
+    letter-spacing: 2px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 8.5vw;
+    transform: rotate(-9deg);
+    white-space: nowrap;
+
+    .from {
+      font-size: 3vw;
+      height: 5vw;
+      line-height: 4.8vw;
+      vertical-align: top;
+    }
+  }
 }
 
 .paragraph {
@@ -634,6 +671,10 @@ header {
       margin-bottom: 1rem;
       padding: 1rem;
       width: auto;
+
+      @media screen and (max-width: $break-small) {
+        margin-right: auto;
+      }
     }
   }
 }
