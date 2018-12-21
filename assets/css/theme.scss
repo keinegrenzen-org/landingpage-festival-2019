@@ -631,11 +631,37 @@ header {
 
       border-radius: 0;
       font-size: 1.6rem;
+      margin-bottom: 1rem;
       margin-left: auto;
       margin-top: 1rem;
-      margin-bottom: 1rem;
       padding: 1rem;
       width: auto;
+    }
+
+    .pretix-widget-category-name {
+      margin: 10px 0 17px;
+      text-align: center;
+    }
+
+    .pretix-widget-item-row {
+      align-items: center;
+      display: flex;
+      padding: 10px 0;
+    }
+
+    .pretix-widget-item {
+      border-bottom: 2px solid $theme-blue;
+      padding: 20px 0;
+    }
+
+    .pretix-widget-item:first-child {
+      border-top: 2px solid $theme-blue;
+    }
+
+    .pretix-widget-item-description p,
+    .pretix-widget .pretix-widget-item-meta {
+      font-size: 16px;
+      margin: 0;
     }
   }
 }
