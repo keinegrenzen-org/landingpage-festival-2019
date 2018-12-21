@@ -82,8 +82,7 @@
                         <p itemprop="description">Wenn Dichter und Denker aufeinander treffen kann man Großes
                             erwarten: bei Julian und Nils gibt es das auf satten Beats mit einer ordentlichen
                             Ladung sozialer Kritik.</p>
-                        <a class="btn" href="https://keinegrenzen.org/enna" target="_blank"
-                           rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                        <button type="button" class="btn sc-trigger" data-track="[0, 1]">Jetzt Anh&ouml;ren</button>
                     </div>
                 </div>
             </div>
@@ -98,8 +97,7 @@
                             Gitarren
                             und Gesang ein seliges L&auml;cheln in die Gesichter ihres Publikums und erschaffen
                             Klangwelten, in die man vollends eintauchen kann.</p>
-                        <a class="btn" href="https://keinegrenzen.org/wuis" target="_blank"
-                           rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                        <button type="button" class="btn sc-trigger" data-track="[2]">Jetzt Anh&ouml;ren</button>
                     </div>
                 </div>
             </div>
@@ -114,8 +112,7 @@
                         <p itemprop="description">Anton, Ivo und Julian bringen eine Power auf die B&uuml;hne, der
                             niemand widerstehen kann und eine Leidenschaft, die den Raum vom Boden bis zur Decke
                             in Brand setzen wird.</p>
-                        <a class="btn" href="https://keinegrenzen.org/suburbian-rex" target="_blank"
-                           rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                        <button type="button" class="btn sc-trigger" data-track="[3]">Jetzt Anh&ouml;ren</button>
                     </div>
                 </div>
             </div>
@@ -157,7 +154,7 @@
                         <p itemprop="description">Anschließend wird es eine beeindruckende Kombination aus
                             modularer elektronischer Musik (Daniel) und analogen Visuals (Tobias)
                             geben, beides improvisiert und aus dem Moment geboren.</p>
-                        <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                        <button type="button" class="btn sc-trigger" data-track="[4, 5]">Jetzt Anh&ouml;ren</button>
                     </div>
                 </div>
             </div>
@@ -172,7 +169,7 @@
                             Philosophie: er nutzt jede Gelegenheit Neues zu erkunden und zu lernen. Dadurch
                             entwickeln sich die feinsten Methoden und Tricks — egal, ob beim Musizieren oder
                             beim Auflegen.</p>
-                        <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                        <button type="button" class="btn sc-trigger" data-track="[6]">Jetzt Anh&ouml;ren</button>
                     </div>
                 </div>
             </div>
@@ -187,7 +184,7 @@
                             erkl&auml;rt, haben Arash und Anoosh mit ihrem Talent und ihrer faszinierenden
                             Gelassenheit Europa von ihrer Liebe zur Musik buchst&auml;blich im Handumdrehen
                             &uuml;berzeugt.</p>
-                        <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                        <button type="button" class="btn sc-trigger" data-track="[7]">Jetzt Anh&ouml;ren</button>
                     </div>
                 </div>
             </div>
@@ -201,7 +198,7 @@
                         <span class="sr-only" itemprop="genre">Techno</span>
                         <p itemprop="description">Giovanni wird einen gut aufgeheizten Raum &uuml;bernehmen und
                             der Nacht auch noch das letzte verf&uuml;gbare Qu&auml;ntchen Euphorie schenken.</p>
-                        <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                        <button type="button" class="btn sc-trigger" data-track="[8]">Jetzt Anh&ouml;ren</button>
                     </div>
                 </div>
             </div>
@@ -327,8 +324,14 @@
         </p>
     </div>
 </footer>
+<div class="soundcloud">
+    <h4 class="title">Musik H&ouml;ren</h4>
+    <iframe width="100%" height="450" scrolling="no" frameborder="no"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/668710692&color=%23fc2d2d&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_artwork=false&download=false&sharing=false&buying=false"></iframe>
+</div>
 {% block javascripts %}
     <script src="{{ asset('build/js/theme.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('build/js/SoundCloud.js') }}" type="text/javascript"></script>
     <script type="text/javascript" src="https://tickets.keinegrenzen.org/widget/v1.de.js" async></script>
 {% endblock %}
 </body>
