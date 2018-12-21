@@ -4,8 +4,12 @@
 @import '~sticky-state/src/sticky-state.css';
 
 $break-medium: 992px;
-$break-small: 420px;
+$break-small: 768px;
 $nav-height: 75px;
+
+@function transparentize($color, $amount) {
+  @return rgba(red($color), green($color), blue($color), $amount);
+}
 
 html,
 body {
@@ -139,10 +143,6 @@ p {
   }
 }
 
-nav + .container {
-  margin-top: $nav-height;
-}
-
 @keyframes btn-animation {
   0% {
     box-shadow: 10px 10px 0 0 $shadow-color;
@@ -211,16 +211,22 @@ nav + .container {
 }
 
 header {
-  background: url('../images/lp_banner.svg') no-repeat top left;
+  $header-height: 45.0649vw;
+  $header-expansion: 20vh;
+  background: url('../images/lp_banner.svg') no-repeat center center;
   background-size: cover;
   height: 0;
-  padding-bottom: 45.0649vw;
+  padding-bottom: $header-height;
   position: relative;
   width: 100vw;
 
+  @media screen and (max-width: $break-medium) {
+    padding-bottom: calc(#{$header-height} + #{$header-expansion});
+  }
+
   h1 {
     font-size: 15vw;
-    left: (104 / 770) * 100vw;
+    left: (74 / 770) * 100vw;
     line-height: .65;
     position: absolute;
     top: 1vw;
@@ -249,7 +255,7 @@ header {
     color: $theme-white;
     display: flex;
     flex-direction: column;
-    font-size: 1.5rem;
+    font-size: 3vw;
     height: (116 / 770) * 100vw;
     justify-content: center;
     left: (366 / 770) * 100vw;
@@ -258,12 +264,16 @@ header {
     text-align: center;
     width: (282 / 770) * 100vw;
 
+    @media screen and (max-width: $break-medium) {
+      transform: translate(20%, -20%);
+    }
+
     span {
       display: block;
     }
 
     span:last-child {
-      font-size: 3rem;
+      font-size: 5vw;
     }
   }
 
@@ -274,6 +284,11 @@ header {
     left: 0;
     position: absolute;
     width: $size;
+
+    @media screen and (max-width: $break-medium) {
+      height: 1.5 * $size;
+      width: 1.5 * $size;
+    }
   }
 
   .cta {
@@ -281,6 +296,14 @@ header {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+
+    @media screen and (max-width: $break-medium) {
+      left: unset;
+      right: 5vw;
+      text-align: right;
+      transform: translateY(-5vw);
+      width: 100%;
+    }
 
     .btn-cta {
       background: $theme-blue;
@@ -311,8 +334,8 @@ header {
       font-size: 6vw;
       height: 100%;
       line-height: 100%;
-      margin-left: -20px;
-      padding-top: 10px;
+      margin-left: -.5vw;
+      padding-top: .4vw;
       vertical-align: top;
     }
   }
@@ -324,6 +347,8 @@ header {
   color: $theme-white;
   font-size: 1.6rem;
   line-height: 1.2;
+  margin-bottom: -1px;
+  margin-top: -1px;
   padding: 5vw 22vw;
   text-align: center;
 
@@ -357,11 +382,197 @@ header {
   }
 }
 
+.artists {
+  $title-line-height: 6px;
+  $title-movement: 32px;
+  $title-height: 150px - (2 * $title-movement);
+
+  .row {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .col {
+    width: (1 / 4) * 100%;
+
+    @media screen and (min-width: $break-small + 1px) and (max-width: $break-medium) {
+      width: (1 / 2) * 100%;
+    }
+
+    @media screen and (max-width: $break-small) {
+      margin-bottom: 15px;
+      margin-top: 15px;
+      width: 100%;
+
+      &:first-child {
+        margin-top: 30px;
+      }
+
+      &:last-child {
+        margin-bottom: 30px;
+      }
+    }
+
+    .inner {
+      cursor: s-resize;
+      overflow: hidden;
+      padding-top: 100%;
+      position: relative;
+    }
+
+    .inner:hover, .inner:focus {
+
+      &::after {
+        opacity: 0;
+      }
+
+      .text {
+        transform: translateY(0);
+
+        &::before {
+          opacity: .75
+        }
+
+        .title {
+          transform: translateY(0);
+        }
+      }
+    }
+
+    .text {
+      align-items: center;
+      color: $theme-white;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      padding: $title-movement;
+      position: absolute;
+      top: 0;
+      transform: translateY(calc(100% - #{$title-height}));
+      transition: transform .3s ease-in-out;
+      width: 100%;
+
+      &::before {
+        background-color: $theme-blue;
+        content: ' ';
+        display: block;
+        height: 100%;
+        left: 0;
+        opacity: 1;
+        position: absolute;
+        top: 0;
+        transition: opacity .3s ease-in-out;
+        width: 100%;
+        z-index: 0;
+      }
+    }
+
+    &:nth-child(2n) .text::before {
+      background-color: $theme-red;
+    }
+
+    .btn {
+      animation: none;
+      background-color: $theme-white;
+      box-shadow: 5px 5px 0 0 $shadow-color;
+      color: $theme-red;
+      display: inline-block;
+      font-size: 1.2rem;
+      margin-top: auto;
+      transition: transform .3s ease-in-out;
+      z-index: 1;
+    }
+
+    &:nth-child(2n) .btn {
+      color: $theme-blue;
+    }
+
+    .title {
+      font-size: 2rem;
+      height: $title-height;
+      padding-bottom: $title-height / 4;
+      padding-top: $title-height / 4;
+      position: relative;
+      transform: translateY(-$title-movement - $title-line-height);
+      transition: transform .3s ease-in-out;
+      vertical-align: bottom;
+      z-index: 1;
+
+      &::after {
+        background-color: $theme-red;
+        bottom: -$title-line-height;
+        content: ' ';
+        display: block;
+        height: $title-line-height;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%) translateY(-$title-height / 4);
+        width: 50px;
+      }
+    }
+
+    &:nth-child(2n) .title::after {
+      background-color: $theme-blue;
+    }
+
+    p {
+      font-size: 1rem;
+      text-align: center;
+      transition: transform .3s ease-in-out;
+      z-index: 1;
+    }
+
+    img {
+      height: 100%;
+      left: 50%;
+      min-width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &.hidden .inner {
+      background-color: $theme-red;
+      position: relative;
+
+      &::after {
+        align-items: center;
+        color: $theme-white;
+        content: '?';
+        display: flex;
+        font-family: 'Fivo Sans', sans-serif;
+        font-size: 10rem;
+        height: 100%;
+        justify-content: center;
+        left: 0;
+        line-height: 100%;
+        pointer-events: none;
+        position: absolute;
+        text-align: center;
+        transition: opacity .3s ease-in-out;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+      }
+    }
+  }
+}
+
 .infos {
-  padding: 5vw 22vw;
+  padding: 5rem 0;
 
   .section {
+    margin-bottom: 2rem;
     text-align: center;
+
+    p {
+      font-size: 1.6rem;
+    }
 
     a {
       color: $theme-blue;
@@ -370,10 +581,18 @@ header {
 }
 
 .tickets {
-  padding: 5vw 22vw;
+  max-width: 850px;
+  margin: auto;
+  padding: 5rem 1rem;
 
   h2 {
     color: $theme-blue;
+    text-align: center;
+  }
+
+  .description {
+    font-size: 1.2rem;
+    padding: 2rem;
     text-align: center;
   }
 
@@ -381,8 +600,128 @@ header {
     border: 0;
     font-size: 1.2rem;
 
+    .pretix-widget-action {
+      align-items: flex-start;
+      display: flex;
+      width: auto;
+    }
+
     input[type='number'] {
       font-size: 1.2rem;
+    }
+
+    button[type="submit"] {
+      @extend .btn;
+
+      border-radius: 0;
+      font-size: 1.6rem;
+      margin-left: auto;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      width: auto;
+    }
+  }
+}
+
+footer {
+  align-items: stretch;
+  background-color: $theme-black;
+  color: $theme-white;
+  justify-content: normal;
+  padding-bottom: 2rem;
+  text-align: center;
+  width: 100%;
+
+  .icon {
+    height: 100%;
+    width: 100%;
+  }
+
+  p {
+    font-size: $font-size-big;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .imprint,
+  .notices {
+    padding-bottom: 3rem;
+    padding-top: 3rem;
+    width: 50%;
+  }
+
+  .imprint {
+    background-color: $theme-blue;
+    font-weight: $font-weight-thin;
+
+    .strong {
+      font-weight: $font-weight-black;
+    }
+  }
+
+  .notices {
+    background-color: $theme-red;
+    display: flex;
+    flex-wrap: wrap;
+
+    .copyright,
+    .origin {
+      width: 100%;
+    }
+
+    .copyright {
+      align-self: start;
+      font-weight: $font-weight-thin;
+    }
+
+    .origin {
+      align-self: end;
+      font-weight: $font-weight-black;
+      line-height: 2;
+      margin-top: auto;
+    }
+
+    .icon {
+      height: $font-size-huge;
+      vertical-align: text-bottom;
+      width: $font-size-huge;
+    }
+  }
+}
+
+.timetable {
+  background-color: $theme-black;
+  color: $theme-white;
+  font-family: 'League Gothic', sans-serif;
+  font-size: 4rem;
+  line-height: 1;
+  padding: 5vh 5vw;
+  text-align: center;
+  text-transform: uppercase;
+
+  span {
+    margin: 1rem;
+  }
+
+  i {
+    color: $theme-red;
+    display: inline-block;
+    font-size: 1.8rem;
+    font-style: normal;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and (max-width: $break-medium) {
+      flex-direction: column;
     }
   }
 }

@@ -7,7 +7,7 @@
               content="Am 19. Januar 2019 veranstalten wir ein gemeinn&uuml;tziges Festival im K&ouml;lner Stadtgarten. Dabei wird jeglicher Gewinn ebenfalls an &Auml;rzte ohne Grenzen gespendet.">
         <meta name="msapplication-TileColor" content="#2b5797">
         <meta name="theme-color" content="#ffffff">
-        <title>{% block title %}keinegrenzen Festival — Hip-Hop, Electro-Pop, Rock & Techno für den guten Zwek{% endblock %}</title>
+        <title>{% block title %}keinegrenzen Festival — Hip-Hop, Electro-Pop, Rock &amp; Techno für den guten Zwek{% endblock %}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/css/theme.css') }}"/>
             <link rel="stylesheet" type="text/css" href="https://tickets.keinegrenzen.org/event/festival/widget/v1.css">
@@ -47,16 +47,16 @@
                     <strong>&bdquo;<span itemprop="name">KEINEGRENZEN</span>&ldquo;</strong> ist eine gemeinn&uuml;tzige
                     Organisation die Musik und Kunst nutzt, um Spenden f&uuml;r Hilfsorganisationen wie
                     <a itemprop="attendee"
-                       itemtype="Organization"
+                       itemtype="https://schema.org/NGO"
                        href="https://www.aerzte-ohne-grenzen.de/"
                        target="_blank"
                        rel="noopener nofollow">&bdquo;&Auml;rzte ohne Grenzen&ldquo;</a>
                     zu sammeln.
                 </p>
                 <p>
-                    Unsere Website bietet aktuell zum Beispiel Musik von unabh&auml;ngigen K&uuml;nstlern zum
-                    kostenlosen Download an und erm&ouml;glicht es, sich per <strong>Spende an &Auml;rzte ohne
-                        Grenzen</strong> zu bedanken.
+                    <a href="https://keinegrenzen.org/" title="keinegrenzen.org" target="_blank">Unsere Website</a>
+                    bietet aktuell zum Beispiel Musik von unabh&auml;ngigen K&uuml;nstlern zum kostenlosen Download an
+                    und erm&ouml;glicht es, sich per <strong>Spende an &Auml;rzte ohne Grenzen</strong> zu bedanken.
                 </p>
                 <p class="asterisk-spacer" itemprop="description">
                     <strong>
@@ -99,25 +99,156 @@
                     </a>
                 </div>
             </nav>
-            <section class="container infos section-wrapper">
-                <div class="section">
-                    <h2>Wo genau?</h2>
-                    <p class="location" itemprop="location" itemtype="https://schema.org/Place">
-                        <span itemprop="name">Stadtgarten Konzertsaal</span><br>
-                        <span itemprop="address">Venloer Straße 40<br>50672 K&ouml;ln</span>
-                    </p>
-                </div>
-                <div class="section">
-                    <h2>Timetable</h2>
-                    <p>Doors: <span itemprop="doorTime">17:00 Uhr</span></p>
-                    <p>Konzerte: <span>18:00 Uhr</span> <a href="https://www.facebook.com/events/315246155746899/"
-                                                           rel="noopener nofollow">(Facebook)</a></p>
-                    <p>Techno: <span>23:00 Uhr</span> <a href="https://www.facebook.com/events/2266712163581362/"
-                                                         rel="noopener nofollow">(Facebook)</a></p>
+            <section class="container artists">
+                <div class="row">
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/invo-und-enna.jpg') }}" title="INVO &amp; ENNA"
+                                 alt="Zwei Rapper, die auf der Bühne Spaß haben." itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">INVO &amp; ENNA</h4>
+                                <span class="sr-only" itemprop="genre">Hip-Hop</span>
+                                <p itemprop="description">Wenn Dichter und Denker aufeinander treffen kann man Großes
+                                    erwarten: bei Julian und Nils gibt es das auf satten Beats mit einer ordentlichen
+                                    Ladung sozialer Kritik.</p>
+                                <a class="btn" href="https://keinegrenzen.org/enna" target="_blank"
+                                   rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/waking-up-in-stereo.jpg') }}" title="Waking Up In Stereo"
+                                 alt="Die Brüder mit Spaß bei der Sache." itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Waking Up In Stereo</h4>
+                                <span class="sr-only" itemprop="genre">Electro-Pop</span>
+                                <p itemprop="description">Die Br&uuml;der Arin und Armen zaubern mit Synthesizern,
+                                    Gitarren
+                                    und Gesang ein seliges L&auml;cheln in die Gesichter ihres Publikums und erschaffen
+                                    Klangwelten, in die man vollends eintauchen kann.</p>
+                                <a class="btn" href="https://keinegrenzen.org/wuis" target="_blank"
+                                   rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/suburbian-rex.jpg') }}" title="Suburbian Rex"
+                                 alt="Die Band bestehend aus Gitarrist und Sänger, Bassist und Drummer."
+                                 itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Suburbian Rex</h4>
+                                <span class="sr-only" itemprop="genre">Rock'n'Roll</span>
+                                <p itemprop="description">Anton, Ivo und Julian bringen eine Power auf die Bühne, der
+                                    niemand widerstehen kann und eine Leidenschaft, die den Raum vom Boden bis zur Decke
+                                    in Brand setzen wird.</p>
+                                <a class="btn" href="https://keinegrenzen.org/suburbian-rex" target="_blank"
+                                   rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
+                    {#
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/memoria.jpg') }}" title="Memoria"
+                                 alt="Die Achtk&ouml;pfige Band vor einem vollgespr&uuml;hten Altbau." itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Memoria</h4>
+                                <span class="sr-only" itemprop="genre"></span>
+                                <p itemprop="description">Liebe und Freundschaft schweißen diese Band zu einer Familie,
+                                    die aus Musik Gl&uuml;ckseligkeit zaubert. Warmer Reggae wird uns im kalten Januar eine
+                                    gem&uuml;tliche Stunde Urlaub am &Auml;quator bescheren.</p>
+                                <a class="btn" href="https://keinegrenzen.org/enna" target="_blank" rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
+                    #}
+                    <div class="col hidden" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Headliner TBA</h4>
+                                <span class="sr-only" itemprop="genre"></span>
+                                <p itemprop="description">Wer wird wohl dem Abend noch die Kirsche samt Sahneh&auml;ubchen
+                                    aufsetzen? Das erfahrt Ihr zum Neujahr!
+                                </p>
+                                <a class="btn" href="https://www.pexels.com/search/cute%20dog/" target="_blank"
+                                   rel="noopener nofollow">Mehr s&uuml;&szlig;e Hunde!</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/cute-but-evil-und-daniel-vee.jpg') }}"
+                                 title="Cute But Evil &amp; Daniel Vee"
+                                 alt="Daniel und Tobias" itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Cute But Evil &amp; Daniel Vee</h4>
+                                <span class="sr-only" itemprop="genre">Electronic</span>
+                                <p itemprop="description">Anschließend wird es eine beeindruckende Kombination aus
+                                    modularer elektronischer Musik (Daniel) und analogen Visuals (Tobias)
+                                    geben, beides improvisiert und aus dem Moment geboren.</p>
+                                <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/cubical.jpg') }}" title="Cubical"
+                                 alt="Anil tr&auml;gt ein Shirt, auf de &quot;Manager&quot; steht." itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Cubical</h4>
+                                <span class="sr-only" itemprop="genre">Techno</span>
+                                <p itemprop="description">Anil widmet sein Leben der Musik mit einer bewundernswerten
+                                    Philosophie: er nutzt jede Gelegenheit Neues zu erkunden und zu lernen. Dadurch
+                                    entwickeln sich die feinsten Methoden und Tricks — egal, ob beim Musizieren oder
+                                    beim Auflegen.</p>
+                                <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/blade-and-beard.jpg') }}" title="Blade&amp;Beard"
+                                 alt="Arash &amp; Anoos auf einer Treppe" itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Blade&amp;Beard</h4>
+                                <span class="sr-only" itemprop="genre">Techno</span>
+                                <p itemprop="description">Geflohen aus einem Land, das Techno zum Werk des Teufels
+                                    erkl&auml;rt, haben Arash und Anoosh mit ihrem Talent und ihrer faszinierenden
+                                    Gelassenheit Europa von ihrer Liebe zur Musik buchst&auml;blich im Handumdrehen
+                                    &uuml;berzeugt.</p>
+                                <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+                        <div class="inner">
+                            <img src="{{ asset('images/montefusco.jpg') }}"
+                                 title="Montefusco"
+                                 alt="Giovanni schaut konzentriert zur Seite." itemprop="image">
+                            <div class="text">
+                                <h4 class="title" itemprop="name">Montefusco</h4>
+                                <span class="sr-only" itemprop="genre">Techno</span>
+                                <p itemprop="description">Giovanni wird einen gut aufgeheizten Raum &uuml;bernehmen und
+                                    der Nacht auch noch das letzte verf&uuml;gbare Qu&auml;ntchen Euphorie schenken.</p>
+                                <a class="btn" href="https://keinegrenzen.org/enna">Jetzt Anh&ouml;ren</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="container tickets" id="tickets">
                 <h2>Hol&apos; Dir jetzt Dein Ticket</h2>
+                <p class="description">
+                    &bdquo;Name your own price&ldquo;:
+                    <br>
+                    15&euro;/25&euro; sind jeweils das Minimum, wer mehr spenden
+                    m&ouml;chte kann das sehr gerne tun!
+                    <br>
+                    Einfach einen eigenen Preis in die Box eintragen, die
+                    Anzahl an Tickets eintragen und den dicken blauen Knopf dr&uuml;cken.
+                </p>
                 <pretix-widget event="https://tickets.keinegrenzen.org/event/festival/"></pretix-widget>
                 <noscript>
                     <div class="pretix-widget">
@@ -129,7 +260,73 @@
                     </div>
                 </noscript>
             </section>
+            <section class="container infos section-wrapper">
+                <div class="section">
+                    <h2>Wo genau?</h2>
+                    <p class="location" itemprop="location" itemtype="https://schema.org/Place">
+                        <span itemprop="name">
+                            <a href="https://goo.gl/maps/TfZbHffwSn62" rel="noopener nofollow" target="_blank">
+                                Stadtgarten Konzertsaal
+                            </a>
+                        </span>
+                        <br>
+                        <span itemprop="address">Venloer Straße 40<br>50672 K&ouml;ln</span>
+                    </p>
+                </div>
+                <div class="section">
+                    <h2>Wann genau?</h2>
+                    <p>Doors: <span itemprop="doorTime">17:00 Uhr</span></p>
+                    <p>Konzerte: <span>18:00 Uhr</span> <a href="https://www.facebook.com/events/315246155746899/"
+                                                           rel="noopener nofollow">(Facebook)</a></p>
+                    <p>Techno: <span>23:00 Uhr</span> <a href="https://www.facebook.com/events/2266712163581362/"
+                                                         rel="noopener nofollow">(Facebook)</a></p>
+                </div>
+            </section>
+            <section class="timetable">
+                <div class="row">
+                    <span><i>18<br>Uhr</i>&nbsp;INVO &amp;ENNA</span>
+                    <span><i>19<br>Uhr</i>&nbsp;Waking Up In Stereo</span>
+                    <span><i>20<br>Uhr</i>&nbsp;Suburbian Rex</span>
+                </div>
+                <div class="row">
+                    <span><i>21<br>Uhr</i>&nbsp;Headliner TBA</span>
+                    <span><i>22<br>Uhr</i>&nbsp;Cute But Evil &amp; Daniel Vee</span>
+                    <span><i>23<br>Uhr</i>&nbsp;Cute But Evil</span>
+                </div>
+                <div class="row">
+                    <span><i>24<br>Uhr</i>&nbsp;Cubical</span>
+                    <span><i>01<br>Uhr</i>&nbsp;Blade&amp;Beard</span>
+                    <span><i>04<br>Uhr</i>&nbsp;Montefusco</span>
+                </div>
+            </section>
         </main>
+        <footer class="container section-wrapper">
+            <div class="imprint section">
+                <p class="strong">
+                    keinegrenzen.org<br>
+                    Gemeinn&uuml;tziges Musikprojekt
+                </p>
+                <p>
+                    Barth&eacute;l&eacute;my Bonhomme<br>
+                    Drosselweg 22<br>
+                    50735 Köln<br>
+                    Deutschland<br>
+                    E-Mail: kontakt@keinegrenzen.org<br>
+                    Tel: <a href="tel:+4917630594643" title="Kontakt aufnehmen">+49 176 30594643</a><br>
+                </p>
+            </div>
+            <div class="notices section">
+                <p class="copyright">
+                    &copy; 2016-{{ "now"|date("Y") }} Barth&eacute;l&eacute;my Bonhomme
+                </p>
+                <p class="origin">
+                    Mit <span>
+                        <img class="icon" src="{{ asset('images/smile.svg') }}" title="Leidenschaft" alt="Smileyface"><i
+                                class="sr-only">Leidenschaft</i>
+                    </span> entwickelt in K&ouml;ln
+                </p>
+            </div>
+        </footer>
         {% block javascripts %}
             <script src="{{ asset('build/js/theme.js') }}" type="text/javascript"></script>
             <script type="text/javascript" src="https://tickets.keinegrenzen.org/widget/v1.de.js" async></script>
