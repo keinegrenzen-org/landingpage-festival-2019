@@ -357,8 +357,8 @@ header {
     color: $theme-red;
     display: block;
     font-family: "Fivo Sans", sans-serif;
-    font-weight: $font-weight-black;
     font-size: 3vw;
+    font-weight: $font-weight-black;
     left: (574 / 770) * 100vw;
     position: absolute;
     text-transform: uppercase;
@@ -368,13 +368,13 @@ header {
   }
 
   .doorTime {
-    color: $theme-white;
     clip-path: polygon(0 0, 110% 0, 100% 88.6%, 0% 58.6%);
+    color: $theme-white;
     display: block;
     font-family: 'League Gothic', sans-serif;
-    font-weight: $font-weight-black;
     font-size: 7vw;
-    left: (620/ 770) * 100vw;
+    font-weight: $font-weight-black;
+    left: (620 / 770) * 100vw;
     letter-spacing: 2px;
     position: absolute;
     text-transform: uppercase;
@@ -571,9 +571,9 @@ header {
 
     p {
       font-size: 1rem;
-      text-align: center;
-      margin-top: auto;
       margin-bottom: auto;
+      margin-top: auto;
+      text-align: center;
       transition: transform .3s ease-in-out;
       z-index: 1;
     }
@@ -605,8 +605,8 @@ header {
         pointer-events: none;
         position: absolute;
         text-align: center;
-        transition: opacity .3s ease-in-out;
         top: 0;
+        transition: opacity .3s ease-in-out;
         width: 100%;
         z-index: 0;
       }
@@ -615,7 +615,7 @@ header {
 }
 
 .infos {
-  padding: 0 0 5rem 0;
+  padding: 0 0 5rem;
 
   .section {
     margin-bottom: 2rem;
@@ -632,8 +632,8 @@ header {
 }
 
 .tickets {
-  max-width: 850px;
   margin: auto;
+  max-width: 850px;
   padding: 5rem 1rem;
 
   h2 {
@@ -752,8 +752,8 @@ footer {
       justify-content: center;
 
       .icon {
-        margin-right: 1rem;
         margin-left: 1rem;
+        margin-right: 1rem;
       }
     }
 
@@ -817,16 +817,16 @@ footer {
 }
 
 .soundcloud {
-  position: fixed;
-  bottom: 0;
   background: $theme-grey;
   border: 2px solid $theme-black;
+  bottom: 0;
   box-shadow: 5px 5px 2px 2px $shadow-color;
-  left: 5vw;
-  width: 300px;
   height: 450px;
-  transition: transform .3s ease-in-out;
+  left: 5vw;
+  position: fixed;
   transform: translateY(calc(100% - 3rem));
+  transition: transform .3s ease-in-out;
+  width: 300px;
 
   .title {
     background: $theme-red;
@@ -844,17 +844,17 @@ footer {
       content: '+';
       display: block;
       height: 3rem;
-      position: absolute;
       left: 0;
       line-height: 3rem;
+      position: absolute;
       top: 0;
-      transition: transform .3s ease-in-out;
       transform: rotate(0);
+      transition: transform .3s ease-in-out;
       width: 2rem;
     }
   }
 
-  &.active  {
+  &.active {
     transform: translateY(0);
 
     .title::before {
