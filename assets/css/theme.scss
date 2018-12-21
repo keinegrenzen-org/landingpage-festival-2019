@@ -701,8 +701,8 @@ footer {
 
   .imprint,
   .notices {
-    padding-bottom: 3rem;
-    padding-top: 3rem;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
     width: 50%;
   }
 
@@ -719,22 +719,31 @@ footer {
     background-color: $theme-red;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 
+    .social {
+      display: flex;
+      justify-content: center;
+
+      .icon {
+        margin-right: 1rem;
+        margin-left: 1rem;
+      }
+    }
+
+    .social,
     .copyright,
     .origin {
       width: 100%;
     }
 
     .copyright {
-      align-self: start;
       font-weight: $font-weight-thin;
     }
 
     .origin {
-      align-self: end;
       font-weight: $font-weight-black;
       line-height: 2;
-      margin-top: auto;
     }
 
     .icon {
