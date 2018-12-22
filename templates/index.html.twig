@@ -19,9 +19,9 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fc2d2d">
 </head>
 <body itemscope itemtype="https://schema.org/Event">
-<script type="text/javascript" src="/stat/pws.php?mode=js"></script>
+<script type="text/javascript" src="https://festival.keinegrenzen.org/stat/pws.php?mode=js"></script>
 <noscript>
-    <img src="/stat/pws.php?mode=img" style="border:0; width:1px; height:1px" alt="noscript-img">
+    <img src="https://festival.keinegrenzen.org/stat/pws.php?mode=img" style="border:0; width:1px; height:1px" alt="noscript-img">
 </noscript>
 <header class="container">
     <h1 itemprop="name">
@@ -43,7 +43,7 @@
          alt="Dreigeteilter keinegrenzen.org Schriftzug">
 </header>
 <main>
-    <section class="container paragraph" itemprop="composer" itemtype="https://schema.org/Organization">
+    <section class="container paragraph" itemprop="composer" itemscope itemtype="https://schema.org/Organization">
         <div class="inner">
             <h2>Sch&ouml;n, dass Du da bist!</h2>
             <p itemprop="description">
@@ -74,7 +74,7 @@
     </section>
     <section class="container artists">
         <div class="row">
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/invo-und-enna.jpg') }}" title="INVO &amp; ENNA"
                          alt="Zwei Rapper, die auf der Bühne Spaß haben." itemprop="image">
@@ -88,7 +88,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/waking-up-in-stereo.jpg') }}" title="Waking Up In Stereo"
                          alt="Die Brüder mit Spaß bei der Sache." itemprop="image">
@@ -103,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/suburbian-rex.jpg') }}" title="Suburbian Rex"
                          alt="Die Band bestehend aus Gitarrist und Sänger, Bassist und Drummer."
@@ -119,7 +119,7 @@
                 </div>
             </div>
             {#
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/memoria.jpg') }}" title="Memoria"
                          alt="Die Achtk&ouml;pfige Band vor einem vollgespr&uuml;hten Altbau." itemprop="image">
@@ -134,7 +134,7 @@
                 </div>
             </div>
             #}
-            <div class="col hidden" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col hidden" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <div class="text">
                         <h4 class="title" itemprop="name">Headliner TBA</h4>
@@ -145,7 +145,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/cute-but-evil-und-daniel-vee.jpg') }}"
                          title="Cute But Evil &amp; Daniel Vee"
@@ -160,7 +160,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/cubical.jpg') }}" title="Cubical"
                          alt="Anil tr&auml;gt ein Shirt, auf de &quot;Manager&quot; steht." itemprop="image">
@@ -175,7 +175,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/blade-and-beard.jpg') }}" title="Blade&amp;Beard"
                          alt="Arash &amp; Anoos auf einer Treppe" itemprop="image">
@@ -190,7 +190,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col" itemprop="attendee" itemtype="https://schema.org/MusicGroup">
+            <div class="col" itemprop="attendee" itemscope itemtype="https://schema.org/MusicGroup">
                 <div class="inner">
                     <img src="{{ asset('images/montefusco.jpg') }}"
                          title="Montefusco"
@@ -252,7 +252,7 @@
     </section>
     <section class="timetable">
         <div class="row">
-            <span><i>18<br>Uhr</i>&nbsp;INVO &amp;ENNA</span>
+            <span><i>18<br>Uhr</i>&nbsp;INVO &amp; ENNA</span>
             <span><i>19<br>Uhr</i>&nbsp;Waking Up In Stereo</span>
             <span><i>20<br>Uhr</i>&nbsp;Suburbian Rex</span>
         </div>
@@ -322,7 +322,7 @@
             </a>
             <a href="https://www.instagram.com/keinegrenzen_org/" rel="noopener nofollow" target="_blank"
                title="keinegrenzen Instagram" class="icon">
-                <img src="{{ asset('images/facebook.svg') }}" title="keinegrenzen Instagram" alt="Ein Logo, das an eine alte Kamera erinnert.">
+                <img src="{{ asset('images/facebook.svg') }}" title="keinegrenzen Facebook" alt="Ein Logo, das an eine alte Kamera erinnert.">
             </a>
         </div>
         <p class="copyright">
