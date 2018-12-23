@@ -13,15 +13,17 @@
         <meta property="og:title" content="{{ title }}">
         <meta property="og:type" content="website">
         <meta property="og:description" content="{{ description }}">
+        <meta property="og:url" content="https://festival.keinegrenzen.org">
         <meta property="og:image" content="{{ image }}">
-        <meta property="og:image:width" content="1920"/>
-        <meta property="og:image:height" content="1080"/>
+        <meta property="og:image:width" content="820"/>
+        <meta property="og:image:height" content="342"/>
         <meta property="og:locale" content="de_DE"/>
         <title>{{ title }}</title>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/css/theme.css') }}"/>
             <link rel="stylesheet" type="text/css" href="https://tickets.keinegrenzen.org/event/festival/widget/v1.css">
         {% endblock %}
+        <link rel="canonical" href="https://festival.keinegrenzen.org">
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -35,11 +37,12 @@
                  alt="noscript-img">
         </noscript>
         <header class="container">
-            <h1 itemprop="name">
+            <h1>
                 <span>keine</span>
                 <span>grenzen</span>
                 <span>Festival</span>
             </h1>
+            <span class="sr-only" itemprop="name">keinegrenzen Festival</span>
             <h2 itemprop="about">
                 <span>Fundraising f&uuml;r</span>
                 <span>&Auml;rzte ohne Grenzen</span>
@@ -60,7 +63,8 @@
                     <div itemprop="composer" itemscope
                          itemtype="https://schema.org/Organization">
                         <p itemprop="description">
-                            <strong>&bdquo;<span itemprop="name">KEINEGRENZEN</span>&ldquo;</strong> ist eine gemeinn&uuml;tzige
+                            <span itemprop="name" class="sr-only">keinegrenzen</span>
+                            <strong>&bdquo;KEINEGRENZEN&ldquo;</strong> ist eine gemeinn&uuml;tzige
                             Organisation die Musik und Kunst nutzt, um Spenden f&uuml;r Hilfsorganisationen wie
                             <a itemprop="attendee"
                                itemtype="https://schema.org/NGO"
