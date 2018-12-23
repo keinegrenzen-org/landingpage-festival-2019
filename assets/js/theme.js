@@ -49,7 +49,7 @@ class App {
           const ids = JSON.parse(trigger.dataset.track)
           if (ids.length > 1) {
             const id = new Date().getSeconds() % 2
-            widget.skip(id)
+            widget.skip(ids[id])
           } else {
             widget.skip(ids[0])
           }
