@@ -144,33 +144,38 @@
                             </div>
                         </div>
                     </div>
-                    {#
-                    <div class="col" itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup">
-                        <div class="inner">
-                            <img src="{{ asset('images/memoria.jpg') }}" title="Memoria"
-                                 alt="Die Achtk&ouml;pfige Band vor einem vollgespr&uuml;hten Altbau." itemprop="image">
-                            <div class="text">
-                                <h4 class="title" itemprop="name">Memoria</h4>
-                                <span class="sr-only" itemprop="genre"></span>
-                                <p itemprop="description">Liebe und Freundschaft schweißen diese Band zu einer Familie,
-                                    die aus Musik Gl&uuml;ckseligkeit zaubert. Warmer Reggae wird uns im kalten Januar eine
-                                    gem&uuml;tliche Stunde Urlaub am &Auml;quator bescheren.</p>
-                                <a class="btn" href="https://keinegrenzen.org/enna" target="_blank" rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                    {% if date('now') > date('29.12.2018', 'Europe/Berlin') %}
+                        <div class="col" itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup">
+                            <div class="inner">
+                                <img src="{{ asset('images/memoria.jpg') }}" title="Memoria"
+                                     alt="Die Achtk&ouml;pfige Band vor einem vollgespr&uuml;hten Altbau."
+                                     itemprop="image">
+                                <div class="text">
+                                    <h4 class="title" itemprop="name">Memoria</h4>
+                                    <span class="sr-only" itemprop="genre"></span>
+                                    <p itemprop="description">Liebe und Freundschaft schweißen diese Band zu einer
+                                        Familie,
+                                        die aus Musik Gl&uuml;ckseligkeit zaubert. Warmer Reggae wird uns im kalten
+                                        Januar eine
+                                        gem&uuml;tliche Stunde Urlaub am &Auml;quator bescheren.</p>
+                                    <a class="btn" href="https://keinegrenzen.org/enna" target="_blank"
+                                       rel="noopener nofollow">Jetzt Anh&ouml;ren</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    #}
-                    <div class="col hidden" itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup">
-                        <div class="inner">
-                            <div class="text">
-                                <h4 class="title" itemprop="name">Headliner TBA</h4>
-                                <span class="sr-only" itemprop="genre"></span>
-                                <p itemprop="description">Wer wird wohl dem Abend noch die Kirsche samt Sahneh&auml;ubchen
-                                    aufsetzen? Das erfahrt Ihr zum Neujahr!
-                                </p>
+                    {% else %}
+                        <div class="col hidden" itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup">
+                            <div class="inner">
+                                <div class="text">
+                                    <h4 class="title" itemprop="name">Headliner TBA</h4>
+                                    <span class="sr-only" itemprop="genre"></span>
+                                    <p itemprop="description">Wer wird wohl dem Abend noch die Kirsche samt Sahneh&auml;ubchen
+                                        aufsetzen? Das erfahrt Ihr zum Neujahr!
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    {% endif %}
                     <div class="col" itemprop="performer" itemscope itemtype="https://schema.org/MusicGroup">
                         <div class="inner">
                             <img src="{{ asset('images/cute-but-evil-und-daniel-vee.jpg') }}"
