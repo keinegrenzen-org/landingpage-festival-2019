@@ -3,6 +3,7 @@
     "license": "proprietary",
     "require": {
         "php": "^7.1.3",
+        "ext-curl": "*",
         "ext-iconv": "*",
         "sensio/framework-extra-bundle": "^5.1",
         "symfony/asset": "^4.1",
@@ -17,7 +18,9 @@
         "symfony/twig-bundle": "^4.1",
         "symfony/web-link": "^4.1",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.1"
+        "symfony/yaml": "^4.1",
+        "ext-json": "*",
+      "ext-http": "*"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

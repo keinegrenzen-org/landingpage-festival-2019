@@ -20,3 +20,12 @@ $font-weight-black: 900;
 $font-weight-heavy: 900;
 
 $shadow-color: rgba(0, 0, 0, .3);
+
+$break-big: 1200px;
+$break-medium: 992px;
+$break-small: 768px;
+$nav-height: 75px;
+
+@function transparentize($color, $amount) {
+  @return rgba(red($color), green($color), blue($color), $amount);
+}
