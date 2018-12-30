@@ -1,4 +1,5 @@
-var Encore = require('@symfony/webpack-encore')
+const Encore = require('@symfony/webpack-encore')
+const BabelMinifyPlugin = require('babel-minify-webpack-plugin')
 
 Encore
   .enableSingleRuntimeChunk()
@@ -19,9 +20,18 @@ Encore
 
   .configureBabel(function (babelConfig) {
     babelConfig.presets[0][1].targets = {
-      browsers: 'last 2 versions',
-      uglify: false
+      browsers: 'last 2 versions'
     }
   })
+  .addPlugin(
+    new BabelMinifyPlugin(
+      Encore.isProduction() ? {
+        removeConsole: true
+      } : false,
+      {
+        comments: false,
+      }
+    )
+  )
 
 module.exports = Encore.getWebpackConfig()
