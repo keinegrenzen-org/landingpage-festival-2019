@@ -497,6 +497,10 @@ header {
     border: 0;
     font-size: 1.2rem;
 
+    .pretix-widget-item-meta {
+      display: none;
+    }
+
     .pretix-widget-action {
       align-items: flex-start;
       display: flex;
