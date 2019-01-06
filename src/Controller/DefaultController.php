@@ -90,8 +90,8 @@ class DefaultController extends Controller
         $net = round($net, 2);
 
         $booking = 856 + 140.34 + 156.29 + 600 + 547 + 140.2;
-        $promo = 30;
-        $print = 62.21;
+        $promo = 85;
+        $print = 62.21 + 57.77;
 
         $sum = -$booking - $print - $promo + $net;
 
