@@ -92,8 +92,12 @@ class DefaultController extends Controller
         $booking = 856 + 140.34 + 156.29 + 600 + 547 + 140.2;
         $promo = 85;
         $print = 62.21 + 57.77;
+        $catering = 'TBA';
+        $extras = 52.99;
+        $gema = 50;
+        $ksk = 'TBA';
 
-        $sum = -$booking - $print - $promo + $net;
+        $sum = 0 - $booking - $print - $promo - $extras - $gema + $net;
 
         return $this->render(
             'numbers.html.twig',
@@ -101,6 +105,10 @@ class DefaultController extends Controller
                 'booking' => $booking,
                 'promo' => $promo,
                 'print' => $print,
+                'catering' => $catering,
+                'extras' => $extras,
+                'gema' => $gema,
+                'ksk' => $ksk,
                 'gross' => $gross,
                 'net' => $net,
                 'sum' => $sum,

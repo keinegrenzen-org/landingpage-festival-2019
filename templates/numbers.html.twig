@@ -26,29 +26,50 @@
                     <thead>
                     <tr>
                         <th scope="col">Position</th>
-                        <th scope="col">Betrag</th>
+                        <th colspan="2" scope="col">Betrag</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr class="table-danger">
                         <th scope="row">Booking</th>
-                        <td>-{{ booking }}&euro;</td>
+                        <td colspan="2">&minus;{{ booking }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Print</th>
-                        <td>-{{ print }}&euro;</td>
+                        <td colspan="2">&minus;{{ print }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Promotions</th>
-                        <td>-{{ promo }}&euro;</td>
+                        <td colspan="2">&minus;{{ promo }}&euro;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Catering</th>
+                        <td colspan="2">&minus;{{ catering }}</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Extras (B&auml;ndchen, &hellip;)</th>
+                        <td colspan="2">&minus;{{ extras }}</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">GEMA</th>
+                        <td colspan="2">&minus;{{ gema }}</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">K&uuml;nsterlsozialkasse</th>
+                        <td colspan="2">{{ ksk }}</td>
                     </tr>
                     <tr class="table-success">
                         <th scope="row">Tickets</th>
-                        <td>{{ net }}&euro;&nbsp;({{ gross }}&euro;)</td>
+                        <td colspan="1">{{ gross }}&euro;</td>
+                        <td colspan="1" rowspan="2" class="align-middle">Netto: {{ net }}&euro;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">PayPal & Stripe</th>
+                        <td colspan="1">{{ gross-net }}</td>
                     </tr>
                     <tr class="{{ sum < 0 ? 'table-warning' : 'table-success' }}">
                         <th scope="row">Summe</th>
-                        <td>{{ sum }}&euro;</td>
+                        <td colspan="2">{{ sum }}&euro;</td>
                     </tr>
                     </tbody>
                 </table>
