@@ -115,7 +115,7 @@
                         <th scope="row">Einnahmen</th>
                         <td colspan="2">&plus;{{ net }}&euro;</td>
                     </tr>
-                    <tr class="{{ sum + net > 0 ? 'table-warning' : 'table-success' }}">
+                    <tr class="{{ net - sum < 0 ? 'table-warning' : 'table-success' }}">
                         <th scope="row">Gesamt</th>
                         <td colspan="2">{{ net - sum }}&euro;</td>
                     </tr>

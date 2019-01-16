@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\VarDumper\VarDumper;
 
 class DefaultController extends Controller
 {
@@ -43,14 +44,13 @@ class DefaultController extends Controller
 
         do {
 
-            $query = http_build_query(
-                [
-                    'page' => $next,
-                    'status' => 'p',
-                ]
-            );
+            $query = $next ?? $base.$path.'?'.http_build_query(
+                    [
+                        'status' => 'p',
+                    ]
+                );
 
-            curl_setopt($curl, CURLOPT_URL, $base.$path.'?'.$query);
+            curl_setopt($curl, CURLOPT_URL, $query);
 
             $response = curl_exec($curl);
             $code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
@@ -59,6 +59,7 @@ class DefaultController extends Controller
                 $response = json_decode($response, true);
                 $next = $response['next'];
                 $orders = array_merge($orders, $response['results']);
+                VarDumper::dump($next);
             } else {
                 $response = json_decode($response, true);
                 curl_close($curl);
