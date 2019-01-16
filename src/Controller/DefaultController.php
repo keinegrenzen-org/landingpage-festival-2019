@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\VarDumper\VarDumper;
 
 class DefaultController extends Controller
 {
@@ -59,7 +58,6 @@ class DefaultController extends Controller
                 $response = json_decode($response, true);
                 $next = $response['next'];
                 $orders = array_merge($orders, $response['results']);
-                VarDumper::dump($next);
             } else {
                 $response = json_decode($response, true);
                 curl_close($curl);
