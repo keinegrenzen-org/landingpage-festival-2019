@@ -21,10 +21,18 @@
     <body itemscope itemtype="https://schema.org/Event">
         <main>
             <h1>keinegrenzen Festival: Kosten & Abrechnung</h1>
+            <span>
+                TBA &equals; To Be Announced<br>
+                TBU &equals; To Be Updated<br>
+                &nbsp;
+            </span>
             <section class="container paragraph table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead>
-                    <tr>
+                    <tr class="table-primary">
+                        <th colspan="3">Ausgaben</th>
+                    </tr>
+                    <tr class="table-sm">
                         <th scope="col">Position</th>
                         <th colspan="2" scope="col">Betrag</th>
                     </tr>
@@ -33,6 +41,18 @@
                     <tr class="table-danger">
                         <th scope="row">Booking</th>
                         <td colspan="2">&minus;{{ booking }}&euro;</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th scope="row">Veranstaltungsort Miete</th>
+                        <td colspan="2">TBA</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Catering & Hospitality</th>
+                        <td colspan="2">&minus;{{ catering }}&euro; (TBU)</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Extras (B&auml;ndchen, Taschenascher)</th>
+                        <td colspan="2">&minus;{{ extras }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Print</th>
@@ -43,36 +63,60 @@
                         <td colspan="2">&minus;{{ promo }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
-                        <th scope="row">Catering & Hospitality</th>
-                        <td colspan="2">&minus;{{ catering }}&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Extras (B&auml;ndchen, Taschenascher)</th>
-                        <td colspan="2">&minus;{{ extras }}&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
                         <th scope="row">GEMA</th>
-                        <td colspan="2">&minus;{{ gema }}&euro;</td>
+                        <td colspan="2">&minus;{{ gema }}&euro; (TBU)</td>
                     </tr>
                     <tr class="table-secondary">
                         <th scope="row">K&uuml;nsterlsozialkasse</th>
                         <td colspan="2">{{ ksk }}</td>
                     </tr>
-                    <tr class="table-success">
-                        <th scope="row">Tickets</th>
-                        <td colspan="1">&plus;{{ gross }}&euro;</td>
-                        <td colspan="1" rowspan="2" class="align-middle">Netto: &plus;{{ net }}&euro;</td>
+
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr class="table-primary">
+                        <th colspan="4">Einnahmen</th>
                     </tr>
-                    <tr class="table-danger">
-                        <th scope="row">PayPal & Stripe</th>
-                        <td colspan="1">&minus;{{ gross-net }}&euro;</td>
+                    <tr class="table-sm">
+                        <th scope="col">Position</th>
+                        <th colspan="3" scope="col">Betrag</th>
                     </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row" class="table-success align-middle">Tickets</th>
+                        <td colspan="1" class="table-success align-middle">&plus;{{ net }}&euro;</td>
+                        <td colspan="1" class="table-warning">Brutto: &plus;{{ gross }}&euro;</td>
+                        <td colspan="1" class="table-danger">PayPal & Stripe: &minus;{{ gross-net }}&euro;</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <th scope="row">Taschenascher</th>
+                        <td colspan="3">TBA</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr class="table-primary">
+                        <th colspan="3">Bilanz</th>
+                    </tr>
+                    <tr class="table-sm">
+                        <th scope="col">Position</th>
+                        <th colspan="2" scope="col">Betrag</th>
+                    </tr>
+                    </thead>
+                    <tbody>
                     <tr class="table-danger">
-                        <th scope="row">Gesamtausgaben</th>
+                        <th scope="row">Ausgaben</th>
                         <td colspan="2">&minus;{{ sum }}&euro;</td>
                     </tr>
+                    <tr class="table-success">
+                        <th scope="row">Einnahmen</th>
+                        <td colspan="2">&plus;{{ net }}&euro;</td>
+                    </tr>
                     <tr class="{{ sum + net > 0 ? 'table-warning' : 'table-success' }}">
-                        <th scope="row">Summe</th>
+                        <th scope="row">Gesamt</th>
                         <td colspan="2">{{ net - sum }}&euro;</td>
                     </tr>
                     </tbody>
@@ -91,7 +135,7 @@
                     50735 Köln<br>
                     Deutschland<br>
                     E-Mail: kontakt@keinegrenzen.org<br>
-                    Tel: <a href="tel:+4917630594643" title="Kontakt aufnehmen">+49 176 30594643</a><br>
+                    Tel: <a href="tel:+4917630594643" title="Kontakt aufnehmen" class="text-white">+49 176 30594643</a><br>
                 </p>
             </div>
             <div class="notices section">
