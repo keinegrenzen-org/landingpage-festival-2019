@@ -43,33 +43,37 @@
                         <td colspan="2">&minus;{{ promo }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
-                        <th scope="row">Catering</th>
-                        <td colspan="2">&minus;{{ catering }}</td>
+                        <th scope="row">Catering & Hospitality</th>
+                        <td colspan="2">&minus;{{ catering }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
-                        <th scope="row">Extras (B&auml;ndchen, &hellip;)</th>
-                        <td colspan="2">&minus;{{ extras }}</td>
+                        <th scope="row">Extras (B&auml;ndchen, Taschenascher)</th>
+                        <td colspan="2">&minus;{{ extras }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">GEMA</th>
-                        <td colspan="2">&minus;{{ gema }}</td>
+                        <td colspan="2">&minus;{{ gema }}&euro;</td>
                     </tr>
-                    <tr class="table-danger">
+                    <tr class="table-secondary">
                         <th scope="row">K&uuml;nsterlsozialkasse</th>
                         <td colspan="2">{{ ksk }}</td>
                     </tr>
                     <tr class="table-success">
                         <th scope="row">Tickets</th>
-                        <td colspan="1">{{ gross }}&euro;</td>
-                        <td colspan="1" rowspan="2" class="align-middle">Netto: {{ net }}&euro;</td>
+                        <td colspan="1">&plus;{{ gross }}&euro;</td>
+                        <td colspan="1" rowspan="2" class="align-middle">Netto: &plus;{{ net }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">PayPal & Stripe</th>
-                        <td colspan="1">{{ gross-net }}</td>
+                        <td colspan="1">&minus;{{ gross-net }}&euro;</td>
                     </tr>
-                    <tr class="{{ sum < 0 ? 'table-warning' : 'table-success' }}">
+                    <tr class="table-danger">
+                        <th scope="row">Gesamtausgaben</th>
+                        <td colspan="2">&minus;{{ sum }}&euro;</td>
+                    </tr>
+                    <tr class="{{ sum + net > 0 ? 'table-warning' : 'table-success' }}">
                         <th scope="row">Summe</th>
-                        <td colspan="2">{{ sum }}&euro;</td>
+                        <td colspan="2">{{ net - sum }}&euro;</td>
                     </tr>
                     </tbody>
                 </table>
