@@ -25,6 +25,68 @@ class DefaultController extends Controller
      */
     public function numbers()
     {
+        $orders = $this->getPretixOrders();
+
+        $ticketsGross = 0;
+        $ticketsNet = 0;
+
+        foreach ($orders as $order) {
+            $payment = $order['payments'][0];
+            $total = floatval($order['total']);
+            $ticketsGross += $total;
+
+            switch ($payment['provider']) {
+                case 'paypal':
+                    $ticketsNet += $total - 0.35 - ($total * 0.0249);
+                    break;
+                case 'stripe':
+                    $ticketsNet += $total - 0.25 - ($total * 0.014);
+                    break;
+            }
+        }
+
+        $ticketsNet = round($ticketsNet, 2);
+        $doors = 4532.71;
+        $donations = 20;
+        $income = $ticketsNet + $doors + $donations;
+
+        $booking = 856 + 192.69 + 156.29 + 600 + 547 + 140.2;
+        $promo = 105;
+        $print = 62.21 + 57.77;
+        $catering = 139.00 + 124.54 + 357.33;
+        $staff = 1227.50;
+        $extras = 52.99 + 200 + 50 + 96;
+
+        $expenses = $booking + $print + $promo + $extras + $catering + $staff;
+
+        $profit = -$expenses + $income;
+
+        return $this->render(
+            'numbers.html.twig',
+            [
+                'booking' => $booking,
+                'promo' => $promo,
+                'print' => $print,
+                'catering' => $catering,
+                'extras' => $extras,
+                'staff' => $staff,
+                'ticketsGross' => $ticketsGross,
+                'ticketsNet' => $ticketsNet,
+                'doors' => $doors,
+                'donations' => $donations,
+                'expenses' => $expenses,
+                'income' => $income,
+                'profit' => $profit,
+            ]
+        );
+    }
+
+    /**
+     * @return array
+     * @throws \Exception
+     */
+    private function getPretixOrders(): array
+    {
         $auth = 'Token '.$_SERVER['PRETIX_TOKEN'];
         $base = 'https://tickets.keinegrenzen.org';
         $path = '/api/v1/organizers/event/events/festival/orders/';
@@ -68,50 +130,6 @@ class DefaultController extends Controller
 
         curl_close($curl);
 
-        $gross = 0;
-        $net = 0;
-
-        foreach ($orders as $order) {
-            $payment = $order['payments'][0];
-            $total = floatval($order['total']);
-            $gross += $total;
-
-            switch ($payment['provider']) {
-                case 'paypal':
-                    $net += $total - 0.35 - ($total * 0.0249);
-                    break;
-                case 'stripe':
-                    $net += $total - 0.25 - ($total * 0.014);
-                    break;
-            }
-        }
-
-        $net = round($net, 2);
-
-        $booking = 856 + 140.34 + 156.29 + 600 + 547 + 140.2;
-        $promo = 85;
-        $print = 62.21 + 57.77;
-        $catering = 139.00 + 124.54;
-        $extras = 52.99 + 200;
-        $gema = 50;
-        $ksk = 'TBA';
-
-        $sum = $booking + $print + $promo + $extras + $catering + $gema;
-
-        return $this->render(
-            'numbers.html.twig',
-            [
-                'booking' => $booking,
-                'promo' => $promo,
-                'print' => $print,
-                'catering' => $catering,
-                'extras' => $extras,
-                'gema' => $gema,
-                'ksk' => $ksk,
-                'gross' => $gross,
-                'net' => $net,
-                'sum' => $sum,
-            ]
-        );
+        return $orders;
     }
 }

@@ -42,16 +42,20 @@
                         <th scope="row">Booking</th>
                         <td colspan="2">&minus;{{ booking }}&euro;</td>
                     </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Personal (Office, Security, Abendkasse)</th>
+                        <td colspan="2">&minus;{{ staff }}&euro;</td>
+                    </tr>
                     <tr class="table-secondary">
                         <th scope="row">Veranstaltungsort Miete</th>
                         <td colspan="2">TBA</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Catering & Hospitality</th>
-                        <td colspan="2">&minus;{{ catering }}&euro; (TBU)</td>
+                        <td colspan="2">&minus;{{ catering }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
-                        <th scope="row">Extras (B&auml;ndchen, Taschenascher)</th>
+                        <th scope="row">Extras (B&auml;ndchen, Taschenascher, Stage Design, Cleaning Staff)</th>
                         <td colspan="2">&minus;{{ extras }}&euro;</td>
                     </tr>
                     <tr class="table-danger">
@@ -62,15 +66,6 @@
                         <th scope="row">Promotions</th>
                         <td colspan="2">&minus;{{ promo }}&euro;</td>
                     </tr>
-                    <tr class="table-danger">
-                        <th scope="row">GEMA</th>
-                        <td colspan="2">&minus;{{ gema }}&euro; (TBU)</td>
-                    </tr>
-                    <tr class="table-secondary">
-                        <th scope="row">K&uuml;nsterlsozialkasse</th>
-                        <td colspan="2">{{ ksk }}</td>
-                    </tr>
-
                     </tbody>
                 </table>
                 <table class="table table-bordered table-striped">
@@ -85,10 +80,20 @@
                     </thead>
                     <tbody>
                     <tr>
-                        <th scope="row" class="table-success align-middle">Tickets</th>
-                        <td colspan="1" class="table-success align-middle">&plus;{{ net }}&euro;</td>
-                        <td colspan="1" class="table-warning">Brutto: &plus;{{ gross }}&euro;</td>
-                        <td colspan="1" class="table-danger">PayPal & Stripe: &minus;{{ gross-net }}&euro;</td>
+                        <th scope="row" class="table-success align-middle">Tickets Vorverkauf</th>
+                        <td colspan="1" class="table-success align-middle">&plus;{{ ticketsNet }}&euro;</td>
+                        <td colspan="1" class="table-warning">Brutto: &plus;{{ ticketsGross }}&euro;</td>
+                        <td colspan="1" class="table-danger">PayPal & Stripe:
+                            &minus;{{ ticketsGross-ticketsNet }}&euro;
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-success">Tickets Abendkasse</th>
+                        <td colspan="3" class="table-success">&plus;{{ doors }}&euro;</td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="table-success">Spendenbox Eingangsbereich</th>
+                        <td colspan="3" class="table-success">&plus;{{ donations }}&euro;</td>
                     </tr>
                     <tr class="table-secondary">
                         <th scope="row">Taschenascher</th>
@@ -109,15 +114,15 @@
                     <tbody>
                     <tr class="table-danger">
                         <th scope="row">Ausgaben</th>
-                        <td colspan="2">&minus;{{ sum }}&euro;</td>
+                        <td colspan="2">&minus;{{ expenses }}&euro;</td>
                     </tr>
                     <tr class="table-success">
                         <th scope="row">Einnahmen</th>
-                        <td colspan="2">&plus;{{ net }}&euro;</td>
+                        <td colspan="2">&plus;{{ income }}&euro;</td>
                     </tr>
-                    <tr class="{{ net - sum < 0 ? 'table-warning' : 'table-success' }}">
+                    <tr class="{{ profit < 0 ? 'table-warning' : 'table-success' }}">
                         <th scope="row">Gesamt</th>
-                        <td colspan="2">{{ net - sum }}&euro;</td>
+                        <td colspan="2">{{ profit }}&euro;</td>
                     </tr>
                     </tbody>
                 </table>
@@ -135,7 +140,8 @@
                     50735 Köln<br>
                     Deutschland<br>
                     E-Mail: kontakt@keinegrenzen.org<br>
-                    Tel: <a href="tel:+4917630594643" title="Kontakt aufnehmen" class="text-white">+49 176 30594643</a><br>
+                    Tel: <a href="tel:+4917630594643" title="Kontakt aufnehmen" class="text-white">+49 176
+                        30594643</a><br>
                 </p>
             </div>
             <div class="notices section">
