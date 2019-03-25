@@ -56,8 +56,9 @@ class DefaultController extends Controller
         $catering = 139.00 + 124.54 + 357.33;
         $staff = 1227.50;
         $extras = 52.99 + 200 + 50 + 96;
+        $rent = 308.88;
 
-        $expenses = $booking + $print + $promo + $extras + $catering + $staff;
+        $expenses = $booking + $print + $promo + $extras + $catering + $staff + $rent;
 
         $profit = -$expenses + $income;
 
@@ -70,6 +71,7 @@ class DefaultController extends Controller
                 'catering' => $catering,
                 'extras' => $extras,
                 'staff' => $staff,
+                'rent' => $rent,
                 'ticketsGross' => $ticketsGross,
                 'ticketsNet' => $ticketsNet,
                 'doors' => $doors,

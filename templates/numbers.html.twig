@@ -40,31 +40,31 @@
                     <tbody>
                     <tr class="table-danger">
                         <th scope="row">Booking</th>
-                        <td colspan="2">&minus;{{ booking }}&euro;</td>
+                        <td colspan="2">&minus;{{ booking }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Personal (Office, Security, Abendkasse)</th>
-                        <td colspan="2">&minus;{{ staff }}&euro;</td>
+                        <td colspan="2">&minus;{{ staff }}&nbsp;&euro;</td>
                     </tr>
-                    <tr class="table-secondary">
+                    <tr class="table-danger">
                         <th scope="row">Veranstaltungsort Miete</th>
-                        <td colspan="2">TBA</td>
+                        <td colspan="2">-{{ rent }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Catering & Hospitality</th>
-                        <td colspan="2">&minus;{{ catering }}&euro;</td>
+                        <td colspan="2">&minus;{{ catering }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Extras (B&auml;ndchen, Taschenascher, Stage Design, Cleaning Staff)</th>
-                        <td colspan="2">&minus;{{ extras }}&euro;</td>
+                        <td colspan="2">&minus;{{ extras }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Print</th>
-                        <td colspan="2">&minus;{{ print }}&euro;</td>
+                        <td colspan="2">&minus;{{ print }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="table-danger">
                         <th scope="row">Promotions</th>
-                        <td colspan="2">&minus;{{ promo }}&euro;</td>
+                        <td colspan="2">&minus;{{ promo }}&nbsp;&euro;</td>
                     </tr>
                     </tbody>
                 </table>
@@ -81,19 +81,19 @@
                     <tbody>
                     <tr>
                         <th scope="row" class="table-success align-middle">Tickets Vorverkauf</th>
-                        <td colspan="1" class="table-success align-middle">&plus;{{ ticketsNet }}&euro;</td>
-                        <td colspan="1" class="table-warning">Brutto: &plus;{{ ticketsGross }}&euro;</td>
+                        <td colspan="1" class="table-success align-middle">&plus;{{ ticketsNet }}&nbsp;&euro;</td>
+                        <td colspan="1" class="table-warning">Brutto: &plus;{{ ticketsGross }}&nbsp;&euro;</td>
                         <td colspan="1" class="table-danger">PayPal & Stripe:
-                            &minus;{{ ticketsGross-ticketsNet }}&euro;
+                            &minus;{{ ticketsGross-ticketsNet }}&nbsp;&euro;
                         </td>
                     </tr>
                     <tr>
                         <th scope="row" class="table-success">Tickets Abendkasse</th>
-                        <td colspan="3" class="table-success">&plus;{{ doors }}&euro;</td>
+                        <td colspan="3" class="table-success">&plus;{{ doors }}&nbsp;&euro;</td>
                     </tr>
                     <tr>
                         <th scope="row" class="table-success">Spendenbox Eingangsbereich</th>
-                        <td colspan="3" class="table-success">&plus;{{ donations }}&euro;</td>
+                        <td colspan="3" class="table-success">&plus;{{ donations }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="table-secondary">
                         <th scope="row">Taschenascher</th>
@@ -114,15 +114,15 @@
                     <tbody>
                     <tr class="table-danger">
                         <th scope="row">Ausgaben</th>
-                        <td colspan="2">&minus;{{ expenses }}&euro;</td>
+                        <td colspan="2">&minus;{{ expenses }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="table-success">
                         <th scope="row">Einnahmen</th>
-                        <td colspan="2">&plus;{{ income }}&euro;</td>
+                        <td colspan="2">&plus;{{ income }}&nbsp;&euro;</td>
                     </tr>
                     <tr class="{{ profit < 0 ? 'table-warning' : 'table-success' }}">
                         <th scope="row">Gesamt</th>
-                        <td colspan="2">{{ profit }}&euro;</td>
+                        <td colspan="2">{{ profit }}&nbsp;&euro;</td>
                     </tr>
                     </tbody>
                 </table>
