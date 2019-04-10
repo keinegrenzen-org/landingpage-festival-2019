@@ -84,6 +84,17 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/statistik", name="numbers")
+     */
+    public function stats()
+    {
+        return $this->render(
+            'stats.html.twig',
+            []
+        );
+    }
+
+    /**
      * @return array
      * @throws \Exception
      */

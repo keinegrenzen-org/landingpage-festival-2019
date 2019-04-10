@@ -1,0 +1,143 @@
+{% set title = 'keinegrenzen Festival — Statistiken' %}
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+        <title>{{ title }}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/css/theme.css') }}"/>
+            <link rel="stylesheet" href="{{ asset('build/css/numbers.css') }}"/>
+        {% endblock %}
+        <link rel="canonical" href="https://festival.keinegrenzen.org">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#fc2d2d">
+    </head>
+    <body>
+        <main>
+            <h1>keinegrenzen Festival: Statistiken</h1>
+            <section class="container paragraph">
+                <h2>Vorverkauf vs. Abendkasse</h2>
+                <p>
+                    {% set presale = 2396.06 %}
+                    {% set doorsale = 4532.71 %}
+                    {% set sum = presale + doorsale %}
+                    {% set presalePercentage = (presale / sum) * 100 %}
+                    {% set doorsalePercentage = (doorsale / sum) * 100 %}
+                    <strong>Vorverkauf:</strong>
+                    {{ presale }}&nbsp;&euro;, {{ presalePercentage|number_format(2) }}&nbsp;&percnt;<br/>
+                    <strong>Abendkasse:</strong>
+                    {{ doorsale }}&nbsp;&euro;, {{ doorsalePercentage|number_format(2) }}&nbsp;&percnt;<br/>
+                </p>
+                <h2>Ticket-Arten</h2>
+                <p>
+                    <strong>Besucher Insgesamt:</strong> ca. 500 (Inkl. Friendslist, Guestlist, Verlosungen)<br/>
+                    <strong>Einzeltickets:</strong>
+                    88 Vorverkauf, 285 Abendkasse<br/>
+                    <strong>Kombitickets:</strong>
+                    46 Vorverkauf, 13 Abendkasse<br/>
+                </p>
+                <h2>Ehrenamtliche Helfer</h2>
+                <p>17 Menschen</p>
+                <h2>Zeitaufwand vor Ort</h2>
+                <p>Etliche Stunden Konzeptionierung, Kommunikation, Design, Programmierung, …</p>
+                <p>Am Tag selber: 24 Stunden inkl. Aufbau und Abbau</p>
+                <h2>Webseite</h2>
+                <p>ca. 1000 Aurufe, davon 900 aus Deutschland</p>
+                <h3>Herkunfts-Seiten:</h3>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                    <tr class="table-primary">
+                        <th scope="col">Seite</th>
+                        <th scope="col">Anzahl</th>
+                        <th scope="col">Anteil</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set sum = 516 + 94 + 67 + 31 + 20 + 7 %}
+                    <tr class="table-danger">
+                        <th scope="row">Facebook</th>
+                        <td>516</td>
+                        <td>{{ ((516 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Direkte Aufrufe / Nicht getrackt</th>
+                        <td>{{ 973 - sum }}</td>
+                        <td>{{ (((973 - sum) / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Instagram</th>
+                        <td>94</td>
+                        <td>{{ ((94 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Stadtgarten</th>
+                        <td>67</td>
+                        <td>{{ ((67 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Google</th>
+                        <td>31</td>
+                        <td>{{ ((31 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">keinegrenzen.org</th>
+                        <td>20</td>
+                        <td>{{ ((20 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
+                    </tr>
+                    <tr class="table-danger">
+                        <th scope="row">Andere</th>
+                        <td>7</td>
+                        <td>{{ ((7 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+        <footer class="container section-wrapper">
+            <div class="imprint section">
+                <p class="strong">
+                    keinegrenzen.org<br>
+                    Gemeinn&uuml;tziges Musikprojekt
+                </p>
+                <p>
+                    Barth&eacute;l&eacute;my Bonhomme<br>
+                    Drosselweg 22<br>
+                    50735 Köln<br>
+                    Deutschland<br>
+                    E-Mail: kontakt@keinegrenzen.org<br>
+                    Tel: <a href="tel:+4917630594643" title="Kontakt aufnehmen" class="text-white">+49 176
+                        30594643</a><br>
+                </p>
+            </div>
+            <div class="notices section">
+                <div class="social">
+                    <a href="https://instagaram.com/keinegrenzen_org" rel="noopener nofollow" target="_blank"
+                       title="keinegrenzen Instagram" class="icon">
+                        <img src="{{ asset('images/instagram.svg') }}" title="keinegrenzen Instagram"
+                             alt="Ein Logo, das an eine alte Kamera erinnert.">
+                    </a>
+                    <a href="https://www.instagram.com/keinegrenzen_org/" rel="noopener nofollow" target="_blank"
+                       title="keinegrenzen Instagram" class="icon">
+                        <img src="{{ asset('images/facebook.svg') }}" title="keinegrenzen Facebook"
+                             alt="Ein Logo, das an eine alte Kamera erinnert.">
+                    </a>
+                </div>
+                <p class="copyright">
+                    &copy; 2016-{{ "now"|date("Y") }} Barth&eacute;l&eacute;my Bonhomme
+                </p>
+                <p class="origin">
+                    Mit <span>
+                        <img class="icon" src="{{ asset('images/smile.svg') }}" title="Leidenschaft" alt="Smileyface">
+                        <i class="sr-only">Leidenschaft</i>
+                    </span> entwickelt in K&ouml;ln
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
