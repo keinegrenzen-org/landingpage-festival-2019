@@ -4,6 +4,11 @@ $theme-black: #1d1d1b;
 $theme-grey: #8f8f8c;
 $theme-white: #fff;
 
+$font-size-base: 1.2rem;
+$font-size-big: 1.2 * $font-size-base;
+$font-size-huge: 1.5 * $font-size-base;
+$font-size-small: .8 * $font-size-base;
+
 $theme-colors: (
         blue: $theme-blue,
         black: $theme-black,

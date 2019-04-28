@@ -6,19 +6,22 @@ Landingpage for 2019s festival for [keinegrenzen.org](https://www.keinegrenzen.o
 
 ### Installation
 
-- `git clone https://github.com/BarthyB/keinegrenzen-lp-festival.git`
+- `git clone https://github.com/keinegrenzen-porg/landingpage-festival-2019.git`
 - `composer install`
 - `npm install`
 
 ### Development
 
-- `bin/console server:run`
+- `npm run php-server`
+
+The `php-server` script will serve the application through symfony and php's built-in server.
+
 - `npm run dev-server`
 
-The `dev-server` npm script will automatically build SCSS & JS and push changes to your browser.
+The `dev-server` script will automatically build SCSS & JS and push changes to your browser.
 
 ### Frameworks:
-- Symfony 4.1.0
+- Symfony 4.2
 
 ### Languages
 - PHP 7.2

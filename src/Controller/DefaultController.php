@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -65,26 +66,26 @@ class DefaultController extends Controller
         return $this->render(
             'numbers.html.twig',
             [
-                'booking' => $booking,
-                'promo' => $promo,
-                'print' => $print,
-                'catering' => $catering,
-                'extras' => $extras,
-                'staff' => $staff,
-                'rent' => $rent,
+                'booking'      => $booking,
+                'promo'        => $promo,
+                'print'        => $print,
+                'catering'     => $catering,
+                'extras'       => $extras,
+                'staff'        => $staff,
+                'rent'         => $rent,
                 'ticketsGross' => $ticketsGross,
-                'ticketsNet' => $ticketsNet,
-                'doors' => $doors,
-                'donations' => $donations,
-                'expenses' => $expenses,
-                'income' => $income,
-                'profit' => $profit,
+                'ticketsNet'   => $ticketsNet,
+                'doors'        => $doors,
+                'donations'    => $donations,
+                'expenses'     => $expenses,
+                'income'       => $income,
+                'profit'       => $profit,
             ]
         );
     }
 
     /**
-     * @Route("/statistik", name="numbers")
+     * @Route("/statistik", name="stats")
      */
     public function stats()
     {
@@ -104,10 +105,10 @@ class DefaultController extends Controller
         $base = 'https://tickets.keinegrenzen.org';
         $path = '/api/v1/organizers/event/events/festival/orders/';
 
-        $headers = array(
+        $headers = [
             'Accept: application/json',
             "Authorization: $auth",
-        );
+        ];
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
@@ -136,7 +137,7 @@ class DefaultController extends Controller
             } else {
                 $response = json_decode($response, true);
                 curl_close($curl);
-                throw new \Exception($response['detail'], $code);
+                throw new Exception($response['detail'], $code);
             }
 
         } while ($next !== null);

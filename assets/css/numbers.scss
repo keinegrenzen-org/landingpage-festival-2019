@@ -18,6 +18,7 @@ main {
 }
 
 footer {
-  display: flex;
-  margin-top: auto;
+  a {
+    color: $theme-white;
+  }
 }

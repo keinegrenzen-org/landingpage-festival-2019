@@ -1,6 +1,7 @@
 @import 'components/variables';
 @import 'components/fonts';
 @import 'components/mixins';
+@import "components/variables";
 
 html,
 body {
@@ -156,21 +157,16 @@ footer {
   text-align: center;
   width: 100%;
 
-  .icon {
-    height: 100%;
-    width: 100%;
-  }
-
   p {
-    font-size: .875rem;
-    line-height: 1.2;
+    font-size: $font-size-base;
+    line-height: 1.5;
     margin: 0;
   }
 
   .imprint,
   .notices {
-    padding-bottom: 2rem;
-    padding-top: 2rem;
+    padding-bottom: 3rem;
+    padding-top: 3rem;
     width: 50%;
   }
 
@@ -181,43 +177,48 @@ footer {
     .strong {
       font-weight: $font-weight-black;
     }
+
+    a {
+      display: inline-flex;
+    }
   }
 
   .notices {
     background-color: $theme-red;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 
-    .social {
-      display: flex;
-      justify-content: center;
-
-      .icon {
-        margin-left: 1rem;
-        margin-right: 1rem;
-      }
-    }
-
-    .social,
     .copyright,
     .origin {
       width: 100%;
     }
 
     .copyright {
+      align-self: start;
       font-weight: $font-weight-thin;
     }
 
+    .open-source {
+      font-weight: $font-weight-thin;
+      align-self: center;
+      margin: auto;
+
+      a {
+        display: flex;
+        justify-content: center;
+      }
+    }
+
     .origin {
-      font-weight: $font-weight-black;
+      align-self: end;
+      margin-top: auto;
       line-height: 2;
     }
 
     .icon {
-      height: 1.2rem;
+      height: $font-size-huge;
       vertical-align: text-bottom;
-      width: 1.2rem;
+      width: $font-size-huge;
     }
   }
 }
