@@ -209,17 +209,16 @@ header {
   }
 
   .doorTime {
-    clip-path: polygon(0 0, 110% 0, 100% 88.6%, 0% 58.6%);
     color: $theme-white;
     display: block;
     font-family: 'League Gothic', sans-serif;
     font-size: 7vw;
     font-weight: $font-weight-black;
-    left: (620 / 770) * 100vw;
+    left: (540 / 770) * 100vw;
     letter-spacing: 2px;
     position: absolute;
     text-transform: uppercase;
-    top: 8.5vw;
+    top: 7.5vw;
     transform: rotate(-9deg);
     white-space: nowrap;
 
