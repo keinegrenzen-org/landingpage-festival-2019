@@ -1,5 +1,6 @@
-import smoothscroll from 'smoothscroll-polyfill'
-import CookieConsent from 'cookieconsent/src/cookieconsent';
+import smoothscroll      from 'smoothscroll-polyfill'
+import 'cookieconsent/src/cookieconsent.js'
+import PhotoSwipeGallery from 'photoswipe-bundle'
 
 smoothscroll.polyfill()
 
@@ -9,6 +10,7 @@ class App {
     this.initSmoothScroll()
     this.initIframe()
     this.initCookieConsent()
+    this.initLazyLoad()
   }
 
   initSmoothScroll () {
@@ -17,12 +19,12 @@ class App {
       trigger.addEventListener('click', e => {
         e.preventDefault()
 
-        const clickTarget = e.currentTarget
+        const clickTarget  = e.currentTarget
         const scrollTarget = clickTarget.getAttribute('href')
 
         const targetElement = document.getElementById(scrollTarget.replace('#', ''))
-        const rect = targetElement.getBoundingClientRect()
-        const distance = rect.top
+        const rect          = targetElement.getBoundingClientRect()
+        const distance      = rect.top
         window.scrollBy({top: distance, behavior: 'smooth'})
 
         history.replaceState({}, '', scrollTarget)
@@ -32,7 +34,7 @@ class App {
 
   initIframe () {
     const iframeElement = document.querySelector('.soundcloud iframe')
-    const widget = window.SC.Widget(iframeElement)
+    const widget        = window.SC.Widget(iframeElement)
 
     const title = document.querySelector('.soundcloud .title')
     const frame = title.parentNode
@@ -80,6 +82,39 @@ class App {
         'link': 'Mehr erfahren'
       }
     })
+  }
+
+  initLazyLoad () {
+    const masonry = document.querySelector('.masonry')
+    const images  = masonry.querySelectorAll('.masonry-image')
+
+    const gallery = new PhotoSwipeGallery(
+      masonry,
+      '.masonry-image',
+      1,
+      {
+        shareEl: false,
+        showHideOpacity: true
+      }
+    )
+
+    const observer = new IntersectionObserver(function (entries, observer) {
+      for (const entry of entries) {
+        if (entry.intersectionRatio > 0) {
+          observer.unobserve(entry.target)
+
+          const image = entry.target
+          image.src   = image.dataset.src
+          image.load  = function () {
+            gallery.updateElements()
+          }
+        }
+      }
+    })
+
+    for (const image of images) {
+      observer.observe(image)
+    }
   }
 }
 

@@ -43,85 +43,20 @@
         >
     </head>
     <body>
+        <header>
+            <a
+                    href="{{ path('index') }}"
+            >
+                ⟵ zurück zur Startseite
+            </a>
+        </header>
+
         <main>
-            <h1>keinegrenzen Festival: Statistiken</h1>
-            <section class="container paragraph">
-                <h2>Vorverkauf vs. Abendkasse</h2>
-                <p>
-                    {% set presale = 2396.06 %}
-                    {% set doorsale = 4532.71 %}
-                    {% set sum = presale + doorsale %}
-                    {% set presalePercentage = (presale / sum) * 100 %}
-                    {% set doorsalePercentage = (doorsale / sum) * 100 %}
-                    <strong>Vorverkauf:</strong>
-                    {{ presale }}&nbsp;&euro;, {{ presalePercentage|number_format(2) }}&nbsp;&percnt;<br/>
-                    <strong>Abendkasse:</strong>
-                    {{ doorsale }}&nbsp;&euro;, {{ doorsalePercentage|number_format(2) }}&nbsp;&percnt;<br/>
-                </p>
-                <h2>Ticket-Arten</h2>
-                <p>
-                    <strong>Besucher Insgesamt:</strong> ca. 500 (Inkl. Friendslist, Guestlist, Verlosungen)<br/>
-                    <strong>Einzeltickets:</strong>
-                    88 Vorverkauf, 285 Abendkasse<br/>
-                    <strong>Kombitickets:</strong>
-                    46 Vorverkauf, 13 Abendkasse<br/>
-                </p>
-                <h2>Ehrenamtliche Helfer</h2>
-                <p>17 Menschen</p>
-                <h2>Zeitaufwand vor Ort</h2>
-                <p>Etliche Stunden Konzeptionierung, Kommunikation, Design, Programmierung, …</p>
-                <p>Am Tag selber: 24 Stunden inkl. Aufbau und Abbau</p>
-                <h2>Webseite</h2>
-                <p>ca. 1000 Aurufe, davon 900 aus Deutschland</p>
-                <h3>Herkunfts-Seiten:</h3>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr class="table-primary">
-                        <th scope="col">Seite</th>
-                        <th scope="col">Anzahl</th>
-                        <th scope="col">Anteil</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% set sum = 516 + 94 + 67 + 31 + 20 + 7 %}
-                    <tr class="table-danger">
-                        <th scope="row">Facebook</th>
-                        <td>516</td>
-                        <td>{{ ((516 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Direkte Aufrufe / Nicht getrackt</th>
-                        <td>{{ 973 - sum }}</td>
-                        <td>{{ (((973 - sum) / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Instagram</th>
-                        <td>94</td>
-                        <td>{{ ((94 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Stadtgarten</th>
-                        <td>67</td>
-                        <td>{{ ((67 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Google</th>
-                        <td>31</td>
-                        <td>{{ ((31 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">keinegrenzen.org</th>
-                        <td>20</td>
-                        <td>{{ ((20 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Andere</th>
-                        <td>7</td>
-                        <td>{{ ((7 / sum) * 100)|number_format(2) }}&nbsp;&percnt;</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </section>
+            <img class="stats"
+                 src="{{ asset('/images/stats.jpg') }}"
+                 alt="Statistics"
+                 title="Statistics"
+            >
         </main>
 
         {% include 'partials/footer.html.twig' %}

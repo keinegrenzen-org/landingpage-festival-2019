@@ -3,20 +3,43 @@
 namespace App\Controller;
 
 use Exception;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\HttpKernel\KernelInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-class DefaultController extends Controller
+class DefaultController extends AbstractController
 {
 
     /**
      * @Route("/", name="index")
+     * @param \Symfony\Component\HttpKernel\KernelInterface $kernel
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index()
+    public function index(KernelInterface $kernel)
     {
+        $projectDir = $kernel->getProjectDir();
+        $finder = new Finder();
+        $finder->files()->in("$projectDir/public/images/photos");
+
+        $projectDirLength = strlen("$projectDir/public");
+        $photos = [];
+        foreach ($finder as $index => $photo) {
+            $photo = substr($photo, $projectDirLength);
+            $photos[$index] = $photo;
+        }
+
+        $videos = [
+            'https://www.youtube.com/embed/cfcC-VrsYJA',
+        ];
+
         return $this->render(
-            'index.html.twig'
+            'index.html.twig',
+            [
+                'photos' => $photos,
+                'videos' => $videos,
+            ]
         );
     }
 

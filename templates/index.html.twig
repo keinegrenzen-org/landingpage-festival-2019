@@ -106,7 +106,7 @@
             </h2>
             <p class="date"><span class="day">19.</span><span class="month">Januar</span></p>
             <p class="location">Stadtgarten</p>
-            <p class="doorTime"
+            <p class="door-time"
             ><span class="from">Gespendet:</span> 1675 &euro;</p>
             <div class="cta">
                 <a class="btn btn-cta scroll-to"
@@ -189,7 +189,7 @@
                          itemtype="https://schema.org/MusicGroup"
                     >
                         <div class="inner">
-                            <img src="{{ asset('images/invo-und-enna.jpg') }}"
+                            <img src="{{ asset('/images/invo-und-enna.jpg') }}"
                                  title="INVO &amp; ENNA"
                                  alt="Zwei Rapper, die auf der Bühne Spaß haben."
                                  itemprop="image"
@@ -218,7 +218,7 @@
                          itemtype="https://schema.org/MusicGroup"
                     >
                         <div class="inner">
-                            <img src="{{ asset('images/waking-up-in-stereo.jpg') }}"
+                            <img src="{{ asset('/images/waking-up-in-stereo.jpg') }}"
                                  title="Waking Up In Stereo"
                                  alt="Die Brüder mit Spaß bei der Sache."
                                  itemprop="image"
@@ -248,7 +248,7 @@
                          itemtype="https://schema.org/MusicGroup"
                     >
                         <div class="inner">
-                            <img src="{{ asset('images/suburbian-rex.jpg') }}"
+                            <img src="{{ asset('/images/suburbian-rex.jpg') }}"
                                  title="Suburbian Rex"
                                  alt="Die Band bestehend aus Gitarrist und Sänger, Bassist und Drummer."
                                  itemprop="image"
@@ -279,7 +279,7 @@
                              itemtype="https://schema.org/MusicGroup"
                         >
                             <div class="inner">
-                                <img src="{{ asset('images/memoria.jpg') }}"
+                                <img src="{{ asset('/images/memoria.jpg') }}"
                                      title="Memoria"
                                      alt="Die Achtk&ouml;pfige Band vor einem vollgespr&uuml;hten Altbau."
                                      itemprop="image"
@@ -332,7 +332,7 @@
                          itemtype="https://schema.org/MusicGroup"
                     >
                         <div class="inner">
-                            <img src="{{ asset('images/cute-but-evil-und-daniel-vee.jpg') }}"
+                            <img src="{{ asset('/images/cute-but-evil-und-daniel-vee.jpg') }}"
                                  title="Cute But Evil &amp; Daniel Vee"
                                  alt="Daniel und Tobias"
                                  itemprop="image"
@@ -361,7 +361,7 @@
                          itemtype="https://schema.org/MusicGroup"
                     >
                         <div class="inner">
-                            <img src="{{ asset('images/cubical.jpg') }}"
+                            <img src="{{ asset('/images/cubical.jpg') }}"
                                  title="Cubical"
                                  alt="Anil tr&auml;gt ein Shirt, auf de &quot;Manager&quot; steht."
                                  itemprop="image"
@@ -391,7 +391,7 @@
                          itemtype="https://schema.org/MusicGroup"
                     >
                         <div class="inner">
-                            <img src="{{ asset('images/blade-and-beard.jpg') }}"
+                            <img src="{{ asset('/images/blade-and-beard.jpg') }}"
                                  title="Blade&amp;Beard"
                                  alt="Arash &amp; Anoos auf einer Treppe"
                                  itemprop="image"
@@ -421,7 +421,7 @@
                          itemtype="https://schema.org/MusicGroup"
                     >
                         <div class="inner">
-                            <img src="{{ asset('images/montefusco.jpg') }}"
+                            <img src="{{ asset('/images/montefusco.jpg') }}"
                                  title="Montefusco"
                                  alt="Giovanni schaut konzentriert zur Seite."
                                  itemprop="image"
@@ -445,13 +445,45 @@
                     </div>
                 </div>
             </section>
-            <section class="container tickets"
-                     id="tickets"
+            <section class="container photos"
+                     id="photos"
             >
                 <h2>Fotos & Videos</h2>
-                <p class="text-warning masonry">
-                    {# TODO #}
-                </p>
+                <div class="masonry">
+                    {% for video in videos %}
+                        <iframe class="masonry-item"
+                                src="{{ video }}"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                        ></iframe>
+                    {% endfor %}
+                    {% for photo in photos %}
+                        <img class="masonry-item masonry-image"
+                             data-src="{{ asset(photo) }}"
+                             data-full-src="{{ asset(photo) }}"
+                             alt="Musiker auf der Bühne mit bunten Lichtern"
+                             title="keinegrenzen Festival 2019 - Live Musik"
+                             data-index="{{ loop.index0 }}"
+                             data-full-dimensions="[1920, 1280]"
+                        >
+                    {% endfor %}
+                </div>
+            </section>
+
+            <section class="container link">
+                <h2>Weitere Links und Infos</h2>
+                <p>Wir haben noch einiges für Euch vor- und nachbereitet.</p>
+                <a href="{{ path('numbers') }}"
+                   class="btn btn-cta"
+                >
+                    Abrechnung sehen
+                </a>
+                <a href="{{ path('stats') }}"
+                   class="btn btn-cta"
+                >
+                    Statistiken sehen
+                </a>
             </section>
             <section class="timetable">
                 <div class="row">

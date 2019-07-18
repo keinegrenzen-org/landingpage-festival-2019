@@ -21,11 +21,17 @@ Encore
 
   .enableSassLoader()
   .enablePostCssLoader()
-  .configureBabel(function (babelConfig) {
-    babelConfig.presets[0][1].targets = {
-      browsers: 'last 2 versions',
+  .configureBabel(
+    function (babelConfig) {
+      babelConfig.presets[0][1].targets = {
+        browsers: 'last 2 versions',
+      }
+    },
+    {
+      useBuiltIns: 'usage',
+      corejs: '3'
     }
-  })
+  )
 
   .addEntry('js/theme', './assets/js/theme.js')
   .addEntry('js/SoundCloud', './assets/js/SoundCloud.js')
