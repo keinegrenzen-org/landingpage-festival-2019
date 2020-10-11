@@ -1,8 +1,5 @@
-import smoothscroll      from 'smoothscroll-polyfill'
 import 'cookieconsent/src/cookieconsent.js'
-import PhotoSwipeGallery from 'photoswipe-bundle'
-
-smoothscroll.polyfill()
+import GLightbox from 'glightbox'
 
 class App {
 
@@ -19,13 +16,13 @@ class App {
       trigger.addEventListener('click', e => {
         e.preventDefault()
 
-        const clickTarget  = e.currentTarget
+        const clickTarget = e.currentTarget
         const scrollTarget = clickTarget.getAttribute('href')
 
         const targetElement = document.getElementById(scrollTarget.replace('#', ''))
-        const rect          = targetElement.getBoundingClientRect()
-        const distance      = rect.top
-        window.scrollBy({top: distance, behavior: 'smooth'})
+        const rect = targetElement.getBoundingClientRect()
+        const distance = rect.top
+        window.scrollBy({ top: distance, behavior: 'smooth' })
 
         history.replaceState({}, '', scrollTarget)
       }, false)
@@ -34,7 +31,7 @@ class App {
 
   initIframe () {
     const iframeElement = document.querySelector('.soundcloud iframe')
-    const widget        = window.SC.Widget(iframeElement)
+    const widget = window.SC.Widget(iframeElement)
 
     const title = document.querySelector('.soundcloud .title')
     const frame = title.parentNode
@@ -86,17 +83,21 @@ class App {
 
   initLazyLoad () {
     const masonry = document.querySelector('.masonry')
-    const images  = masonry.querySelectorAll('.masonry-image')
+    const images = masonry.querySelectorAll('.masonry-image')
+    const lightBoxElements = []
 
-    const gallery = new PhotoSwipeGallery(
-      masonry,
-      '.masonry-image',
-      1,
-      {
-        shareEl: false,
-        showHideOpacity: true
-      }
-    )
+    for (const image of images) {
+      lightBoxElements.push({
+        'type': 'image',
+        'href': image.dataset.fullSrc
+      })
+
+      image.addEventListener('click', function(event){
+        lightBox.openAt(parseInt(event.target.dataset.index))
+      })
+    }
+
+    const lightBox = new GLightbox({elements: lightBoxElements})
 
     const observer = new IntersectionObserver(function (entries, observer) {
       for (const entry of entries) {
@@ -104,10 +105,7 @@ class App {
           observer.unobserve(entry.target)
 
           const image = entry.target
-          image.src   = image.dataset.src
-          image.load  = function () {
-            gallery.updateElements()
-          }
+          image.src = image.dataset.src
         }
       }
     })

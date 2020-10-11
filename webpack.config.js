@@ -1,5 +1,4 @@
-const Encore            = require('@symfony/webpack-encore')
-const BabelMinifyPlugin = require('babel-minify-webpack-plugin')
+const Encore = require('@symfony/webpack-encore')
 
 Encore
   .enableBuildNotifications(true)
@@ -16,36 +15,38 @@ Encore
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
 
-  .enableSassLoader()
-  .enablePostCssLoader()
-
-  .enableSassLoader()
-  .enablePostCssLoader()
-  .configureBabel(
-    function (babelConfig) {
-      babelConfig.presets[0][1].targets = {
-        browsers: 'last 2 versions',
-      }
-    },
-    {
-      useBuiltIns: 'usage',
-      corejs: '3'
-    }
-  )
-
   .addEntry('js/theme', './assets/js/theme.js')
   .addEntry('js/SoundCloud', './assets/js/SoundCloud.js')
   .addStyleEntry('css/theme', './assets/css/theme.scss')
   .addStyleEntry('css/numbers', './assets/css/numbers.scss')
   .addStyleEntry('css/index', './assets/css/index.scss')
 
-if (Encore.isProduction()) {
-  Encore.addPlugin(
-    new BabelMinifyPlugin(
-      {removeConsole: true},
-      {comments: false}
-    )
-  )
-}
+  .enableSassLoader()
+  .enablePostCssLoader()
 
-module.exports = Encore.getWebpackConfig()
+  .configureUrlLoader({
+    images: {
+      esModule: false
+    }
+  })
+
+  .configureTerserPlugin(function (options) {
+    options.extractComments = false
+    options.cache = false
+    options.parallel = true
+    options.terserOptions = {
+      keep_classnames: false,
+      mangle: true,
+      compress: false,
+      keep_fnames: false,
+      output: {
+        comments: false
+      }
+    }
+  })
+
+const config = Encore.getWebpackConfig()
+
+config.target = 'web'
+
+module.exports = config

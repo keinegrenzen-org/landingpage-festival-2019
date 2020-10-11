@@ -1,7 +1,14 @@
 @import 'components/variables';
 @import 'components/fonts';
 @import 'components/mixins';
-@import "components/variables";
+@import '~glightbox/dist/css/glightbox.css';
+
+$embed-responsive-aspect-ratios: (
+  (4 3),
+  (3 2)
+);
+
+@import '~bootstrap/scss/utilities/embed';
 
 html,
 body {
@@ -97,30 +104,6 @@ p {
   }
 }
 
-@keyframes btn-animation-hover {
-  0% {
-    box-shadow: 10px 10px 0 0 $shadow-color;
-    transform: translate(0, 0);
-  }
-
-  100% {
-    box-shadow: 14px 14px 0 0 $shadow-color;
-    transform: translate(-2px, -2px);
-  }
-}
-
-@keyframes btn-animation-active {
-  0% {
-    box-shadow: 14px 14px 0 0 $shadow-color;
-    transform: translate(0, 0);
-  }
-
-  100% {
-    box-shadow: 8px 8px 0 0 $shadow-color;
-    transform: translate(2px, 2px);
-  }
-}
-
 .btn {
   animation: btn-animation 2s infinite;
   backface-visibility: hidden;
@@ -130,21 +113,27 @@ p {
   display: inline-block;
   font-family: 'League Gothic', sans-serif;
   font-size: 2rem;
-  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: subpixel-antialiased;
   letter-spacing: 2px;
+  -moz-osx-font-smoothing: grayscale;
   padding: 1rem;
   text-decoration: none;
   text-transform: uppercase;
+  transform: translate(0, 0);
   transform-style: preserve-3d;
+  transition: transform .3s ease, box-shadow .3s ease;
   will-change: transform;
 
   &:hover {
-    animation: btn-animation-hover .3s forwards;
+    animation: none;
+    box-shadow: 14px 14px 0 0 $shadow-color;
+    transform: translate(-2px, -2px);
   }
 
   &:active {
-    animation: btn-animation-active .3s forwards;
+    animation: none;
+    box-shadow: 8px 8px 0 0 $shadow-color;
+    transform: translate(2px, 2px);
   }
 }
 
@@ -199,8 +188,8 @@ footer {
     }
 
     .open-source {
-      font-weight: $font-weight-thin;
       align-self: center;
+      font-weight: $font-weight-thin;
       margin: auto;
 
       a {
@@ -211,8 +200,8 @@ footer {
 
     .origin {
       align-self: end;
-      margin-top: auto;
       line-height: 2;
+      margin-top: auto;
     }
 
     .icon {

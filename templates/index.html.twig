@@ -48,11 +48,6 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('css/theme') }}
             {{ encore_entry_link_tags('css/index') }}
-
-            <link rel="stylesheet"
-                  type="text/css"
-                  href="https://tickets.keinegrenzen.org/event/festival/widget/v1.css"
-            >
         {% endblock %}
         <link rel="canonical"
               href="https://festival.keinegrenzen.org"
@@ -82,15 +77,6 @@
     <body itemscope
           itemtype="https://schema.org/Event"
     >
-        <script type="text/javascript"
-                src="https://festival.keinegrenzen.org/stat/pws.php?mode=js"
-        ></script>
-        <noscript>
-            <img src="https://festival.keinegrenzen.org/stat/pws.php?mode=img"
-                 style="border:0; width:1px; height:1px"
-                 alt="noscript-img"
-            >
-        </noscript>
         <header class="container">
             <h1>
                 <span>keine</span>
@@ -110,7 +96,7 @@
             ><span class="from">Gespendet:</span> 1675 &euro;</p>
             <div class="cta">
                 <a class="btn btn-cta scroll-to"
-                   href="#tickets"
+                   href="#fotos"
                 >Fotos, Videos & Ergebnisse ansehen
                 </a>
             </div>
@@ -141,7 +127,9 @@
                                href="https://www.aerzte-ohne-grenzen.de/"
                                target="_blank"
                                rel="noopener nofollow"
-                            >&bdquo;<span itemprop="name">&Auml;rzte ohne Grenzen</span>&ldquo;
+                               class="spaceless-link"
+                            >
+                                &bdquo;<span itemprop="name">&Auml;rzte ohne Grenzen</span>&ldquo;
                             </a>
                             zu sammeln.
                         </p>
@@ -151,7 +139,9 @@
                            title="keinegrenzen.org"
                            target="_blank"
                            rel="noopener nofollow"
-                        >Unsere Website
+                           class="spaceless-link"
+                        >
+                            Unsere Website
                         </a>
                         bietet aktuell zum Beispiel Musik von unabh&auml;ngigen K&uuml;nstlern zum kostenlosen Download
                         an
@@ -175,7 +165,7 @@
                     </p>
                     <div class="cta">
                         <a class="btn btn-cta scroll-to"
-                           href="#tickets"
+                           href="#fotos"
                         >Fotos, Videos & Ergebnisse ansehen
                         </a>
                     </div>
@@ -446,17 +436,20 @@
                 </div>
             </section>
             <section class="container photos"
-                     id="photos"
+                     id="fotos"
             >
                 <h2>Fotos & Videos</h2>
                 <div class="masonry">
                     {% for video in videos %}
-                        <iframe class="masonry-item"
-                                src="{{ video }}"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen
-                        ></iframe>
+                        <div class="masonry-item">
+                            <div class="embed-responsive embed-responsive-3by2">
+                                <iframe class="embed-responsive-item masonry-video"
+                                        src="{{ video }}"
+                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen
+                                ></iframe>
+                            </div>
+                        </div>
                     {% endfor %}
                     {% for photo in photos %}
                         <img class="masonry-item masonry-image"
@@ -466,6 +459,7 @@
                              title="keinegrenzen Festival 2019 - Live Musik"
                              data-index="{{ loop.index0 }}"
                              data-full-dimensions="[1920, 1280]"
+                             src="{{ asset('images/placeholder.svg') }}"
                         >
                     {% endfor %}
                 </div>
@@ -565,10 +559,8 @@
             <h4 class="title">Musik H&ouml;ren</h4>
             <iframe width="100%"
                     height="450"
-                    scrolling="no"
-                    frameborder="no"
                     title="SoundCloud Player"
-                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/668710692&color=%23fc2d2d&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_artwork=false&download=false&sharing=false&buying=false"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1143840418%3Fsecret_token%3Ds-1wmotc2KF3I&color=%23fc2d2d&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_artwork=false&download=false&sharing=false&buying=false"
             ></iframe>
         </div>
 
@@ -578,11 +570,6 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('js/theme') }}
             {{ encore_entry_script_tags('js/SoundCloud') }}
-
-            <script type="text/javascript"
-                    src="https://tickets.keinegrenzen.org/widget/v1.de.js"
-                    async
-            ></script>
         {% endblock %}
     </body>
 </html>

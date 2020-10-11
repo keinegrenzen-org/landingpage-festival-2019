@@ -1,13 +1,6 @@
 @import 'components/variables';
 @import 'components/mixins';
-@import '~sticky-state/src/sticky-state.css';
 @import '~cookieconsent/build/cookieconsent.min.css';
-@import '~photoswipe/src/css/main';
-@import '~photoswipe/src/css/default-skin/default-skin';
-
-.pswp__caption > .pswp__caption__center {
-  text-align: center;
-}
 
 .fixed-nav {
   height: $nav-height;
@@ -333,14 +326,14 @@ header {
 
     .text {
       transform: translateY(0);
+    }
 
-      &::before {
-        opacity: .65;
-      }
+    .text::before {
+      opacity: .65;
+    }
 
-      .title {
-        transform: translateY(0);
-      }
+    .title {
+      transform: translateY(0);
     }
   }
 
@@ -505,6 +498,7 @@ header {
       height: auto;
       padding: .5rem;
       width: 50%;
+      object-fit: contain;
 
       @media screen and (min-width: $break-medium) {
         width: 33.33333%;
@@ -612,6 +606,10 @@ header {
       transform: rotate(-45deg);
     }
   }
+
+  iframe {
+    border: 0;
+  }
 }
 
 .link {
@@ -622,4 +620,8 @@ header {
     background: $theme-blue;
     margin: 1rem;
   }
+}
+
+.spaceless-link {
+  display: inline-flex;
 }

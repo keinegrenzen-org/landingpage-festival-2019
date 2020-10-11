@@ -1,19 +1,21 @@
 {
   "devDependencies": {
-    "@symfony/webpack-encore": "^0.27.0",
-    "autoprefixer": "^8.6.5",
-    "babel-minify-webpack-plugin": "^0.3.1",
-    "core-js": "^3.1.4",
-    "css-mqpacker": "^6.0.2",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
+    "@symfony/webpack-encore": "^0.30.2",
+    "autoprefixer": "^9.7.0",
     "cssnano": "^4.1.10",
-    "intersection-observer": "^0.7.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^4.13.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^1.0.6",
-    "sass-loader": "^7.1.0",
-    "uglifyjs-webpack-plugin": "^1.3.0",
-    "webpack-notifier": "^1.7.0"
+    "sass-loader": "^8.0.0",
+    "url-loader": "^4.0.0",
+    "vue-loader": "^15.9.1",
+    "vue-template-compiler": "^2.6.12",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-notifier": "^1.8.0",
+    "webpack-sources": "^1.4.3"
   },
   "license": "GPLv3",
   "private": true,
@@ -25,10 +27,10 @@
     "build": "encore production"
   },
   "dependencies": {
-    "bootstrap": "^4.3.1",
-    "cookieconsent": "latest",
-    "photoswipe-bundle": "github:barthy-koeln/photoswipe-bundle#master",
-    "smoothscroll-polyfill": "^0.4.4",
-    "sticky-state": "^2.4.1"
+    "@babel/runtime-corejs3": "^7.11.2",
+    "bootstrap": "^4.5.2",
+    "cookieconsent": "^3.1.1",
+    "core-js": "^3.3.4",
+    "glightbox": "^3.0.5"
   }
 }

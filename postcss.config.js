@@ -3,6 +3,9 @@ module.exports = {
   plugins: {
     'autoprefixer': {},
     'postcss-discard-comments': {},
-    'cssnano': {}
+    'cssnano': {
+      reduceIdents: false,
+      zindex: false
+    }
   }
 }
