@@ -6,7 +6,7 @@
     "ext-curl": "*",
     "ext-iconv": "*",
     "ext-json": "*",
-    "sensio/framework-extra-bundle": "^5.1",
+    "sensio/framework-extra-bundle": "^6.1",
     "symfony/asset": "^5.3",
     "symfony/console": "^4.4",
     "symfony/finder": "^5.3",
@@ -15,7 +15,7 @@
     "symfony/monolog-bundle": "^3.6",
     "symfony/twig-bundle": "^4.4",
     "symfony/webpack-encore-bundle": "^1.7",
-    "symfony/yaml": "^4.4",
+    "symfony/yaml": "^5.3",
     "symfony/dotenv": "^5.3"
   },
   "require-dev": {
