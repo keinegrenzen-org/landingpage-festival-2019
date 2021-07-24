@@ -15,7 +15,7 @@
     "symfony/monolog-bundle": "^3.6",
     "symfony/twig-bundle": "^4.4",
     "symfony/webpack-encore-bundle": "^1.7",
-    "symfony/yaml": "^4.4",
+    "symfony/yaml": "^5.3",
     "symfony/dotenv": "^5.3"
   },
   "require-dev": {
