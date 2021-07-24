@@ -15,12 +15,11 @@ Encore
   .enableSourceMaps(!Encore.isProduction())
   .enableVersioning(Encore.isProduction())
 
-  .addEntry('js/theme', './assets/js/theme.js')
-  .addEntry('js/SoundCloud', './assets/js/SoundCloud.js')
+  .addEntry('theme', './assets/js/theme.js')
+  .addEntry('soundcloud', './assets/js/SoundCloud.js')
 
-  .addStyleEntry('css/theme', './assets/css/theme.scss')
-  .addStyleEntry('css/numbers', './assets/css/numbers.scss')
-  .addStyleEntry('css/index', './assets/css/index.scss')
+  .addStyleEntry('numbers', './assets/css/numbers.scss')
+  .addStyleEntry('index', './assets/css/index.scss')
 
   .enableSassLoader()
   .enablePostCssLoader()
@@ -65,7 +64,6 @@ if (process.env.ANALYZE) {
 
 if (Encore.isDevServer()) {
   Encore
-    .disableCssExtraction()
     .enableSourceMaps()
     .configureDevServerOptions(options => {
       // hotfix for webpack-dev-server 4.0.0rc0

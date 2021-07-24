@@ -46,8 +46,8 @@
         />
         <title>{{ title }}</title>
         {% block stylesheets %}
-            {{ encore_entry_link_tags('css/theme') }}
-            {{ encore_entry_link_tags('css/index') }}
+            {{ encore_entry_link_tags('theme') }}
+            {{ encore_entry_link_tags('index') }}
         {% endblock %}
         <link rel="canonical"
               href="https://festival.keinegrenzen.org"
@@ -568,8 +568,8 @@
               itemprop="image"
         >{{ image }}</span>
         {% block javascripts %}
-            {{ encore_entry_script_tags('js/theme') }}
-            {{ encore_entry_script_tags('js/SoundCloud') }}
+            {{ encore_entry_script_tags('theme') }}
+            {{ encore_entry_script_tags('soundcloud') }}
         {% endblock %}
     </body>
 </html>
