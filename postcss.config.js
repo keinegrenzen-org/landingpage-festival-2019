@@ -1,9 +1,9 @@
 module.exports = {
   parser: 'postcss-scss',
   plugins: {
-    'autoprefixer': {},
+    autoprefixer: {},
     'postcss-discard-comments': {},
-    'cssnano': {
+    cssnano: {
       reduceIdents: false,
       zindex: false
     }
