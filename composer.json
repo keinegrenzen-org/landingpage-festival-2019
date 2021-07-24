@@ -9,7 +9,7 @@
     "sensio/framework-extra-bundle": "^6.1",
     "symfony/asset": "^5.3",
     "symfony/console": "^4.4",
-    "symfony/finder": "^4.4",
+    "symfony/finder": "^5.3",
     "symfony/flex": "^1.1",
     "symfony/framework-bundle": "^4.4",
     "symfony/monolog-bundle": "^3.6",
