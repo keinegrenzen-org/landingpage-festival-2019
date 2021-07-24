@@ -1,36 +1,32 @@
 {
   "devDependencies": {
-    "@babel/plugin-transform-runtime": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
-    "@symfony/webpack-encore": "^0.30.2",
-    "autoprefixer": "^9.7.0",
-    "cssnano": "^4.1.10",
-    "node-sass": "^4.13.0",
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-transform-runtime": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@symfony/webpack-encore": "^1.5.0",
+    "autoprefixer": "^9.8.6",
+    "core-js": "^3.15.2",
+    "cssnano": "^4.1.11",
+    "node-sass": "^4.14.1",
     "postcss-discard-comments": "^2.0.4",
-    "postcss-loader": "^3.0.0",
-    "postcss-scss": "^1.0.6",
-    "sass-loader": "^8.0.0",
-    "url-loader": "^4.0.0",
-    "vue-loader": "^15.9.1",
-    "vue-template-compiler": "^2.6.12",
-    "webpack-bundle-analyzer": "^3.6.0",
-    "webpack-notifier": "^1.8.0",
+    "postcss-loader": "^5.3.0",
+    "postcss-scss": "^4.0.0",
+    "postcss": "^8.3.6",
+    "sass-loader": "^10.2.0",
+    "webpack-bundle-analyzer": "^3.9.0",
     "webpack-sources": "^1.4.3"
   },
   "license": "GPLv3",
   "private": true,
   "scripts": {
-    "dev-server": "encore dev-server",
-    "php-server": "php bin/console server:run",
+    "dev-server": "encore dev-server --hot",
+    "php-server": "symfony serve",
     "dev": "encore dev",
     "watch": "encore dev --watch",
     "build": "encore production"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.11.2",
     "bootstrap": "^4.5.2",
-    "cookieconsent": "^3.1.1",
-    "core-js": "^3.3.4",
     "glightbox": "^3.0.5"
   }
 }
