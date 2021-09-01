@@ -27,6 +27,6 @@
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
-    "glightbox": "^3.0.5"
+    "glightbox": "^3.1.0"
   }
 }
