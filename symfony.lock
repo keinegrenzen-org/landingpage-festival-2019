@@ -65,6 +65,9 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/event-dispatcher": {
+        "version": "1.0.0"
+    },
     "psr/log": {
         "version": "1.0.2"
     },
@@ -104,9 +107,6 @@
     "symfony/contracts": {
         "version": "v1.0.2"
     },
-    "symfony/debug": {
-        "version": "v4.1.0"
-    },
     "symfony/debug-bundle": {
         "version": "4.1",
         "recipe": {
@@ -115,9 +115,6 @@
             "version": "4.1",
             "ref": "f8863cbad2f2e58c4b65fa1eac892ab189971bea"
         }
-    },
-    "symfony/debug-pack": {
-        "version": "v1.0.5"
     },
     "symfony/dependency-injection": {
         "version": "v4.1.0"
@@ -200,6 +197,12 @@
     "symfony/polyfill-ctype": {
         "version": "v1.8.0"
     },
+    "symfony/polyfill-intl-grapheme": {
+        "version": "v1.23.1"
+    },
+    "symfony/polyfill-intl-normalizer": {
+        "version": "v1.23.0"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.8.0"
     },
@@ -217,9 +220,6 @@
     },
     "symfony/process": {
         "version": "v4.1.0"
-    },
-    "symfony/profiler-pack": {
-        "version": "v1.0.3"
     },
     "symfony/property-access": {
         "version": "v4.1.0"
@@ -247,6 +247,9 @@
     },
     "symfony/stopwatch": {
         "version": "v4.1.0"
+    },
+    "symfony/string": {
+        "version": "v5.3.7"
     },
     "symfony/translation-contracts": {
         "version": "v2.3.0"
