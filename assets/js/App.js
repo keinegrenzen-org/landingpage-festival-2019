@@ -133,7 +133,7 @@ export class App {
 
       for (let trigger of triggers) {
         trigger.addEventListener('click', function () {
-          const ids = JSON.parse(trigger.dataset.track)jk
+          const ids = JSON.parse(trigger.dataset.track)
           if (ids.length > 1) {
             const id = new Date().getSeconds() % 2
             widget.skip(ids[id])
