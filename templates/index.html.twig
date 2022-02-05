@@ -63,7 +63,7 @@
     {% if not app.debug %}
       {% include 'partials/ccm.twig' only %}
     {% endif %}
-    
+
     {% block stylesheets %}
       {{ encore_entry_link_tags('theme', entrypointName = buildType) }}
       {{ encore_entry_link_tags('index', entrypointName = buildType) }}
@@ -531,14 +531,18 @@
           {% for video in videos %}
             <div class="masonry-item">
               <div class="embed-responsive embed-responsive-3by2">
-                <iframe
-                  width="560"
-                  height="315"
-                  src="{{ video }}"
-                  title="YouTube video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
+                <div
+                  class="youtube-embed"
+                  data-source="{{ video }}"
+                >
+                  YouTube Einbettung nicht erlaubt.
+                  <a
+                    href="{{ video }}"
+                    target="_blank"
+                    rel="nofollow noopener"
+                  >Hier ansehen.
+                  </a>
+                </div>
               </div>
             </div>
           {% endfor %}
@@ -660,12 +664,15 @@
 
     <div class="soundcloud">
       <h4 class="title">Musik H&ouml;ren</h4>
-      <iframe
-        width="100%"
-        height="450"
-        title="SoundCloud Player"
-        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1143840418%3Fsecret_token%3Ds-1wmotc2KF3I&color=%23fc2d2d&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_artwork=false&download=false&sharing=false&buying=false"
-      ></iframe>
+      <div
+        class="soundcloud-embed"
+        data-source="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1143840418%3Fsecret_token%3Ds-1wmotc2KF3I&color=%23fc2d2d&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_artwork=false&download=false&sharing=false&buying=false"
+      >
+        SoundCloud Einbettung nicht erlaubt.
+        <a href="https://soundcloud.com/barthy-b/sets/keinegrennzen-festival-2019/s-1wmotc2KF3I?si=e96f3852ec494444853c5765c8c2211a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+          Hier anhören.
+        </a>
+      </div>
     </div>
 
     <span
@@ -674,7 +681,14 @@
     >{{ image }}</span>
     {% block javascripts %}
       {{ encore_entry_script_tags('theme', entrypointName = buildType) }}
-      {{ encore_entry_script_tags('soundcloud', entrypointName = buildType) }}
+
+      {% set files = encore_entry_js_files('soundcloud', entrypointName = buildType) %}
+      {% for file in files %}
+        <span
+          class="soundcloud-entry"
+          data-source="{{ file }}"
+        ></span>
+      {% endfor %}
     {% endblock %}
   </body>
 </html>

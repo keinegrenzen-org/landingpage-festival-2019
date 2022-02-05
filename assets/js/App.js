@@ -4,7 +4,8 @@ export class App {
 
   constructor () {
     this.initSmoothScroll()
-    this.initIframe()
+    this.initSoundCloud()
+    this.initYouTube()
     this.initLazyLoad()
   }
 
@@ -27,10 +28,30 @@ export class App {
     }
   }
 
-  initIframe () {
-    const iframeElement = document.querySelector('.soundcloud iframe')
-    const widget = window.SC.Widget(iframeElement)
+  initYouTube () {
+    if (window.CCM && !window.CCM.consent) {
+      return
+    }
 
+    const videos = document.querySelectorAll('.youtube-embed')
+    for (const video of videos) {
+      const markup = `
+        <iframe
+          width="560"
+          height="315"
+          src="${video.dataset.source}"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+     `
+
+      video.parentElement.insertAdjacentHTML('beforeend', markup)
+      video.remove()
+    }
+  }
+
+  initSoundCloud () {
     const title = document.querySelector('.soundcloud .title')
     const frame = title.parentNode
 
@@ -38,23 +59,17 @@ export class App {
       frame.classList.toggle('active')
     })
 
-    widget.bind(window.SC.Widget.Events.READY, function () {
-      const triggers = document.querySelectorAll('.sc-trigger')
+    if (window.CCM && !window.CCM.consent) {
+      return
+    }
 
-      for (let trigger of triggers) {
-        trigger.addEventListener('click', function () {
-          const ids = JSON.parse(trigger.dataset.track)
-          if (ids.length > 1) {
-            const id = new Date().getSeconds() % 2
-            widget.skip(ids[id])
-          } else {
-            widget.skip(ids[0])
-          }
-
-          frame.classList.add('active')
-        })
-      }
-    })
+    const links = document.querySelectorAll('.soundcloud-entry')
+    for (const link of links) {
+      const tag = document.createElement('script')
+      tag.src = link.dataset.source
+      tag.addEventListener('load', this.onSoundCloudLoaded)
+      link.replaceWith(tag)
+    }
   }
 
   initLazyLoad () {
@@ -89,5 +104,44 @@ export class App {
     for (const image of images) {
       observer.observe(image)
     }
+  }
+
+  onSoundCloudLoaded () {
+    const title = document.querySelector('.soundcloud .title')
+    const frame = title.parentNode
+    
+    const embed = document.querySelector('.soundcloud-embed')
+    const markup = `
+      <iframe
+        width="100%"
+        height="450"
+        title="SoundCloud Player"
+        src="${embed.dataset.source}"
+      ></iframe>
+     `
+
+    embed.parentElement.insertAdjacentHTML('beforeend', markup)
+    embed.remove()
+
+    const iframeElement = document.querySelector('.soundcloud iframe')
+    const widget = window.SC.Widget(iframeElement)
+
+    widget.bind(window.SC.Widget.Events.READY, function () {
+      const triggers = document.querySelectorAll('.sc-trigger')
+
+      for (let trigger of triggers) {
+        trigger.addEventListener('click', function () {
+          const ids = JSON.parse(trigger.dataset.track)
+          if (ids.length > 1) {
+            const id = new Date().getSeconds() % 2
+            widget.skip(ids[id])
+          } else {
+            widget.skip(ids[0])
+          }
+
+          frame.classList.add('active')
+        })
+      }
+    })
   }
 }

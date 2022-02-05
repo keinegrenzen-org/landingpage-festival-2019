@@ -30,7 +30,7 @@ class DefaultController extends AbstractController
         }
 
         $videos = [
-            'https://www.youtube-nocookie.com/embed/cfcC-VrsYJA',
+            'https://www.youtube.com/embed/cfcC-VrsYJA',
         ];
 
         return $this->render(

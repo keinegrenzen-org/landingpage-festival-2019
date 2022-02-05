@@ -1,3 +1,4 @@
+@use "sass:math";
 @import "components/variables";
 @import "components/mixins";
 
@@ -65,7 +66,7 @@ header {
 
   h1 {
     font-size: 15vw;
-    left: (74 / 770) * 100vw;
+    left: math.div(74, 770) * 100vw;
     line-height: .65;
     position: absolute;
     top: 1vw;
@@ -73,7 +74,7 @@ header {
 
     @media screen and (max-width: $break-medium) {
       font-size: 17vw;
-      left: (24 / 770) * 100vw;
+      left: math.div(24, 770) * 100vw;
     }
 
     span {
@@ -100,13 +101,13 @@ header {
     display: flex;
     flex-direction: column;
     font-size: 3vw;
-    height: (116 / 770) * 100vw;
+    height: math.div(116, 770) * 100vw;
     justify-content: center;
-    left: (366 / 770) * 100vw;
+    left: math.div(366, 770) * 100vw;
     margin: 0;
     position: absolute;
     text-align: center;
-    width: (282 / 770) * 100vw;
+    width: math.div(282, 770) * 100vw;
 
     @media screen and (max-width: $break-medium) {
       transform: translate(20%, -20%);
@@ -122,7 +123,7 @@ header {
   }
 
   .logo {
-    $size: (116 / 770) * 100vw;
+    $size: math.div(116, 770) * 100vw;
     bottom: 0;
     height: $size;
     left: 0;
@@ -136,7 +137,7 @@ header {
   }
 
   .cta {
-    left: calc(#{(465 / 770) * 100vw} - 10px);
+    left: calc(#{math.div(465, 770) * 100vw} - 10px);
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -161,7 +162,7 @@ header {
     display: block;
     font-family: "Fivo Sans", sans-serif;
     font-weight: $font-weight-black;
-    left: (467 / 770) * 100vw;
+    left: math.div(467, 770) * 100vw;
     position: absolute;
     text-transform: uppercase;
     top: 0;
@@ -169,7 +170,7 @@ header {
     white-space: nowrap;
 
     @media screen and (max-width: $break-medium) {
-      left: (457 / 770) * 100vw;
+      left: math.div(457, 770) * 100vw;
     }
 
     span {
@@ -198,7 +199,7 @@ header {
     font-family: "Fivo Sans", sans-serif;
     font-size: 3vw;
     font-weight: $font-weight-black;
-    left: (574 / 770) * 100vw;
+    left: math.div(574, 770) * 100vw;
     position: absolute;
     text-transform: uppercase;
     top: 4.5vw;
@@ -212,7 +213,7 @@ header {
     font-family: "League Gothic", sans-serif;
     font-size: 7vw;
     font-weight: $font-weight-black;
-    left: (540 / 770) * 100vw;
+    left: math.div(540, 770) * 100vw;
     letter-spacing: 2px;
     position: absolute;
     text-transform: uppercase;
@@ -297,15 +298,15 @@ header {
     width: 100%;
 
     @media screen and (min-width: $break-small) {
-      width: (1 / 2) * 100%;
+      width: math.div(1, 2) * 100%;
     }
 
     @media screen and (min-width: $break-medium) {
-      width: (1 / 3) * 100%;
+      width: math.div(1, 3) * 100%;
     }
 
     @media screen and (min-width: $break-big) {
-      width: (1 / 4) * 100%;
+      width: math.div(1, 4) * 100%;
     }
   }
 
@@ -389,8 +390,8 @@ header {
   .title {
     font-size: 2rem;
     height: $title-height;
-    padding-bottom: $title-height / 4;
-    padding-top: $title-height / 4;
+    padding-bottom: math.div($title-height, 4);
+    padding-top: math.div($title-height, 4);
     position: relative;
     transform: translateY(-$title-movement - $title-line-height);
     transition: transform .3s ease-in-out;
@@ -405,7 +406,7 @@ header {
       height: $title-line-height;
       left: 50%;
       position: absolute;
-      transform: translateX(-50%) translateY(-$title-height / 4);
+      transform: translateX(-50%) translateY(math.div(-$title-height, 4));
       width: 50px;
     }
   }
@@ -511,14 +512,14 @@ header {
     .masonry-image:not([src]) {
       background-color: $shadow-color;
       height: 0;
-      padding-bottom: (1280 / 1920) * 50%;
+      padding-bottom: math.div(1280, 1920) * 50%;
 
       @media screen and (min-width: $break-medium) {
-        padding-bottom: (1280 / 1920) * 33.33333%;
+        padding-bottom: math.div(1280, 1920) * 33.33333%;
       }
 
       @media screen and (min-width: $break-big) {
-        padding-bottom: (1280 / 1920) * 25%;
+        padding-bottom: math.div(1280, 1920) * 25%;
       }
     }
   }
@@ -560,6 +561,27 @@ header {
   }
 }
 
+$soundcloud-title-height: 3rem;
+
+.soundcloud-embed,
+.youtube-embed {
+  align-items: center;
+  background-color: map-get($theme-colors, "red");
+  color: map-get($theme-colors, "white");
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.soundcloud-embed {
+  top: $soundcloud-title-height;
+}
+
 .soundcloud {
   background: $theme-grey;
   border: 2px solid $theme-black;
@@ -578,7 +600,7 @@ header {
     cursor: pointer;
     display: block;
     font-size: 1.5rem;
-    height: 3rem;
+    height: $soundcloud-title-height;
     line-height: 3rem;
     position: relative;
     text-align: center;
