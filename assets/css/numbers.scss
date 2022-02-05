@@ -1,5 +1,5 @@
-@import 'components/variables';
-@import 'components/mixins';
+@import "components/variables";
+@import "components/mixins";
 
 $primary: $theme-blue;
 $secondary: $theme-red;
@@ -9,12 +9,12 @@ $warning: #e3e329;
 $danger: $theme-red;
 $table-bg-level: -5;
 
-@import '~bootstrap/scss/functions';
-@import '~bootstrap/scss/mixins';
-@import '~bootstrap/scss/variables';
-@import '~bootstrap/scss/reboot';
-@import '~bootstrap/scss/tables';
-@import '~bootstrap/scss/utilities';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/tables";
+@import "~bootstrap/scss/utilities";
 
 body {
   display: flex;
@@ -38,7 +38,7 @@ header {
 
   a {
     color: $theme-white;
-    font-family: 'League Gothic', sans-serif;
+    font-family: "League Gothic", sans-serif;
     font-size: 2rem;
 
     &:hover {

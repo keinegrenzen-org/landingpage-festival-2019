@@ -1,18 +1,18 @@
-@import 'components/variables';
-@import 'components/fonts';
-@import 'components/mixins';
-@import '~glightbox/dist/css/glightbox.css';
+@import "components/variables";
+@import "components/fonts";
+@import "components/mixins";
+@import "~glightbox/dist/css/glightbox.css";
 
 $embed-responsive-aspect-ratios: (
-  (4 3),
-  (3 2)
+    (4 3),
+    (3 2)
 );
 
-@import '~bootstrap/scss/utilities/embed';
+@import "~bootstrap/scss/utilities/embed";
 
 html,
 body {
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   margin: 0;
   max-width: 100%;
@@ -45,7 +45,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'League Gothic', sans-serif;
+  font-family: "League Gothic", sans-serif;
   font-weight: $font-weight-regular;
   letter-spacing: 2px;
   margin: 0;
@@ -111,7 +111,7 @@ p {
   box-shadow: 10px 10px 0 0 $shadow-color;
   color: $theme-white;
   display: inline-block;
-  font-family: 'League Gothic', sans-serif;
+  font-family: "League Gothic", sans-serif;
   font-size: 2rem;
   -webkit-font-smoothing: subpixel-antialiased;
   letter-spacing: 2px;

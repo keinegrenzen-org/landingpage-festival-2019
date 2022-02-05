@@ -1,192 +1,213 @@
 {% set title = 'keinegrenzen Festival — Zahlen' %}
+{% set buildType = is_modern_browser() ? 'modern' : 'legacy' %}
 <!DOCTYPE html>
 <html lang="de">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-              content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        >
-        <meta name="msapplication-TileColor"
-              content="#2b5797"
-        >
-        <meta name="theme-color"
-              content="#ffffff"
-        >
-        <title>{{ title }}</title>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('theme') }}
-            {{ encore_entry_link_tags('numbers') }}
-        {% endblock %}
-        <link rel="canonical"
-              href="https://festival.keinegrenzen.org"
-        >
-        <link rel="apple-touch-icon"
-              sizes="180x180"
-              href="/apple-touch-icon.png"
-        >
-        <link rel="icon"
-              type="image/png"
-              sizes="32x32"
-              href="/favicon-32x32.png"
-        >
-        <link rel="icon"
-              type="image/png"
-              sizes="16x16"
-              href="/favicon-16x16.png"
-        >
-        <link rel="manifest"
-              href="/site.webmanifest"
-        >
-        <link rel="mask-icon"
-              href="/safari-pinned-tab.svg"
-              color="#fc2d2d"
-        >
-    </head>
-    <body>
-        <header>
-            <a
-                    href="{{ path('index') }}"
-            >
-                ⟵ zurück zur Startseite
-            </a>
-        </header>
+  <head>
+    <meta charset="UTF-8">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    >
+    <meta
+      name="msapplication-TileColor"
+      content="#2b5797"
+    >
+    <meta
+      name="theme-color"
+      content="#ffffff"
+    >
+    <title>{{ title }}</title>
+    {% block stylesheets %}
+      {{ encore_entry_link_tags('theme', entrypointName = buildType) }}
+      {{ encore_entry_link_tags('numbers', entrypointName = buildType) }}
+    {% endblock %}
+    <link
+      rel="canonical"
+      href="https://festival.keinegrenzen.org"
+    >
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicon-32x32.png"
+    >
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicon-16x16.png"
+    >
+    <link
+      rel="manifest"
+      href="/site.webmanifest"
+    >
+    <link
+      rel="mask-icon"
+      href="/safari-pinned-tab.svg"
+      color="#fc2d2d"
+    >
+  </head>
+  <body>
+    <header>
+      <a
+        href="{{ path('index') }}"
+      >
+        ⟵ zurück zur Startseite
+      </a>
+    </header>
 
-        <main>
-            <h1>keinegrenzen Festival: Kosten & Abrechnung</h1>
-            <section class="container paragraph table-responsive">
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr class="table-primary">
-                        <th colspan="3">Ausgaben</th>
-                    </tr>
-                    <tr class="table-sm">
-                        <th scope="col">Position</th>
-                        <th colspan="2"
-                            scope="col"
-                        >Betrag
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="table-danger">
-                        <th scope="row">Booking</th>
-                        <td colspan="2">&minus;{{ booking }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Personal (Office, Security, Abendkasse)</th>
-                        <td colspan="2">&minus;{{ staff }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Veranstaltungsort Miete</th>
-                        <td colspan="2">-{{ rent }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Catering & Hospitality</th>
-                        <td colspan="2">&minus;{{ catering }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Extras (B&auml;ndchen, Taschenascher, Stage Design, Cleaning Staff)</th>
-                        <td colspan="2">&minus;{{ extras }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Print</th>
-                        <td colspan="2">&minus;{{ print }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="table-danger">
-                        <th scope="row">Promotions</th>
-                        <td colspan="2">&minus;{{ promo }}&nbsp;&euro;</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr class="table-primary">
-                        <th colspan="4">Einnahmen</th>
-                    </tr>
-                    <tr class="table-sm">
-                        <th scope="col">Position</th>
-                        <th colspan="3"
-                            scope="col"
-                        >Betrag
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row"
-                            class="table-success align-middle"
-                        >Tickets Vorverkauf
-                        </th>
-                        <td colspan="1"
-                            class="table-success align-middle"
-                        >&plus;{{ ticketsNet }}&nbsp;&euro;
-                        </td>
-                        <td colspan="1"
-                            class="table-warning"
-                        >Brutto: &plus;{{ ticketsGross }}&nbsp;&euro;
-                        </td>
-                        <td colspan="1"
-                            class="table-danger"
-                        >PayPal & Stripe:
-                            &minus;{{ ticketsGross-ticketsNet }}&nbsp;&euro;
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"
-                            class="table-success"
-                        >Tickets Abendkasse
-                        </th>
-                        <td colspan="3"
-                            class="table-success"
-                        >&plus;{{ doors }}&nbsp;&euro;
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row"
-                            class="table-success"
-                        >Spendenbox Eingangsbereich
-                        </th>
-                        <td colspan="3"
-                            class="table-success"
-                        >&plus;{{ donations }}&nbsp;&euro;
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-                <table class="table table-bordered table-striped">
-                    <thead>
-                    <tr class="table-primary">
-                        <th colspan="3">Bilanz</th>
-                    </tr>
-                    <tr class="table-sm">
-                        <th scope="col">Position</th>
-                        <th colspan="2"
-                            scope="col"
-                        >Betrag
-                        </th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="table-danger">
-                        <th scope="row">Ausgaben</th>
-                        <td colspan="2">&minus;{{ expenses }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="table-success">
-                        <th scope="row">Einnahmen</th>
-                        <td colspan="2">&plus;{{ income }}&nbsp;&euro;</td>
-                    </tr>
-                    <tr class="{{ profit < 0 ? 'table-warning' : 'table-success' }}">
-                        <th scope="row">Gesamt</th>
-                        <td colspan="2">{{ profit }}&nbsp;&euro;</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </section>
-        </main>
+    <main>
+      <h1>keinegrenzen Festival: Kosten & Abrechnung</h1>
+      <section class="container paragraph table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr class="table-primary">
+            <th colspan="3">Ausgaben</th>
+          </tr>
+          <tr class="table-sm">
+            <th scope="col">Position</th>
+            <th
+              colspan="2"
+              scope="col"
+            >Betrag
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="table-danger">
+            <th scope="row">Booking</th>
+            <td colspan="2">&minus;{{ booking }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Personal (Office, Security, Abendkasse)</th>
+            <td colspan="2">&minus;{{ staff }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Veranstaltungsort Miete</th>
+            <td colspan="2">-{{ rent }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Catering & Hospitality</th>
+            <td colspan="2">&minus;{{ catering }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Extras (B&auml;ndchen, Taschenascher, Stage Design, Cleaning Staff)</th>
+            <td colspan="2">&minus;{{ extras }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Print</th>
+            <td colspan="2">&minus;{{ print }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Promotions</th>
+            <td colspan="2">&minus;{{ promo }}&nbsp;&euro;</td>
+          </tr>
+          </tbody>
+        </table>
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr class="table-primary">
+            <th colspan="4">Einnahmen</th>
+          </tr>
+          <tr class="table-sm">
+            <th scope="col">Position</th>
+            <th
+              colspan="3"
+              scope="col"
+            >Betrag
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th
+              scope="row"
+              class="table-success align-middle"
+            >Tickets Vorverkauf
+            </th>
+            <td
+              colspan="1"
+              class="table-success align-middle"
+            >&plus;{{ ticketsNet }}&nbsp;&euro;
+            </td>
+            <td
+              colspan="1"
+              class="table-warning"
+            >Brutto: &plus;{{ ticketsGross }}&nbsp;&euro;
+            </td>
+            <td
+              colspan="1"
+              class="table-danger"
+            >PayPal & Stripe:
+             &minus;{{ ticketsGross-ticketsNet }}&nbsp;&euro;
+            </td>
+          </tr>
+          <tr>
+            <th
+              scope="row"
+              class="table-success"
+            >Tickets Abendkasse
+            </th>
+            <td
+              colspan="3"
+              class="table-success"
+            >&plus;{{ doors }}&nbsp;&euro;
+            </td>
+          </tr>
+          <tr>
+            <th
+              scope="row"
+              class="table-success"
+            >Spendenbox Eingangsbereich
+            </th>
+            <td
+              colspan="3"
+              class="table-success"
+            >&plus;{{ donations }}&nbsp;&euro;
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr class="table-primary">
+            <th colspan="3">Bilanz</th>
+          </tr>
+          <tr class="table-sm">
+            <th scope="col">Position</th>
+            <th
+              colspan="2"
+              scope="col"
+            >Betrag
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="table-danger">
+            <th scope="row">Ausgaben</th>
+            <td colspan="2">&minus;{{ expenses }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-success">
+            <th scope="row">Einnahmen</th>
+            <td colspan="2">&plus;{{ income }}&nbsp;&euro;</td>
+          </tr>
+          <tr class="{{ profit < 0 ? 'table-warning' : 'table-success' }}">
+            <th scope="row">Gesamt</th>
+            <td colspan="2">{{ profit }}&nbsp;&euro;</td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
 
-        {% include 'partials/footer.html.twig' %}
+    {% include 'partials/footer.html.twig' %}
 
-    </body>
+  </body>
 </html>
 
 

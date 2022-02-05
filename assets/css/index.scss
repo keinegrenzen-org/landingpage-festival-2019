@@ -1,5 +1,5 @@
-@import 'components/variables';
-@import 'components/mixins';
+@import "components/variables";
+@import "components/mixins";
 
 .fixed-nav {
   height: $nav-height;
@@ -51,7 +51,7 @@
 header {
   $header-height: 45.0649vw;
   $header-expansion: 20vh;
-  background: url('../images/lp_banner.svg') no-repeat center center;
+  background: url("../images/lp_banner.svg") no-repeat center center;
   background-size: cover;
   height: 0;
   overflow: hidden;
@@ -209,7 +209,7 @@ header {
   .door-time {
     color: $theme-white;
     display: block;
-    font-family: 'League Gothic', sans-serif;
+    font-family: "League Gothic", sans-serif;
     font-size: 7vw;
     font-weight: $font-weight-black;
     left: (540 / 770) * 100vw;
@@ -230,7 +230,7 @@ header {
 }
 
 .paragraph {
-  background: url('../images/lp_paragraph.svg') no-repeat;
+  background: url("../images/lp_paragraph.svg") no-repeat;
   background-size: cover;
   color: $theme-white;
   font-size: 1.2rem;
@@ -253,9 +253,9 @@ header {
     position: relative;
 
     &::before {
-      background: url('../images/lp_asterisk.svg') no-repeat;
+      background: url("../images/lp_asterisk.svg") no-repeat;
       background-size: contain;
-      content: ' ';
+      content: " ";
       display: block;
       height: $size - $margin;
       left: 50%;
@@ -353,7 +353,7 @@ header {
 
     &::before {
       background-color: $theme-blue;
-      content: ' ';
+      content: " ";
       display: block;
       height: 100%;
       left: 0;
@@ -400,7 +400,7 @@ header {
     &::after {
       background-color: $theme-red;
       bottom: -$title-line-height;
-      content: ' ';
+      content: " ";
       display: block;
       height: $title-line-height;
       left: 50%;
@@ -439,9 +439,9 @@ header {
     &::after {
       align-items: center;
       color: $theme-white;
-      content: '?';
+      content: "?";
       display: flex;
-      font-family: 'Fivo Sans', sans-serif;
+      font-family: "Fivo Sans", sans-serif;
       font-size: 10rem;
       height: 100%;
       justify-content: center;
@@ -495,9 +495,9 @@ header {
       box-sizing: border-box;
       cursor: pointer;
       height: auto;
+      object-fit: contain;
       padding: .5rem;
       width: 50%;
-      object-fit: contain;
 
       @media screen and (min-width: $break-medium) {
         width: 33.33333%;
@@ -527,7 +527,7 @@ header {
 .timetable {
   background-color: $theme-black;
   color: $theme-white;
-  font-family: 'League Gothic', sans-serif;
+  font-family: "League Gothic", sans-serif;
   font-size: 2.5rem;
   line-height: 1;
   padding: 5vh 5vw;
@@ -585,7 +585,7 @@ header {
     width: 100%;
 
     &::before {
-      content: '+';
+      content: "+";
       display: block;
       height: 3rem;
       left: 0;

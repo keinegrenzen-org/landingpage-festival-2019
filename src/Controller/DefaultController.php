@@ -19,18 +19,18 @@ class DefaultController extends AbstractController
     public function index(KernelInterface $kernel): Response
     {
         $projectDir = $kernel->getProjectDir();
-        $finder = new Finder();
+        $finder     = new Finder();
         $finder->files()->in("$projectDir/public/images/photos");
 
         $projectDirLength = strlen("$projectDir/public");
-        $photos = [];
+        $photos           = [];
         foreach ($finder as $index => $photo) {
-            $photo = substr($photo, $projectDirLength);
+            $photo          = substr($photo, $projectDirLength);
             $photos[$index] = $photo;
         }
 
         $videos = [
-            'https://www.youtube.com/embed/cfcC-VrsYJA',
+            'https://www.youtube-nocookie.com/embed/cfcC-VrsYJA',
         ];
 
         return $this->render(
@@ -48,21 +48,21 @@ class DefaultController extends AbstractController
      */
     public function numbers(): Response
     {
-        $ticketsNet = 2396.06;
+        $ticketsNet   = 2396.06;
         $ticketsGross = $ticketsNet + 7.95 + 75.83;
 
         $ticketsNet = round($ticketsNet, 2);
-        $doors = 4532.71;
-        $donations = 20;
-        $income = $ticketsNet + $doors + $donations;
+        $doors      = 4532.71;
+        $donations  = 20;
+        $income     = $ticketsNet + $doors + $donations;
 
-        $booking = 856 + 192.69 + 156.29 + 600 + 547 + 140.2;
-        $promo = 105;
-        $print = 62.21 + 57.77;
+        $booking  = 856 + 192.69 + 156.29 + 600 + 547 + 140.2;
+        $promo    = 105;
+        $print    = 62.21 + 57.77;
         $catering = 139.00 + 124.54 + 357.33;
-        $staff = 1227.50;
-        $extras = 52.99 + 200 + 50 + 96;
-        $rent = 308.88;
+        $staff    = 1227.50;
+        $extras   = 52.99 + 200 + 50 + 96;
+        $rent     = 308.88;
 
         $expenses = $booking + $print + $promo + $extras + $catering + $staff + $rent;
 

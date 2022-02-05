@@ -68,12 +68,12 @@ export class App {
         'href': image.dataset.fullSrc
       })
 
-      image.addEventListener('click', function(event){
+      image.addEventListener('click', function (event) {
         lightBox.openAt(parseInt(event.target.dataset.index))
       })
     }
 
-    const lightBox = new GLightbox({elements: lightBoxElements})
+    const lightBox = new GLightbox({ elements: lightBoxElements })
 
     const observer = new IntersectionObserver(function (entries, observer) {
       for (const entry of entries) {
