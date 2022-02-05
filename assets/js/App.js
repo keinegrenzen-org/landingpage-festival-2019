@@ -3,6 +3,8 @@ import GLightbox from 'glightbox'
 export class App {
 
   constructor () {
+    this.acceptedEmbeddings = window.CCM ? window.CCM.acceptedEmbeddings.map(item => item.name) : []
+
     this.initSmoothScroll()
     this.initSoundCloud()
     this.initYouTube()
@@ -29,7 +31,7 @@ export class App {
   }
 
   initYouTube () {
-    if (window.CCM && !window.CCM.consent) {
+    if (!this.acceptedEmbeddings.includes('Google') || !this.acceptedEmbeddings.includes('YouTube')) {
       return
     }
 
@@ -59,7 +61,7 @@ export class App {
       frame.classList.toggle('active')
     })
 
-    if (window.CCM && !window.CCM.consent) {
+    if (!this.acceptedEmbeddings.includes('SoundCloud')) {
       return
     }
 
@@ -109,7 +111,7 @@ export class App {
   onSoundCloudLoaded () {
     const title = document.querySelector('.soundcloud .title')
     const frame = title.parentNode
-    
+
     const embed = document.querySelector('.soundcloud-embed')
     const markup = `
       <iframe
@@ -131,7 +133,7 @@ export class App {
 
       for (let trigger of triggers) {
         trigger.addEventListener('click', function () {
-          const ids = JSON.parse(trigger.dataset.track)
+          const ids = JSON.parse(trigger.dataset.track)jk
           if (ids.length > 1) {
             const id = new Date().getSeconds() % 2
             widget.skip(ids[id])
