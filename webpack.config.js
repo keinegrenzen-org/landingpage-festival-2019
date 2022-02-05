@@ -1,15 +1,16 @@
 const Encore = require('@symfony/webpack-encore')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const path = require('path')
+const buildType = process.env.BROWSERSLIST_ENV
+const isModern = buildType === 'modern'
 
 Encore
   .enableSingleRuntimeChunk()
   .splitEntryChunks()
 
-  .setOutputPath('public/build/')
-  .setPublicPath('/build')
-  .setManifestKeyPrefix('build/')
-
+  .setOutputPath(`public/build/${buildType}/`)
+  .setPublicPath(`/build/${buildType}`)
+  .setManifestKeyPrefix(`build/${buildType}`)
   .cleanupOutputBeforeBuild()
 
   .enableSourceMaps(!Encore.isProduction())
@@ -25,14 +26,14 @@ Encore
   .enablePostCssLoader()
 
   .configureImageRule({
-    type: 'asset',
-    maxSize: 8 * 1024,
-    filename: 'images/[name].[fullhash:8].[ext]'
+    type: isModern ? 'asset' : 'asset/resource',
+    maxSize: isModern ? 8 * 1024 : undefined,
+    filename: 'images/[name].[contenthash][ext]'
   })
 
   .configureFontRule({
     type: 'asset',
-    filename: 'fonts/[name].[fullhash:8].[ext]'
+    filename: 'fonts/[name].[contenthash][ext]'
   })
 
 if (Encore.isProduction()) {
@@ -62,25 +63,21 @@ if (process.env.ANALYZE) {
   Encore.addPlugin(new BundleAnalyzerPlugin())
 }
 
+
 if (Encore.isDevServer()) {
   Encore
+    .disableCssExtraction()
     .enableSourceMaps()
-    .configureDevServerOptions(options => {
-      // hotfix for webpack-dev-server 4.0.0rc0
-      // @see: https://github.com/symfony/webpack-encore/issues/951#issuecomment-840719271
-
-      delete options.client;
-
-      options.https = {
-        pfx: path.join(process.env.HOME, '.symfony/certs/default.p12')
-      }
-    })
 }
 
 const config = Encore.getWebpackConfig()
 
 config.optimization = {
   minimize: Encore.isProduction()
+}
+
+if (Encore.isDevServer()) {
+  config.devtool = 'eval-source-map'
 }
 
 module.exports = config

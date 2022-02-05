@@ -1,3 +1,7 @@
 framework:
     assets:
-        json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'
+        packages:
+            modern:
+                json_manifest_path: '%kernel.project_dir%/public/build/modern/manifest.json'
+            legacy:
+                json_manifest_path: '%kernel.project_dir%/public/build/legacy/manifest.json'

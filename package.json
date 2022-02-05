@@ -1,32 +1,37 @@
 {
   "devDependencies": {
-    "@babel/core": "^7.14.8",
-    "@babel/plugin-transform-runtime": "^7.14.5",
-    "@babel/preset-env": "^7.14.8",
-    "@symfony/webpack-encore": "^1.5.0",
+    "@babel/core": "^7.16.7",
+    "@babel/plugin-transform-runtime": "^7.16.10",
+    "@babel/preset-env": "^7.16.11",
+    "@symfony/webpack-encore": "^1.8.1",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.15.2",
     "cssnano": "^4.1.11",
-    "node-sass": "^4.14.1",
+    "css-loader": "^6.2.0",
     "postcss-discard-comments": "^2.0.4",
     "postcss-loader": "^5.3.0",
-    "postcss-scss": "^4.0.0",
-    "postcss": "^8.3.6",
-    "sass-loader": "^10.2.0",
+    "postcss-scss": "^1.0.6",
+    "sass": "^1.44.0",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.2.1",
     "webpack-bundle-analyzer": "^3.9.0",
     "webpack-sources": "^1.4.3"
   },
   "license": "GPLv3",
   "private": true,
   "scripts": {
-    "dev-server": "encore dev-server --hot",
-    "php-server": "symfony serve",
-    "dev": "encore dev",
-    "watch": "encore dev --watch",
-    "build": "encore production"
+    "dev-server": "BROWSERSLIST_ENV=modern UV_THREADPOOL_SIZE=100 encore dev-server --hot",
+    "dev": "BROWSERSLIST_ENV=modern encore dev",
+    "watch": "BROWSERSLIST_ENV=modern encore dev --watch",
+    "storybook": "BROWSERSLIST_ENV=modern start-storybook -p 6006",
+    "build-storybook": "BROWSERSLIST_ENV=modern build-storybook -o public/storybook",
+    "build_modern": "BROWSERSLIST_ENV=modern encore production",
+    "build_legacy": "BROWSERSLIST_ENV=legacy encore production",
+    "build": "yarn build_modern && yarn build_legacy"
   },
   "dependencies": {
     "bootstrap": "^4.5.2",
+    "browserslist-check-bundle": "barthy-koeln/browserslist-check-bundle",
     "glightbox": "^3.1.0"
   }
 }
