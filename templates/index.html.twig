@@ -59,6 +59,11 @@
       content="634148010083648"
     />
     <title>{{ title }}</title>
+
+    {% if not app.debug %}
+      {% include 'partials/ccm.twig' only %}
+    {% endif %}
+    
     {% block stylesheets %}
       {{ encore_entry_link_tags('theme', entrypointName = buildType) }}
       {{ encore_entry_link_tags('index', entrypointName = buildType) }}
