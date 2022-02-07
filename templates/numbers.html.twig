@@ -1,5 +1,7 @@
 {% set title = 'keinegrenzen Festival — Zahlen' %}
 {% set buildType = is_modern_browser() ? 'modern' : 'legacy' %}
+{% set image = 'https://festival2019.keinegrenzen.org/images/banner.png?v=3' %}
+
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -11,6 +13,10 @@
     <meta
       name="msapplication-TileColor"
       content="#2b5797"
+    >
+    <meta
+      property="og:image"
+      content="{{ image }}"
     >
     <meta
       name="theme-color"
