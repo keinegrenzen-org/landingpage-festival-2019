@@ -32,6 +32,6 @@
   "dependencies": {
     "bootstrap": "^4.5.2",
     "browserslist-check-bundle": "barthy-koeln/browserslist-check-bundle",
-    "glightbox": "^3.1.0"
+    "glightbox": "^3.2.0"
   }
 }
