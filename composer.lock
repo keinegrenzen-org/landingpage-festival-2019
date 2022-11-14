@@ -756,16 +756,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v5.4.11",
+            "version": "v5.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "5a0fff46df349f0db3fe242263451fddf5277362"
+                "reference": "60e87188abbacd29ccde44d69c5392a33e888e98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/5a0fff46df349f0db3fe242263451fddf5277362",
-                "reference": "5a0fff46df349f0db3fe242263451fddf5277362",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/60e87188abbacd29ccde44d69c5392a33e888e98",
+                "reference": "60e87188abbacd29ccde44d69c5392a33e888e98",
                 "shasum": ""
             },
             "require": {
@@ -826,14 +826,14 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
-            "description": "Provides an extended PSR-6, PSR-16 (and tags) implementation",
+            "description": "Provides extended PSR-6, PSR-16 (and tags) implementations",
             "homepage": "https://symfony.com",
             "keywords": [
                 "caching",
                 "psr6"
             ],
             "support": {
-                "source": "https://github.com/symfony/cache/tree/v5.4.11"
+                "source": "https://github.com/symfony/cache/tree/v5.4.15"
             },
             "funding": [
                 {
@@ -849,7 +849,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-28T15:25:17+00:00"
+            "time": "2022-10-27T07:55:40+00:00"
         },
         {
             "name": "symfony/cache-contracts",
@@ -1843,16 +1843,16 @@
         },
         {
             "name": "symfony/framework-bundle",
-            "version": "v5.4.12",
+            "version": "v5.4.14",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/framework-bundle.git",
-                "reference": "49f8fe5d39b7513a3f26898788885dbe66b0d910"
+                "reference": "00ac4d7e31597f6a49759bd925d83fc87d4ade68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/49f8fe5d39b7513a3f26898788885dbe66b0d910",
-                "reference": "49f8fe5d39b7513a3f26898788885dbe66b0d910",
+                "url": "https://api.github.com/repos/symfony/framework-bundle/zipball/00ac4d7e31597f6a49759bd925d83fc87d4ade68",
+                "reference": "00ac4d7e31597f6a49759bd925d83fc87d4ade68",
                 "shasum": ""
             },
             "require": {
@@ -1974,7 +1974,7 @@
             "description": "Provides a tight integration between Symfony components and the Symfony full-stack framework",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/framework-bundle/tree/v5.4.12"
+                "source": "https://github.com/symfony/framework-bundle/tree/v5.4.14"
             },
             "funding": [
                 {
@@ -1990,7 +1990,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-08-26T10:32:10+00:00"
+            "time": "2022-10-07T08:01:20+00:00"
         },
         {
             "name": "symfony/http-foundation",
@@ -2918,16 +2918,16 @@
         },
         {
             "name": "symfony/routing",
-            "version": "v5.4.11",
+            "version": "v5.4.15",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/routing.git",
-                "reference": "3e01ccd9b2a3a4167ba2b3c53612762300300226"
+                "reference": "5c9b129efe9abce9470e384bf65d8a7e262eee69"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/routing/zipball/3e01ccd9b2a3a4167ba2b3c53612762300300226",
-                "reference": "3e01ccd9b2a3a4167ba2b3c53612762300300226",
+                "url": "https://api.github.com/repos/symfony/routing/zipball/5c9b129efe9abce9470e384bf65d8a7e262eee69",
+                "reference": "5c9b129efe9abce9470e384bf65d8a7e262eee69",
                 "shasum": ""
             },
             "require": {
@@ -2988,7 +2988,7 @@
                 "url"
             ],
             "support": {
-                "source": "https://github.com/symfony/routing/tree/v5.4.11"
+                "source": "https://github.com/symfony/routing/tree/v5.4.15"
             },
             "funding": [
                 {
@@ -3004,7 +3004,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-07-20T13:00:38+00:00"
+            "time": "2022-10-13T14:10:41+00:00"
         },
         {
             "name": "symfony/runtime",
