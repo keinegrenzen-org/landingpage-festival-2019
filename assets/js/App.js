@@ -31,7 +31,7 @@ export class App {
   }
 
   initYouTube () {
-    if (!this.acceptedEmbeddings.includes('Google') || !this.acceptedEmbeddings.includes('YouTube Cookies (ytimg)')) {
+    if (!this.acceptedEmbeddings.includes('YouTube Cookies (ytimg)')) {
       return
     }
 
