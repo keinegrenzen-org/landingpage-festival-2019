@@ -3,29 +3,28 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\KernelInterface;
+use Symfony\Component\HttpKernel\Attribute\AsController;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[AsController]
 class DefaultController extends AbstractController
 {
 
-    /**
-     * @Route("/", name="index")
-     * @param \Symfony\Component\HttpKernel\KernelInterface $kernel
-     *
-     */
-    public function index(KernelInterface $kernel): Response
+    #[
+        Route(path: '/', name: 'index')
+    ]
+    public function index(#[Autowire('%kernel.project_dir%')] string $projectDir): Response
     {
-        $projectDir = $kernel->getProjectDir();
-        $finder     = new Finder();
+        $finder = new Finder();
         $finder->files()->in("$projectDir/public/images/photos");
 
         $projectDirLength = strlen("$projectDir/public");
-        $photos           = [];
+        $photos = [];
         foreach ($finder as $index => $photo) {
-            $photo          = substr($photo, $projectDirLength);
+            $photo = substr($photo, $projectDirLength);
             $photos[$index] = $photo;
         }
 
@@ -42,27 +41,26 @@ class DefaultController extends AbstractController
         );
     }
 
-    /**
-     * @Route("/zahlen", name="numbers")
-     * @throws \Exception
-     */
+    #[
+        Route(path: '/zahlen', name: 'numbers')
+    ]
     public function numbers(): Response
     {
-        $ticketsNet   = 2396.06;
+        $ticketsNet = 2396.06;
         $ticketsGross = $ticketsNet + 7.95 + 75.83;
 
         $ticketsNet = round($ticketsNet, 2);
-        $doors      = 4532.71;
-        $donations  = 20;
-        $income     = $ticketsNet + $doors + $donations;
+        $doors = 4532.71;
+        $donations = 20;
+        $income = $ticketsNet + $doors + $donations;
 
-        $booking  = 856 + 192.69 + 156.29 + 600 + 547 + 140.2;
-        $promo    = 105;
-        $print    = 62.21 + 57.77;
+        $booking = 856 + 192.69 + 156.29 + 600 + 547 + 140.2;
+        $promo = 105;
+        $print = 62.21 + 57.77;
         $catering = 139.00 + 124.54 + 357.33;
-        $staff    = 1227.50;
-        $extras   = 52.99 + 200 + 50 + 96;
-        $rent     = 308.88;
+        $staff = 1227.50;
+        $extras = 52.99 + 200 + 50 + 96;
+        $rent = 308.88;
 
         $expenses = $booking + $print + $promo + $extras + $catering + $staff + $rent;
 
@@ -71,27 +69,27 @@ class DefaultController extends AbstractController
         return $this->render(
             'numbers.html.twig',
             [
-                'booking'      => $booking,
-                'promo'        => $promo,
-                'print'        => $print,
-                'catering'     => $catering,
-                'extras'       => $extras,
-                'staff'        => $staff,
-                'rent'         => $rent,
+                'booking' => $booking,
+                'promo' => $promo,
+                'print' => $print,
+                'catering' => $catering,
+                'extras' => $extras,
+                'staff' => $staff,
+                'rent' => $rent,
                 'ticketsGross' => $ticketsGross,
-                'ticketsNet'   => $ticketsNet,
-                'doors'        => $doors,
-                'donations'    => $donations,
-                'expenses'     => $expenses,
-                'income'       => $income,
-                'profit'       => $profit,
+                'ticketsNet' => $ticketsNet,
+                'doors' => $doors,
+                'donations' => $donations,
+                'expenses' => $expenses,
+                'income' => $income,
+                'profit' => $profit,
             ]
         );
     }
 
-    /**
-     * @Route("/statistik", name="stats")
-     */
+    #[
+        Route(path: '/statistik', name: 'stats')
+    ]
     public function stats(): Response
     {
         return $this->render(

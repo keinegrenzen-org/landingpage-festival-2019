@@ -2,18 +2,6 @@
     "barthy-koeln/browserslist-check-bundle": {
         "version": "1.0.6"
     },
-    "doctrine/annotations": {
-        "version": "1.13",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "1.0",
-            "ref": "a2759dd6123694c8d901d0ec80006e044c2e6457"
-        },
-        "files": [
-            "config/routes/annotations.yaml"
-        ]
-    },
     "doctrine/cache": {
         "version": "v1.7.1"
     },
@@ -25,9 +13,6 @@
     },
     "doctrine/inflector": {
         "version": "v1.3.0"
-    },
-    "doctrine/lexer": {
-        "version": "v1.0.1"
     },
     "doctrine/persistence": {
         "version": "1.1.1"
@@ -82,18 +67,6 @@
     },
     "psr/simple-cache": {
         "version": "1.0.1"
-    },
-    "sensio/framework-extra-bundle": {
-        "version": "6.2",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "5.2",
-            "ref": "fb7e19da7f013d0d422fa9bce16f5c510e27609b"
-        },
-        "files": [
-            "config/packages/sensio_framework_extra.yaml"
-        ]
     },
     "symfony/asset": {
         "version": "v4.1.0"
@@ -246,14 +219,8 @@
     "symfony/polyfill-php72": {
         "version": "v1.8.0"
     },
-    "symfony/polyfill-php73": {
-        "version": "v1.18.1"
-    },
     "symfony/polyfill-php80": {
         "version": "v1.18.1"
-    },
-    "symfony/polyfill-php81": {
-        "version": "v1.23.0"
     },
     "symfony/process": {
         "version": "v4.1.0"

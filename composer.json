@@ -2,28 +2,27 @@
   "type": "project",
   "license": "proprietary",
   "require": {
-    "php": "^7.4",
+    "php": "^8.1",
     "ext-curl": "*",
     "ext-iconv": "*",
     "ext-json": "*",
     "barthy-koeln/browserslist-check-bundle": "^1.0",
-    "sensio/framework-extra-bundle": "^6.2",
-    "symfony/asset": "^5.4",
-    "symfony/console": "^5.4",
-    "symfony/debug-bundle": "5.4.*",
-    "symfony/dotenv": "^5.4",
-    "symfony/finder": "^5.4",
+    "symfony/asset": "*",
+    "symfony/console": "*",
+    "symfony/debug-bundle": "*",
+    "symfony/dotenv": "*",
+    "symfony/finder": "*",
     "symfony/flex": "^1.18",
-    "symfony/framework-bundle": "^5.4",
+    "symfony/framework-bundle": "*",
     "symfony/monolog-bundle": "^3.7",
-    "symfony/runtime": "5.4.*",
-    "symfony/twig-bundle": "^5.4",
-    "symfony/webpack-encore-bundle": "^1.12",
-    "symfony/yaml": "^5.4"
+    "symfony/runtime": "*",
+    "symfony/twig-bundle": "*",
+    "symfony/webpack-encore-bundle": "^1.16",
+    "symfony/yaml": "*"
   },
   "require-dev": {
-    "symfony/stopwatch": "^5.4",
-    "symfony/web-profiler-bundle": "^5.4"
+    "symfony/stopwatch": "*",
+    "symfony/web-profiler-bundle": "*"
   },
   "config": {
     "optimize-autoloader": true,
@@ -65,7 +64,7 @@
   "extra": {
     "symfony": {
       "allow-contrib": false,
-      "require": "5.4.*"
+      "require": "^6.2"
     }
   }
 }
