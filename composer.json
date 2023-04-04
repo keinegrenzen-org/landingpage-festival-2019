@@ -12,7 +12,7 @@
     "symfony/debug-bundle": "*",
     "symfony/dotenv": "*",
     "symfony/finder": "*",
-    "symfony/flex": "^1.18",
+    "symfony/flex": "^2.2",
     "symfony/framework-bundle": "*",
     "symfony/monolog-bundle": "^3.7",
     "symfony/runtime": "*",
