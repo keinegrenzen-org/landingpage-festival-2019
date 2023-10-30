@@ -1,0 +1,648 @@
+@use "sass:math";
+@import "components/variables";
+@import "components/mixins";
+
+.fixed-nav {
+  height: $nav-height;
+  z-index: 1005;
+
+  .contact-icon {
+    display: block;
+    height: 75px;
+    padding: 1rem;
+    width: 75px;
+  }
+
+  .contact-button {
+    align-items: center;
+    display: flex;
+    font-family: "Fivo Sans", sans-serif;
+    font-size: 1.5rem;
+    justify-items: center;
+    white-space: nowrap;
+
+    .contact-icon {
+      fill: $theme-white;
+    }
+
+    .text {
+      @media all and (max-width: $break-medium) {
+        display: none;
+      }
+    }
+  }
+
+  .section-contact {
+    background-color: $theme-black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: $nav-height;
+    justify-content: space-around;
+    transition: transform .4s ease-in-out;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    flex-direction: row;
+  }
+}
+
+header {
+  $header-height: 45.0649vw;
+  $header-expansion: 20vh;
+  background: url("/images/lp_banner.svg") no-repeat center center;
+  background-size: cover;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: $header-height;
+  position: relative;
+  width: 100vw;
+
+  @media screen and (max-width: $break-medium) {
+    padding-bottom: calc(#{$header-height} + #{$header-expansion});
+  }
+
+  h1 {
+    font-size: 15vw;
+    left: math.div(74, 770) * 100vw;
+    line-height: .65;
+    position: absolute;
+    top: 1vw;
+    transform: rotate(-9deg);
+
+    @media screen and (max-width: $break-medium) {
+      font-size: 17vw;
+      left: math.div(24, 770) * 100vw;
+    }
+
+    span {
+      display: block;
+      mix-blend-mode: multiply;
+      opacity: 1;
+    }
+
+    span:first-child,
+    span:last-child {
+      color: $theme-red;
+      padding-left: 8vw;
+    }
+
+    span:nth-child(2) {
+      color: $theme-blue;
+    }
+  }
+
+  h2 {
+    align-items: center;
+    bottom: 0;
+    color: $theme-white;
+    display: flex;
+    flex-direction: column;
+    font-size: 3vw;
+    height: math.div(116, 770) * 100vw;
+    justify-content: center;
+    left: math.div(366, 770) * 100vw;
+    margin: 0;
+    position: absolute;
+    text-align: center;
+    width: math.div(282, 770) * 100vw;
+
+    @media screen and (max-width: $break-medium) {
+      transform: translate(20%, -20%);
+    }
+
+    span {
+      display: block;
+    }
+
+    span:last-child {
+      font-size: 5vw;
+    }
+  }
+
+  .logo {
+    $size: math.div(116, 770) * 100vw;
+    bottom: 0;
+    height: $size;
+    left: 0;
+    position: absolute;
+    width: $size;
+
+    @media screen and (max-width: $break-medium) {
+      height: 1.5 * $size;
+      width: 1.5 * $size;
+    }
+  }
+
+  .cta {
+    left: calc(#{math.div(465, 770) * 100vw} - 10px);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    @media screen and (max-width: $break-medium) {
+      left: 1rem;
+      right: 1rem;
+      text-align: center;
+      transform: translateY(50%);
+    }
+
+    .btn-cta {
+      background: $theme-blue;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+
+  .date {
+    display: block;
+    font-family: "Fivo Sans", sans-serif;
+    font-weight: $font-weight-black;
+    left: math.div(467, 770) * 100vw;
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    transform: rotate(-9deg);
+    white-space: nowrap;
+
+    @media screen and (max-width: $break-medium) {
+      left: math.div(457, 770) * 100vw;
+    }
+
+    span {
+      display: inline-block;
+    }
+
+    .day {
+      color: $theme-red;
+      font-size: 10vw;
+    }
+
+    .month {
+      color: $theme-white;
+      font-size: 6vw;
+      height: 100%;
+      line-height: 100%;
+      margin-left: -.5vw;
+      padding-top: .4vw;
+      vertical-align: top;
+    }
+  }
+
+  .location {
+    color: $theme-red;
+    display: block;
+    font-family: "Fivo Sans", sans-serif;
+    font-size: 3vw;
+    font-weight: $font-weight-black;
+    left: math.div(574, 770) * 100vw;
+    position: absolute;
+    text-transform: uppercase;
+    top: 4.5vw;
+    transform: rotate(-9deg);
+    white-space: nowrap;
+  }
+
+  .door-time {
+    color: $theme-white;
+    display: block;
+    font-family: "League Gothic", sans-serif;
+    font-size: 7vw;
+    font-weight: $font-weight-black;
+    left: math.div(540, 770) * 100vw;
+    letter-spacing: 2px;
+    position: absolute;
+    text-transform: uppercase;
+    top: 7.5vw;
+    transform: rotate(-9deg);
+    white-space: nowrap;
+
+    .from {
+      font-size: 3vw;
+      height: 5vw;
+      line-height: 4.8vw;
+      vertical-align: top;
+    }
+  }
+}
+
+.paragraph {
+  background: url("/images/lp_paragraph.svg") no-repeat;
+  background-size: cover;
+  color: $theme-white;
+  font-size: 1.2rem;
+  line-height: 1.2;
+  margin-bottom: -1px;
+  margin-top: -1px;
+  text-align: center;
+
+  .inner {
+    margin: auto;
+    max-width: 850px;
+    padding: 5rem 1rem;
+  }
+
+  .asterisk-spacer {
+    $size: 3rem;
+    $margin: 1rem;
+    margin-top: $margin;
+    padding-top: $size;
+    position: relative;
+
+    &::before {
+      background: url("/images/lp_asterisk.svg") no-repeat;
+      background-size: contain;
+      content: " ";
+      display: block;
+      height: $size - $margin;
+      left: 50%;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: $size - $margin;
+    }
+  }
+
+  .cta {
+    margin-top: 4rem;
+
+    .btn-cta {
+      background: $theme-red;
+
+      @media screen and (max-width: $break-medium) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.artists {
+  $title-line-height: 6px;
+  $title-movement: 32px;
+  $title-height: 150px - (2 * $title-movement);
+
+  .row {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .col {
+    width: 100%;
+
+    @media screen and (min-width: $break-small) {
+      width: math.div(1, 2) * 100%;
+    }
+
+    @media screen and (min-width: $break-medium) {
+      width: math.div(1, 3) * 100%;
+    }
+
+    @media screen and (min-width: $break-big) {
+      width: math.div(1, 4) * 100%;
+    }
+  }
+
+  .inner {
+    cursor: pointer;
+    overflow: hidden;
+    padding-top: 100%;
+    position: relative;
+  }
+
+  .inner:hover,
+  .inner:focus {
+
+    &::after {
+      opacity: 0;
+    }
+
+    .text {
+      transform: translateY(0);
+    }
+
+    .text::before {
+      opacity: .65;
+    }
+
+    .title {
+      transform: translateY(0);
+    }
+  }
+
+  .text {
+    align-items: center;
+    color: $theme-white;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    padding: $title-movement;
+    position: absolute;
+    top: 0;
+    transform: translateY(calc(100% - #{$title-height}));
+    transition: transform .3s ease-in-out;
+    width: 100%;
+
+    &::before {
+      background-color: $theme-blue;
+      content: " ";
+      display: block;
+      height: 100%;
+      left: 0;
+      opacity: .8;
+      position: absolute;
+      top: 0;
+      transition: opacity .3s ease-in-out;
+      width: 100%;
+      z-index: 0;
+    }
+  }
+
+  &:nth-child(2n) .text::before {
+    background-color: $theme-red;
+  }
+
+  .btn {
+    animation: none;
+    background-color: $theme-white;
+    box-shadow: 5px 5px 0 0 $shadow-color;
+    color: $theme-red;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-top: auto;
+    transition: transform .3s ease-in-out;
+    z-index: 1;
+  }
+
+  &:nth-child(2n) .btn {
+    color: $theme-blue;
+  }
+
+  .title {
+    font-size: 2rem;
+    height: $title-height;
+    padding-bottom: math.div($title-height, 4);
+    padding-top: math.div($title-height, 4);
+    position: relative;
+    transform: translateY(-$title-movement - $title-line-height);
+    transition: transform .3s ease-in-out;
+    vertical-align: bottom;
+    z-index: 1;
+
+    &::after {
+      background-color: $theme-red;
+      bottom: -$title-line-height;
+      content: " ";
+      display: block;
+      height: $title-line-height;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%) translateY(math.div(-$title-height, 4));
+      width: 50px;
+    }
+  }
+
+  &:nth-child(2n) .title::after {
+    background-color: $theme-blue;
+  }
+
+  p {
+    font-size: 1rem;
+    margin-bottom: auto;
+    margin-top: auto;
+    text-align: center;
+    transition: transform .3s ease-in-out;
+    z-index: 1;
+  }
+
+  img {
+    height: 100%;
+    left: 50%;
+    min-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &.hidden .inner {
+    background-color: $theme-red;
+    position: relative;
+
+    &::after {
+      align-items: center;
+      color: $theme-white;
+      content: "?";
+      display: flex;
+      font-family: "Fivo Sans", sans-serif;
+      font-size: 10rem;
+      height: 100%;
+      justify-content: center;
+      left: 0;
+      line-height: 100%;
+      pointer-events: none;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      transition: opacity .3s ease-in-out;
+      width: 100%;
+      z-index: 0;
+    }
+  }
+}
+
+.infos {
+  padding: 0 0 5rem;
+
+  .section {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    p {
+      font-size: 1.25rem;
+    }
+
+    a {
+      color: $theme-blue;
+    }
+  }
+}
+
+.photos {
+  margin: auto;
+  padding: 5rem 1rem;
+
+  h2 {
+    color: $theme-blue;
+    text-align: center;
+  }
+
+  .masonry {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    .masonry-item {
+      box-sizing: border-box;
+      cursor: pointer;
+      height: auto;
+      object-fit: contain;
+      padding: .5rem;
+      width: 50%;
+
+      @media screen and (min-width: $break-medium) {
+        width: 33.33333%;
+      }
+
+      @media screen and (min-width: $break-big) {
+        width: 25%;
+      }
+    }
+
+    .masonry-image:not([src]) {
+      background-color: $shadow-color;
+      height: 0;
+      padding-bottom: math.div(1280, 1920) * 50%;
+
+      @media screen and (min-width: $break-medium) {
+        padding-bottom: math.div(1280, 1920) * 33.33333%;
+      }
+
+      @media screen and (min-width: $break-big) {
+        padding-bottom: math.div(1280, 1920) * 25%;
+      }
+    }
+  }
+}
+
+.timetable {
+  background-color: $theme-black;
+  color: $theme-white;
+  font-family: "League Gothic", sans-serif;
+  font-size: 2.5rem;
+  line-height: 1;
+  padding: 5vh 5vw;
+  text-align: center;
+  text-transform: uppercase;
+
+  span {
+    margin: 1rem;
+  }
+
+  i {
+    color: $theme-red;
+    display: inline-block;
+    font-size: 1.125rem;
+    font-style: normal;
+    line-height: 1;
+    text-align: center;
+  }
+
+  .row {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media screen and (max-width: $break-medium) {
+      flex-direction: column;
+    }
+  }
+}
+
+$soundcloud-title-height: 3rem;
+
+.soundcloud-embed,
+.youtube-embed {
+  align-items: center;
+  background-color: map-get($theme-colors, "red");
+  color: map-get($theme-colors, "white");
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.soundcloud-embed {
+  top: $soundcloud-title-height;
+}
+
+.soundcloud {
+  background: $theme-grey;
+  border: 2px solid $theme-black;
+  bottom: 0;
+  box-shadow: 5px 5px 2px 2px $shadow-color;
+  height: 450px;
+  left: 5vw;
+  position: fixed;
+  transform: translateY(calc(100% - 3rem));
+  transition: transform .3s ease-in-out;
+  width: 300px;
+
+  .title {
+    background: $theme-red;
+    color: $theme-white;
+    cursor: pointer;
+    display: block;
+    font-size: 1.5rem;
+    height: $soundcloud-title-height;
+    line-height: 3rem;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    &::before {
+      content: "+";
+      display: block;
+      height: 3rem;
+      left: 0;
+      line-height: 3rem;
+      position: absolute;
+      top: 0;
+      transform: rotate(0);
+      transition: transform .3s ease-in-out;
+      width: 2rem;
+    }
+  }
+
+  &.active {
+    transform: translateY(0);
+
+    .title::before {
+      transform: rotate(-45deg);
+    }
+  }
+
+  iframe {
+    border: 0;
+  }
+}
+
+.link {
+  padding: 5vh 5vw;
+  text-align: center;
+
+  .btn-cta {
+    background: $theme-blue;
+    margin: 1rem;
+  }
+}
+
+.spaceless-link {
+  display: inline-flex;
+}

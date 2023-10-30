@@ -1,0 +1,20 @@
+{
+  "name": "landingpage-festival-2019",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^3.4.0",
+    "bootstrap": "^4.6.2",
+    "glightbox": "^3.2.0"
+  },
+  "devDependencies": {
+    "sass": "^1.69.5"
+  }
+}

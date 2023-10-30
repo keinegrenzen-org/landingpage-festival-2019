@@ -1,0 +1,594 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import {initLazyLoad, initSmoothScroll, initSoundCloudFrame} from "../js/App";
+
+import '../css/index.scss'
+
+const photos = await Astro.glob('../photos/*.jpg')
+
+const videos = [
+  'https://www.youtube.com/embed/cfcC-VrsYJA',
+]
+---
+
+<BaseLayout itemtype="https://schema.org/Event">
+    <header class="container">
+      <h1>
+        <span>keine</span>
+        <span>grenzen</span>
+        <span>Festival</span>
+      </h1>
+      <span
+        class="sr-only"
+        itemprop="name"
+      >keinegrenzen Festival</span>
+      <h2 itemprop="about">
+        <span>Fundraising f&uuml;r</span>
+        <span>&Auml;rzte ohne Grenzen</span>
+      </h2>
+      <p class="date"><span class="day">19.</span><span class="month">Januar</span></p>
+      <p class="location">Stadtgarten</p>
+      <p
+        class="door-time"
+      ><span class="from">Gespendet:</span> 1675 &euro;</p>
+      <div class="cta">
+        <a
+          class="btn btn-cta scroll-to"
+          href="#fotos"
+        >Fotos, Videos & Ergebnisse ansehen
+        </a>
+      </div>
+      <img
+        itemprop="image"
+        class="logo"
+        src="/images/lp_logo.svg"
+        title="Logo"
+        alt="Dreigeteilter keinegrenzen.org Schriftzug"
+      >
+    </header>
+    <main>
+      <section class="container paragraph">
+        <div class="inner">
+          <h2>Sch&ouml;n, dass Du da warst!</h2>
+          <div
+            itemprop="composer"
+            itemscope
+            itemtype="https://schema.org/Organization"
+          >
+            <p itemprop="description">
+                <span
+                  itemprop="name"
+                  class="sr-only"
+                >keinegrenzen</span>
+              <strong>&bdquo;KEINEGRENZEN&ldquo;</strong>
+              ist eine gemeinn&uuml;tzige Organisation die Musik und Kunst nutzt, um Spenden f&uuml;r
+              Hilfsorganisationen wie
+              <a
+                itemprop="attendee"
+                itemtype="https://schema.org/NGO"
+                itemscope
+                href="https://www.aerzte-ohne-grenzen.de/"
+                target="_blank"
+                rel="noopener nofollow"
+                class="spaceless-link"
+              >
+                &bdquo;<span itemprop="name">&Auml;rzte ohne Grenzen</span>&ldquo;
+              </a>
+              zu sammeln.
+            </p>
+          </div>
+          <p>
+            <a
+              href="https://keinegrenzen.org/"
+              title="keinegrenzen.org"
+              target="_blank"
+              rel="noopener nofollow"
+              class="spaceless-link"
+            >
+              Unsere Website
+            </a>
+            bietet aktuell zum Beispiel Musik von unabh&auml;ngigen K&uuml;nstlern zum kostenlosen Download an und erm&ouml;glicht
+            es, sich per <strong>Spende an &Auml;rzte ohne Grenzen</strong> zu bedanken.
+          </p>
+          <p
+            class="asterisk-spacer"
+            itemprop="description"
+          >
+            <strong>
+              Am 19. Januar 2019 haben wir ein gemeinn&uuml;tziges Festival im K&ouml;lner
+              Stadtgarten veranstaltet.
+              Dabei wurde jeglicher Gewinn ebenfalls an &Auml;rzte ohne Grenzen gespendet.
+            </strong>
+            <br/>
+            <br/>
+            Die Stimmung war wundersch&ouml;n und wir hatten unglaublich viel Spa&szlig;!
+            <br/>
+            <br/>
+            Die Ergebnisse k&ouml;nnen sich sehen lassen: wir konnten 1675 &euro; f&uuml;r den guten Zweck
+            sammeln!
+          </p>
+          <div class="cta">
+            <a
+              class="btn btn-cta scroll-to"
+              href="#fotos"
+            >
+              Fotos, Videos & Ergebnisse ansehen
+            </a>
+          </div>
+        </div>
+      </section>
+      <section class="container artists">
+        <div class="row">
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/invo-und-enna.jpg"
+                title="INVO &amp; ENNA"
+                alt="Zwei Rapper, die auf der Bühne Spaß haben."
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >INVO &amp; ENNA</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                >Hip-Hop</span>
+                <p itemprop="description">
+                  Wenn Dichter und Denker aufeinander treffen kann man Großes erwarten: bei Julian und Nils gibt es das
+                  auf satten Beats mit einer ordentlichen Ladung sozialer Kritik.
+                </p>
+                <button
+                  type="button"
+                  class="btn sc-trigger"
+                  data-track="[0, 1]"
+                >Jetzt Anh&ouml;ren
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/waking-up-in-stereo.jpg"
+                title="Waking Up In Stereo"
+                alt="Die Brüder mit Spaß bei der Sache."
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >Waking Up In Stereo</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                >Electro-Pop</span>
+                <p itemprop="description">
+                  Die Br&uuml;der Arin und Armen zaubern mit Synthesizern, Gitarren und Gesang ein seliges L&auml;cheln
+                  in die Gesichter ihres Publikums und erschaffen Klangwelten, in die man vollends eintauchen kann.
+                </p>
+                <button
+                  type="button"
+                  class="btn sc-trigger"
+                  data-track="[2]"
+                >Jetzt Anh&ouml;ren
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/suburbian-rex.jpg"
+                title="Suburbian Rex"
+                alt="Die Band bestehend aus Gitarrist und Sänger, Bassist und Drummer."
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >Suburbian Rex</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                >Rock'n'Roll</span>
+                <p itemprop="description">
+                  Anton, Ivo und Julian bringen eine Power auf die B&uuml;hne, der niemand widerstehen kann und eine
+                  Leidenschaft, die den Raum vom Boden bis zur Decke in Brand setzen wird.
+                </p>
+                <button
+                  type="button"
+                  class="btn sc-trigger"
+                  data-track="[3]"
+                >Jetzt Anh&ouml;ren
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/memoria.jpg"
+                title="Memoria"
+                alt="Die Achtk&ouml;pfige Band vor einem vollgespr&uuml;hten Altbau."
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >Memoria</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                ></span>
+                <p itemprop="description">
+                  Liebe und Freundschaft schweißen diese Band zu einer Familie, die aus Musik Gl&uuml;ckseligkeit
+                  zaubert. Warmer Reggae wird uns im kalten Januar eine gem&uuml;tliche Stunde Urlaub am &Auml;quator
+                  bescheren.
+                </p>
+                <a
+                  class="btn"
+                  href="https://www.youtube.com/watch?v=NVL8oYZqxL8"
+                  target="_blank"
+                  rel="noopener nofollow"
+                >Jetzt Anh&ouml;ren
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/cute-but-evil-und-daniel-vee.jpg"
+                title="Cute But Evil &amp; Daniel Vee"
+                alt="Daniel und Tobias"
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >Cute But Evil &amp; Daniel Vee</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                >Electronic</span>
+                <p itemprop="description">
+                  Anschließend wird es eine beeindruckende Kombination aus modularer elektronischer Musik (Daniel) und
+                  analogen Visuals (Tobias) geben, beides improvisiert und aus dem Moment geboren.
+                </p>
+                <button
+                  type="button"
+                  class="btn sc-trigger"
+                  data-track="[4, 5]"
+                >Jetzt Anh&ouml;ren
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/cubical.jpg"
+                title="Cubical"
+                alt="Anil tr&auml;gt ein Shirt, auf de &quot;Manager&quot; steht."
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >Cubical</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                >Techno</span>
+                <p itemprop="description">
+                  Anil widmet sein Leben der Musik mit einer bewundernswerten Philosophie: er nutzt jede Gelegenheit
+                  Neues zu erkunden und zu lernen. Dadurch entwickeln sich die feinsten Methoden und Tricks — egal, ob
+                  beim Musizieren oder beim Auflegen.
+                </p>
+                <button
+                  type="button"
+                  class="btn sc-trigger"
+                  data-track="[6]"
+                >Jetzt Anh&ouml;ren
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/blade-and-beard.jpg"
+                title="Blade&amp;Beard"
+                alt="Arash &amp; Anoos auf einer Treppe"
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >Blade&amp;Beard</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                >Techno</span>
+                <p itemprop="description">
+                  Geflohen aus einem Land, das Techno zum Werk des Teufels erkl&auml;rt, haben Arash und Anoosh mit
+                  ihrem Talent und ihrer faszinierenden Gelassenheit Europa von ihrer Liebe zur Musik buchst&auml;blich
+                  im Handumdrehen &uuml;berzeugt.
+                </p>
+                <button
+                  type="button"
+                  class="btn sc-trigger"
+                  data-track="[7]"
+                >Jetzt Anh&ouml;ren
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="col"
+            itemprop="performer"
+            itemscope
+            itemtype="https://schema.org/MusicGroup"
+          >
+            <div class="inner">
+              <img
+                src="/images/montefusco.jpg"
+                title="Montefusco"
+                alt="Giovanni schaut konzentriert zur Seite."
+                itemprop="image"
+              >
+              <div class="text">
+                <h4
+                  class="title"
+                  itemprop="name"
+                >Montefusco</h4>
+                <span
+                  class="sr-only"
+                  itemprop="genre"
+                >Techno</span>
+                <p itemprop="description">
+                  Giovanni wird einen gut aufgeheizten Raum &uuml;bernehmen und der Nacht auch noch das letzte verf&uuml;gbare
+                  Qu&auml;ntchen Euphorie schenken.
+                </p>
+                <button
+                  type="button"
+                  class="btn sc-trigger"
+                  data-track="[8]"
+                >Jetzt Anh&ouml;ren
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="container photos"
+        id="fotos"
+      >
+        <h2>Fotos & Videos</h2>
+        <div class="masonry">
+          {
+            videos.map(
+              video =>  <div class="masonry-item">
+                <div class="embed-responsive embed-responsive-3by2">
+                  <div
+                    class="youtube-embed"
+                    data-source={video}
+                  >
+                    YouTube Einbettung nicht erlaubt.
+                    <a
+                      href={video}
+                      target="_blank"
+                      rel="nofollow noopener"
+                    >Hier ansehen.
+                    </a>
+                    <a
+                      href="#CCM.openWidget"
+                      tabindex="0"
+                      aria-label="Zustimmung ändern"
+                    >
+                      Cookie-Einstellungen
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )
+          }
+
+          {
+            photos.map(
+              ({ default: photo }, index) => <img
+                class="masonry-item masonry-image"
+                data-src={photo.src}
+                data-full-src={photo.src}
+                alt="Musiker auf der Bühne mit bunten Lichtern"
+                title="keinegrenzen Festival 2019 - Live Musik"
+                data-index={index}
+                data-full-dimensions="[1920, 1280]"
+                src="/images/placeholder.svg"
+              >
+            )
+          }
+        </div>
+      </section>
+
+      <section class="container link">
+        <h2>Weitere Links und Infos</h2>
+        <p>Wir haben noch einiges für Euch vor- und nachbereitet.</p>
+        <a
+          href="/numbers"
+          class="btn btn-cta"
+        >
+          Abrechnung sehen
+        </a>
+        <a
+          href="/stats"
+          class="btn btn-cta"
+        >
+          Statistiken sehen
+        </a>
+      </section>
+
+      <section class="timetable">
+        <div class="row">
+          <span><i>18<br>Uhr</i>&nbsp;INVO &amp; ENNA</span>
+          <span><i>19<br>Uhr</i>&nbsp;Waking Up In Stereo</span>
+          <span><i>20<br>Uhr</i>&nbsp;Suburbian Rex</span>
+        </div>
+        <div class="row">
+          <span><i>21<br>Uhr</i>&nbsp;Memoria</span>
+          <span><i>22<br>Uhr</i>&nbsp;Cute But Evil &amp; Daniel Vee</span>
+          <span><i>23<br>Uhr</i>&nbsp;Cute But Evil</span>
+        </div>
+        <div class="row">
+          <span><i>24<br>Uhr</i>&nbsp;Cubical</span>
+          <span><i>01<br>Uhr</i>&nbsp;Blade&amp;Beard</span>
+          <span><i>04<br>Uhr</i>&nbsp;Montefusco</span>
+        </div>
+      </section>
+    </main>
+    <nav class="container fixed-nav">
+      <div class="section-contact">
+        <a
+          href="tel:+4917630594643"
+          class="phone contact-button"
+          title="Anrufen"
+          rel="noopener nofollow"
+        >
+          <svg
+            class="icon contact-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+          >
+            <path
+              class="cls-1"
+              d="M44.52,87.56a22.75,22.75,0,0,0,30.61,10l6.68-3.41a5.73,5.73,0,0,0,2.51-7.7L76.47,71a5.72,5.72,0,0,0-7.7-2.5L60.14,72.9a4.87,4.87,0,0,1-6.54-2.12L36.47,37.16h0a4.87,4.87,0,0,1,2.12-6.54l8.63-4.4a5.66,5.66,0,0,0,2.85-3.33,5.72,5.72,0,0,0-.34-4.37L41.88,3.11A5.73,5.73,0,0,0,36.78,0a5.66,5.66,0,0,0-2.6.63L27.5,4A22.46,22.46,0,0,0,17.34,14.41a21.9,21.9,0,0,0-1.15,2.86,22.55,22.55,0,0,0,1.37,17.36Z"
+            ></path>
+          </svg>
+          <span class="text">
+              Anrufen
+            </span>
+        </a>
+        <a
+          href="mailto:kontakt@keinegrenzen.org"
+          class="mail contact-button"
+          title="Mailen"
+          rel="noopener nofollow"
+        >
+          <svg
+            class="icon contact-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+          >
+            <path
+              class="cls-1"
+              d="M7,82.19,21.88,67,34.32,54.23,42.07,62c4.27,4.27,7.83,7.75,7.93,7.75s3.61-3.43,7.81-7.63l7.64-7.64L77.89,67.2,92.63,82.3l2.3,2.36H4.61L7,82.19Zm77.7-16c-8.37-8.57-15.23-15.61-15.25-15.65s6.85-6.95,15.25-15.35L100,19.91V50.84c0,17,0,30.93,0,30.93s-6.9-7-15.27-15.58ZM0,50.64V19.91L15.16,35.07c8.34,8.34,15.15,15.2,15.14,15.24S24,56.75,16.44,64.53,2,79.29,1.31,80L0,81.37V50.64Zm26.67-12L3.41,15.34H96.59L73.32,38.6C60.53,51.39,50,61.86,50,61.86S39.47,51.39,26.68,38.6Z"
+            ></path>
+          </svg>
+          <span class="text">
+              Mailen
+            </span>
+        </a>
+        <a
+          href="https://wa.me/4917630594643/?text=Hallo%20Barthy!"
+          class="wapp contact-button"
+          title="Chatten"
+          rel="noopener nofollow"
+        >
+          <svg
+            class="icon contact-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 100 100"
+          >
+            <path
+              class="cls-1"
+              d="M50,0A50,50,0,0,0,8.83,78.36a2.52,2.52,0,0,1,.31,2.15l-5.08,17L20.7,91.76a2.51,2.51,0,0,1,2.15.27A50,50,0,1,0,50,0ZM29.53,21.8l9.1,15-3.79,3.75a2.5,2.5,0,0,0-.39,3c5.79,10,12.64,17.81,22.23,22a2.52,2.52,0,0,0,2.77-.51l4-4,14.68,9.18A13.84,13.84,0,0,1,72,77.38c-2.81,1.47-6.24,1.75-10.15.94-7.84-1.62-17.3-7.78-25-15.66S23.16,45.18,21.64,37.38c-.76-3.9-.42-7.26,1-9.92a12.65,12.65,0,0,1,6.87-5.66Z"
+            ></path>
+          </svg>
+          <span class="text">
+              Chatten
+            </span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="soundcloud">
+      <h4 class="title">Musik H&ouml;ren</h4>
+      <div
+        class="soundcloud-embed"
+        data-source="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1143840418%3Fsecret_token%3Ds-1wmotc2KF3I&color=%23fc2d2d&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_artwork=false&download=false&sharing=false&buying=false"
+      >
+        SoundCloud Einbettung nicht erlaubt.
+        <a href="https://soundcloud.com/barthy-b/sets/keinegrennzen-festival-2019/s-1wmotc2KF3I?si=e96f3852ec494444853c5765c8c2211a&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing">
+          Hier anhören.
+        </a>
+        <a
+          href="#CCM.openWidget"
+          tabindex="0"
+          aria-label="Zustimmung ändern"
+        >
+          Cookie-Einstellungen
+        </a>
+      </div>
+    </div>
+
+    <script>
+      import { initSoundCloudFrame, initLazyLoad, initSmoothScroll } from '../js/App.js'
+
+      initSmoothScroll()
+      initLazyLoad()
+      initSoundCloudFrame()
+    </script>
+
+    <script data-ccm-loader-src="/js/soundcloud-embed.js" type="text/x-ccm-loader" data-ccm-loader-group="soundcloud"></script>
+    <script data-ccm-loader-src="/js/youtube-embed.js" type="text/x-ccm-loader" data-ccm-loader-group="youtube"></script>
+</BaseLayout>

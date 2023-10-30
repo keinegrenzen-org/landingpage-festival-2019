@@ -1,0 +1,114 @@
+---
+import '../css/theme.scss'
+import Footer from "../components/Footer.astro";
+
+const description = 'Am 19. Januar 2019 veranstalten wir ein gemeinnütziges Festival im Kölner Stadtgarten. Dabei wird jeglicher Gewinn an Ärzte ohne Grenzen gespendet.'
+const title = 'keinegrenzen Festival — Hip-Hop, Electro-Pop, Rock & Techno für den guten Zweck'
+const image = 'https://festival2019.keinegrenzen.org/images/banner.png?v=3'
+
+const { itemType } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, shrink-to-fit=no"
+  >
+  <meta
+    name="description"
+    content={description}
+  >
+  <meta
+    name="msapplication-TileColor"
+    content="#2b5797"
+  >
+  <meta
+    name="theme-color"
+    content="#ffffff"
+  >
+  <meta
+    property="og:title"
+    content={title}
+  >
+  <meta
+    property="og:type"
+    content="website"
+  >
+  <meta
+    property="og:description"
+    content={description}
+  >
+  <meta
+    property="og:url"
+    content="https://festival.keinegrenzen.org"
+  >
+  <meta
+    property="og:image"
+    content={image}
+  >
+  <meta
+    property="og:image:width"
+    content="684"
+  />
+  <meta
+    property="og:image:height"
+    content="342"
+  />
+  <meta
+    property="og:locale"
+    content="de_DE"
+  />
+  <meta
+    property="fb:app_id"
+    content="634148010083648"
+  />
+
+  <title>{title}</title>
+
+  <script
+    src="https://cloud.ccm19.de/app.js?apiKey=b8678294f1e2fd203ec9a2f3021353e2b137ef03f1031040&amp;domain=61fde6c54a74160d260fb4da&amp;lang=de_DE&amp;theme=61fde6c54a74160d260fb4e4"
+    referrerpolicy="origin"
+  ></script>
+
+  <link
+    rel="canonical"
+    href="https://festival.keinegrenzen.org"
+  >
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/apple-touch-icon.png"
+  >
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="32x32"
+    href="/favicon-32x32.png"
+  >
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="16x16"
+    href="/favicon-16x16.png"
+  >
+  <link
+    rel="manifest"
+    href="/site.webmanifest"
+  >
+  <link
+    rel="mask-icon"
+    href="/safari-pinned-tab.svg"
+    color="#fc2d2d"
+  >
+</head>
+
+<body itemscope={itemType ?? undefined} itemtype={itemType}>
+  <slot/>
+
+  <Footer/>
+</body>
+
+</html>

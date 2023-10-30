@@ -1,0 +1,36 @@
+$theme-blue: #2949e5;
+$theme-red: #fc2d2d;
+$theme-black: #1d1d1b;
+$theme-grey: #8f8f8c;
+$theme-white: #fff;
+
+$font-size-base: 1.2rem;
+$font-size-big: 1.2 * $font-size-base;
+$font-size-huge: 1.5 * $font-size-base;
+$font-size-small: .8 * $font-size-base;
+
+$theme-colors: (
+  "blue": $theme-blue,
+  "black": $theme-black,
+  "white": $theme-white,
+  "red": $theme-red
+);
+
+$font-weight-thin: 100;
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+$font-weight-heavy: 900;
+
+$shadow-color: rgba(0, 0, 0, .3);
+
+$break-big: 1200px;
+$break-medium: 992px;
+$break-small: 768px;
+$nav-height: 75px;
+
+@function transparentize($color, $amount) {
+  @return rgba(red($color), green($color), blue($color), $amount);
+}

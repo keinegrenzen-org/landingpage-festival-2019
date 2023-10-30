@@ -1,0 +1,180 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import '../css/numbers.scss'
+
+const title = 'keinegrenzen Festival — Zahlen'
+const image = 'https://festival2019.keinegrenzen.org/images/banner.png?v=3'
+
+const ticketsNet = 2396.06;
+const ticketsGross = ticketsNet + 7.95 + 75.83;
+
+const doors = 4532.71;
+const donations = 20;
+const income = ticketsNet + doors + donations;
+
+const booking = 856 + 192.69 + 156.29 + 600 + 547 + 140.2;
+const promo = 105;
+const print = 62.21 + 57.77;
+const catering = 139.00 + 124.54 + 357.33;
+const staff = 1227.50;
+const extras = 52.99 + 200 + 50 + 96;
+const rent = 308.88;
+
+const expenses = booking + print + promo + extras + catering + staff + rent;
+
+const profit = -expenses + income;
+---
+
+<BaseLayout>
+    <header>
+      <a
+        href="/"
+      >
+        ⟵ zurück zur Startseite
+      </a>
+    </header>
+
+    <main>
+      <h1>keinegrenzen Festival: Kosten & Abrechnung</h1>
+      <section class="container paragraph table-responsive">
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr class="table-primary">
+            <th colspan="3">Ausgaben</th>
+          </tr>
+          <tr class="table-sm">
+            <th scope="col">Position</th>
+            <th
+              colspan="2"
+              scope="col"
+            >Betrag
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="table-danger">
+            <th scope="row">Booking</th>
+            <td colspan="2">&minus;{ booking }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Personal (Office, Security, Abendkasse)</th>
+            <td colspan="2">&minus;{ staff }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Veranstaltungsort Miete</th>
+            <td colspan="2">-{ rent }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Catering & Hospitality</th>
+            <td colspan="2">&minus;{ catering }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Extras (B&auml;ndchen, Taschenascher, Stage Design, Cleaning Staff)</th>
+            <td colspan="2">&minus;{ extras }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Print</th>
+            <td colspan="2">&minus;{ print }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-danger">
+            <th scope="row">Promotions</th>
+            <td colspan="2">&minus;{ promo }&nbsp;&euro;</td>
+          </tr>
+          </tbody>
+        </table>
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr class="table-primary">
+            <th colspan="4">Einnahmen</th>
+          </tr>
+          <tr class="table-sm">
+            <th scope="col">Position</th>
+            <th
+              colspan="3"
+              scope="col"
+            >Betrag
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th
+              scope="row"
+              class="table-success align-middle"
+            >Tickets Vorverkauf
+            </th>
+            <td
+              colspan="1"
+              class="table-success align-middle"
+            >&plus;{ ticketsNet }&nbsp;&euro;
+            </td>
+            <td
+              colspan="1"
+              class="table-warning"
+            >Brutto: &plus;{ ticketsGross }&nbsp;&euro;
+            </td>
+            <td
+              colspan="1"
+              class="table-danger"
+            >PayPal & Stripe:
+              &minus;{ ticketsGross - ticketsNet }&nbsp;&euro;
+            </td>
+          </tr>
+          <tr>
+            <th
+              scope="row"
+              class="table-success"
+            >Tickets Abendkasse
+            </th>
+            <td
+              colspan="3"
+              class="table-success"
+            >&plus;{ doors }&nbsp;&euro;
+            </td>
+          </tr>
+          <tr>
+            <th
+              scope="row"
+              class="table-success"
+            >Spendenbox Eingangsbereich
+            </th>
+            <td
+              colspan="3"
+              class="table-success"
+            >&plus;{ donations }&nbsp;&euro;
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <table class="table table-bordered table-striped">
+          <thead>
+          <tr class="table-primary">
+            <th colspan="3">Bilanz</th>
+          </tr>
+          <tr class="table-sm">
+            <th scope="col">Position</th>
+            <th
+              colspan="2"
+              scope="col"
+            >Betrag
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="table-danger">
+            <th scope="row">Ausgaben</th>
+            <td colspan="2">&minus;{ expenses }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-success">
+            <th scope="row">Einnahmen</th>
+            <td colspan="2">&plus;{ income }&nbsp;&euro;</td>
+          </tr>
+          <tr class="table-success">
+            <th scope="row">Gesamt</th>
+            <td colspan="2">{ profit }&nbsp;&euro;</td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+</BaseLayout>

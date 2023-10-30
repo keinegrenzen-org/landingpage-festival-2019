@@ -1,0 +1,28 @@
+@import "variables";
+
+@font-face {
+  font-family: "Fivo Sans";
+  src: url("/fonts/FivoSans/FivoSans-Black.otf");
+  font-weight: $font-weight-black;
+}
+
+@font-face {
+  font-family: "League Gothic";
+  src: url("/fonts/LeagueGothic/LeagueGothic-Regular.otf");
+  font-stretch: normal;
+  font-weight: $font-weight-regular;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("/fonts/NunitoSans/NunitoSans-Regular.ttf");
+  font-stretch: normal;
+  font-weight: $font-weight-regular;
+}
+
+@font-face {
+  font-family: "Nunito Sans";
+  src: url("/fonts/NunitoSans/NunitoSans-Bold.ttf");
+  font-stretch: normal;
+  font-weight: $font-weight-bold;
+}

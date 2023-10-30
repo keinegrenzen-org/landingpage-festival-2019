@@ -1,0 +1,52 @@
+@import "components/variables";
+@import "components/mixins";
+
+$primary: $theme-blue;
+$secondary: $theme-red;
+$success: #2dfa2d;
+$info: $theme-blue;
+$warning: #e3e329;
+$danger: $theme-red;
+$table-bg-level: -5;
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/tables";
+@import "../../node_modules/bootstrap/scss/utilities";
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  padding: 2rem 5rem;
+}
+
+footer {
+  a {
+    color: $theme-white;
+  }
+}
+
+header {
+  background-color: $theme-red;
+  padding: 1rem;
+
+  a {
+    color: $theme-white;
+    font-family: "League Gothic", sans-serif;
+    font-size: 2rem;
+
+    &:hover {
+      color: $theme-white;
+    }
+  }
+}
+
+.stats {
+  width: 100%;
+}
