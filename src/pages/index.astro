@@ -44,6 +44,7 @@ const videos = [
         src="/images/lp_logo.svg"
         title="Logo"
         alt="Dreigeteilter keinegrenzen.org Schriftzug"
+        loading="eager"
       >
     </header>
     <main>
@@ -131,6 +132,7 @@ const videos = [
                 title="INVO &amp; ENNA"
                 alt="Zwei Rapper, die auf der Bühne Spaß haben."
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -166,6 +168,7 @@ const videos = [
                 title="Waking Up In Stereo"
                 alt="Die Brüder mit Spaß bei der Sache."
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -201,6 +204,7 @@ const videos = [
                 title="Suburbian Rex"
                 alt="Die Band bestehend aus Gitarrist und Sänger, Bassist und Drummer."
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -237,6 +241,7 @@ const videos = [
                 title="Memoria"
                 alt="Die Achtk&ouml;pfige Band vor einem vollgespr&uuml;hten Altbau."
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -275,6 +280,7 @@ const videos = [
                 title="Cute But Evil &amp; Daniel Vee"
                 alt="Daniel und Tobias"
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -311,6 +317,7 @@ const videos = [
                 title="Cubical"
                 alt="Anil tr&auml;gt ein Shirt, auf de &quot;Manager&quot; steht."
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -348,6 +355,7 @@ const videos = [
                 title="Blade&amp;Beard"
                 alt="Arash &amp; Anoos auf einer Treppe"
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -385,6 +393,7 @@ const videos = [
                 title="Montefusco"
                 alt="Giovanni schaut konzentriert zur Seite."
                 itemprop="image"
+                loading="lazy"
               >
               <div class="text">
                 <h4
@@ -448,13 +457,12 @@ const videos = [
             photos.map(
               ({ default: photo }, index) => <img
                 class="masonry-item masonry-image"
-                data-src={photo.src}
                 data-full-src={photo.src}
                 alt="Musiker auf der Bühne mit bunten Lichtern"
-                title="keinegrenzen Festival 2019 - Live Musik"
                 data-index={index}
                 data-full-dimensions="[1920, 1280]"
-                src="/images/placeholder.svg"
+                src={photo.src}
+                loading="lazy"
               >
             )
           }
@@ -582,10 +590,10 @@ const videos = [
     </div>
 
     <script>
-      import { initSoundCloudFrame, initLazyLoad, initSmoothScroll } from '../js/App.js'
+      import { initSoundCloudFrame, initLightbox, initSmoothScroll } from '../js/App.js'
 
       initSmoothScroll()
-      initLazyLoad()
+      initLightbox()
       initSoundCloudFrame()
     </script>
 
